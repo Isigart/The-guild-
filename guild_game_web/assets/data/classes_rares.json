@@ -1,0 +1,686 @@
+{
+  "version": "1.0.0",
+  "minGameVersion": "1.0.0",
+  "description": "Classes rares, secrètes et de lieux cachés",
+  "changelog": {
+    "1.0.0": "Version initiale"
+  },
+  "classes_rares": [
+    {
+      "id": "enfant_destin",
+      "nom": "Enfant du Destin",
+      "emoji": "🌟",
+      "tier": "rare",
+      "type": "combattant",
+      "description": "Certains naissent sous une étoile particulière. Lui est né sous toutes les étoiles à la fois. Le destin lui appartient.",
+      "sort": {
+        "id": "sort_faveur_destin",
+        "nom": "Faveur du Destin",
+        "emoji": "⭐",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Tous les jets de chance de l'équipe passent à 100% pendant 3 combats après déclenchement.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "CHA",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "CHA doit être égal exactement au niveau du mercenaire",
+        "type": "egalite",
+        "stat1": "CHA",
+        "stat2": "niveau"
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "survivant_eternel",
+      "nom": "Survivant Éternel",
+      "emoji": "☠️",
+      "tier": "rare",
+      "type": "hybride",
+      "description": "Il a été blessé plus de fois qu'il ne peut compter. Et il est toujours là. Chaque cicatrice est une armure.",
+      "sort": {
+        "id": "sort_indestructible",
+        "nom": "Indestructible",
+        "emoji": "💀",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Ne peut plus mourir — devient blessé grave au lieu de tomber, une fois par combat.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CON",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "Avoir été blessé exactement 13 fois",
+        "type": "compteur",
+        "compteur": "nombreFoisBlesse",
+        "valeur": 13
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "etoile_noire",
+      "nom": "Étoile Noire",
+      "emoji": "🌑",
+      "tier": "rare",
+      "type": "combattant",
+      "description": "Là où les autres voient la nuit comme une ennemie, lui la voit comme une alliée. Il est devenu l'obscurité.",
+      "sort": {
+        "id": "sort_ombre_absolue",
+        "nom": "Ombre Absolue",
+        "emoji": "🌑",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Disparaît dans l'ombre pendant 3 tours. Toutes ses attaques depuis l'ombre sont des critiques garantis ×4.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 4.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "AGI": 15,
+        "PER": 15
+      },
+      "reqSubstats": {
+        "infiltration": 15
+      },
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "Avoir passé 7 combats consécutifs sans recevoir de dégâts",
+        "type": "serie",
+        "compteur": "combatsSansDegats",
+        "valeur": 7
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "fils_chance_7",
+      "nom": "Fils de la Chance",
+      "emoji": "🎲",
+      "tier": "rare",
+      "type": "combattant",
+      "description": "Au niveau 7 avec 7 en chance. Coïncidence ? Il sourit et dit que la chance n'existe pas. C'est lui qui existe.",
+      "sort": {
+        "id": "sort_miracle_chance",
+        "nom": "Miracle",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Effet aléatoire mais toujours exceptionnel : kill instantané, soin complet, ou buff ×3 toute l'équipe.",
+        "effet": {
+          "typeEffet": "execution",
+          "statBase": "CHA",
+          "multiplicateur": 7.0,
+          "bonusFixe": 0,
+          "cible": "aleatoire"
+        }
+      },
+      "reqStats": {
+        "CHA": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "Être exactement niveau 7 avec exactement 7 en CHA",
+        "type": "double_egalite",
+        "stat1": "niveau",
+        "valeur1": 7,
+        "stat2": "CHA",
+        "valeur2": 7
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "autodidacte",
+      "nom": "Autodidacte",
+      "emoji": "🔮",
+      "tier": "rare",
+      "type": "hybride",
+      "description": "Il n'a jamais eu de maître. Il a tout appris seul, à sa façon. Et sa façon est redoutablement efficace.",
+      "sort": {
+        "id": "sort_adaptation",
+        "nom": "Adaptation Pure",
+        "emoji": "🔮",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Copie automatiquement le sort le plus puissant de l'ennemi le plus fort en combat.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "INT",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "Toutes les stats principales à exactement 1 avant le niveau 10",
+        "type": "stats_egales",
+        "valeurStats": 1,
+        "niveauMax": 10
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "reveur",
+      "nom": "Rêveur",
+      "emoji": "🌙",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "sommeil",
+      "description": "Il dort plus qu'il ne veille. Mais dans ses rêves, il voit des choses que les autres ne voient jamais.",
+      "sort": {
+        "id": "sort_vision_onirique",
+        "nom": "Vision Onirique",
+        "emoji": "💭",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle parfois des informations sur les événements à venir dans ses rêves.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "sommeil": 5
+      },
+      "affinites": [
+        "dortoir"
+      ],
+      "bonusSoutien": {
+        "description": "Prophéties : révèle parfois l'événement du lendemain",
+        "modificateurs": {
+          "prophétie": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "batimentRequis": "dortoir",
+      "role": "soutien"
+    },
+    {
+      "id": "grand_dormeur",
+      "nom": "Grand Dormeur",
+      "emoji": "💤",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "sommeil",
+      "description": "Son sommeil est devenu une pratique spirituelle. Ce qu'il vit en dormant est plus réel que ce qu'il vit éveillé.",
+      "sort": {
+        "id": "sort_sommeil_profond",
+        "nom": "Sommeil Profond",
+        "emoji": "💤",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Gagne +1 stat aléatoire par nuit de sommeil. Ses rêves prédisent les événements.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 1,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "sommeil": 20
+      },
+      "affinites": [
+        "dortoir"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "batimentRequis": "dortoir",
+      "role": "soutien"
+    },
+    {
+      "id": "reveur_eveille",
+      "nom": "Rêveur Éveillé",
+      "emoji": "🌙",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "sommeil",
+      "description": "Il dort. Son corps est dans le dortoir. Mais sa Forme de Rêve peut combattre à votre côté.",
+      "sort": {
+        "id": "sort_forme_reve",
+        "nom": "Forme de Rêve",
+        "emoji": "👻",
+        "type": "actif",
+        "cooldown": 0,
+        "description": "Envoie sa Forme de Rêve au combat. Immunisé aux dégâts physiques. Vulnérable aux dégâts magiques.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "sommeil": 35
+      },
+      "affinites": [
+        "dortoir"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "batimentRequis": "dortoir",
+      "special": {
+        "formeDeReveActive": true,
+        "immunitePhysique": true,
+        "vulnerableMagie": true,
+        "statsBaseSommeil": true
+      },
+      "role": "soutien"
+    },
+    {
+      "id": "elu_songes",
+      "nom": "Élu des Songes",
+      "emoji": "✨",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "sommeil",
+      "description": "Sommeil 77, niveau 7. Une coïncidence que l'univers a orchestrée depuis sa naissance. Il est entre deux mondes.",
+      "sort": {
+        "id": "sort_cauchemar",
+        "nom": "Cauchemar",
+        "emoji": "😱",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Plonge les ennemis dans leurs pires cauchemars : panique totale, -50% stats, 2 tours de paralysie.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "sommeil": 77
+      },
+      "affinites": [
+        "dortoir"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "Sommeil 77 ET niveau exactement 7",
+        "type": "double_egalite",
+        "stat1": "sommeil",
+        "valeur1": 77,
+        "stat2": "niveau",
+        "valeur2": 7
+      },
+      "batimentRequis": "dortoir",
+      "special": {
+        "formeDeReveActive": true,
+        "immunitePhysique": true,
+        "semiImmuniteMagie": true,
+        "statsBaseSommeil": true,
+        "bonusStatParNuit": 5
+      },
+      "role": "soutien"
+    },
+    {
+      "id": "buveur_legendaire",
+      "nom": "Buveur Légendaire",
+      "emoji": "🍺",
+      "tier": "t3",
+      "type": "hybride",
+      "arbre": "ivresse",
+      "description": "Il boit depuis si longtemps que son foie est devenu une armure. Les poisons glissent sur lui comme l'eau.",
+      "sort": {
+        "id": "sort_sang_alcool",
+        "nom": "Sang d'Alcool",
+        "emoji": "🍺",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Immunisé à tous les poisons et altérations. +50% résistance physique.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "ivresse": 30
+      },
+      "affinites": [
+        "taverne"
+      ],
+      "bonusSoutien": {
+        "description": "Immunise l'équipe aux poisons et altérations",
+        "modificateurs": {
+          "immunitePoison": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "batimentRequis": "taverne",
+      "effetNegatifQuotidien": {
+        "description": "-10% ATK le lendemain (avant substat 30)",
+        "seuilDepassement": 30,
+        "modificateur": {
+          "atk": -0.1
+        }
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "philosophe_absolu",
+      "nom": "Philosophe Absolu",
+      "emoji": "⚗️",
+      "tier": "rare",
+      "type": "civil",
+      "arbre": "special",
+      "description": "Il a atteint la maîtrise totale de deux arts. La frontière entre l'alchimie et l'érudition a disparu pour lui.",
+      "sort": {
+        "id": "sort_grande_oeuvre_absolue",
+        "nom": "La Grande Œuvre",
+        "emoji": "💎",
+        "type": "actif",
+        "cooldown": 10,
+        "description": "Transmute n'importe quoi : un ennemi en or, une blessure en force, un échec en victoire.",
+        "effet": {
+          "typeEffet": "execution",
+          "statBase": "INT",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "aleatoire"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "alchimie": 50,
+        "erudition": 50
+      },
+      "affinites": [
+        "laboratoire",
+        "bibliotheque"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "Atteindre Alchimie 50 ET Érudition 50 sur le même mercenaire",
+        "type": "double_substat",
+        "substat1": "alchimie",
+        "valeur1": 50,
+        "substat2": "erudition",
+        "valeur2": 50
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "fantome_vivant",
+      "nom": "Fantôme Vivant",
+      "emoji": "👻",
+      "tier": "rare",
+      "type": "civil",
+      "arbre": "special",
+      "description": "Il n'a jamais été assigné nulle part. Il n'a jamais fait partie de nulle part. Et pourtant il est là, plus mystérieux que jamais.",
+      "sort": {
+        "id": "sort_presence_absente",
+        "nom": "Présence Absente",
+        "emoji": "👻",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Invisible aux ennemis pendant les 3 premiers rounds. Ses attaques depuis l'invisibilité font ×5.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 5.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": {
+        "description": "N'avoir jamais été assigné à un poste ET être au jour 30+",
+        "type": "jamais_assigne",
+        "jourMin": 30
+      },
+      "role": "opportuniste"
+    },
+    {
+      "id": "ascete",
+      "nom": "Ascète",
+      "emoji": "⛓️",
+      "tier": "t3",
+      "type": "hybride",
+      "description": "L'isolement total l'a transformé. Il n'a plus besoin de personne.",
+      "sort": {
+        "id": "sort_force_solitude",
+        "nom": "Force de la Solitude",
+        "emoji": "⛓️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Quand seul allié debout : toutes ses stats ×2.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "isolement": 30
+      },
+      "affinites": [
+        "cachot"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "batimentRequis": "cachot",
+      "role": "opportuniste"
+    },
+    {
+      "id": "maitre_ombres",
+      "nom": "Maître des Ombres",
+      "emoji": "🌑",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il a passé un pacte avec quelque chose qui n'a pas de nom.",
+      "sort": {
+        "id": "sort_absorption_ombre",
+        "nom": "Absorption des Ombres",
+        "emoji": "🌑",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Invisible tant qu'un allié vit. Immunisé quand invisible.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "AGI",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "AGI": 30,
+        "PER": 20
+      },
+      "reqSubstats": {
+        "infiltration": 25,
+        "occultisme": 15
+      },
+      "affinites": [
+        "sanctuaireOmbres"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "batimentRequis": "sanctuaireOmbres",
+      "role": "opportuniste"
+    },
+    {
+      "id": "astronome_celeste",
+      "nom": "Astronome Céleste",
+      "emoji": "⭐",
+      "tier": "t4",
+      "type": "civil",
+      "description": "Il lit le destin dans les étoiles. Pas comme métaphore.",
+      "sort": {
+        "id": "sort_alignement_stellaire",
+        "nom": "Alignement Stellaire",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 10,
+        "description": "Prédit l'issue du prochain combat. Si victoire prédit : +50% stats équipe.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 40,
+        "devotion": 20
+      },
+      "affinites": [
+        "tourEtoiles"
+      ],
+      "bonusSoutien": {
+        "description": "Prédit zones et événements 2 jours à l'avance",
+        "modificateurs": {
+          "previsionZone": 2.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "batimentRequis": "tourEtoiles",
+      "role": "opportuniste"
+    },
+    {
+      "id": "forgeron_maudit",
+      "nom": "Forgeron Maudit",
+      "emoji": "🔥",
+      "tier": "t4",
+      "type": "civil",
+      "description": "Il a forgé avec du métal qui ne devrait pas exister.",
+      "sort": {
+        "id": "sort_arme_maudite",
+        "nom": "Arme Maudite",
+        "emoji": "⚔️",
+        "type": "actif",
+        "cooldown": 9,
+        "description": "Dégâts doublés à vie contre ce type d'ennemi.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": "FOR",
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 40,
+        "occultisme": 20
+      },
+      "affinites": [
+        "forgeMaudite"
+      ],
+      "bonusSoutien": {
+        "description": "Toutes les armes de l'équipe infligent un effet maudit +20% ATK",
+        "modificateurs": {
+          "atk": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "batimentRequis": "forgeMaudite",
+      "role": "opportuniste"
+    },
+    {
+      "id": "pretre_civil",
+      "nom": "Prêtre Civil",
+      "emoji": "⛪",
+      "tier": "t1",
+      "type": "civil",
+      "description": "Sa foi rayonne. Ceux qui l'entourent se sentent protégés.",
+      "sort": {
+        "id": "sort_benediction",
+        "nom": "Bénédiction",
+        "emoji": "✝️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+5% résistance magique à l'équipe.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 0.05,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "devotion": 5
+      },
+      "affinites": [
+        "temple"
+      ],
+      "bonusSoutien": {
+        "description": "+5% résistance magique équipe",
+        "modificateurs": {
+          "resistanceMagique": 0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "role": "opportuniste"
+    }
+  ],
+  "regles_evolution": {
+    "une_classe_par_verification": true,
+    "conserve_sorts_precedents": true,
+    "max_sorts_actifs": 4,
+    "classes_cachees_du_joueur": true,
+    "notification_style": "narratif_sans_seuils",
+    "peut_revenir_a_tier_inferieur": false
+  }
+}

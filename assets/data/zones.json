@@ -1,0 +1,493 @@
+{
+  "version": "1.0.0",
+  "zones": [
+    {
+      "id": "zone_1",
+      "numero": 1,
+      "nom": "Chemin des Manants",
+      "emoji": "🌲",
+      "description": "Un chemin poussiéreux infesté de gobelins affamés. La première zone.",
+      "difficulte": 1,
+      "orBase": 15,
+      "orBonus": 10,
+      "debloquee": true,
+      "sous_zones": [
+        {
+          "id": "1-1",
+          "nom": "Entrée du Chemin",
+          "emoji": "🛤️",
+          "description": "Des gobelins errants, peu dangereux.",
+          "ennemis": [
+            {
+              "type": "gobelin",
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": true
+        },
+        {
+          "id": "1-2",
+          "nom": "Campement Bandit",
+          "emoji": "⛺",
+          "description": "Un campement de bandits installés depuis trop longtemps.",
+          "ennemis": [
+            {
+              "type": "bandit",
+              "min": 3,
+              "max": 4
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "1-1"
+        },
+        {
+          "id": "1-3",
+          "nom": "Carrefour Maudit",
+          "emoji": "🔀",
+          "description": "Gobelins et bandits se disputent ce carrefour.",
+          "ennemis": [
+            {
+              "type": "gobelin",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "bandit",
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "1-2"
+        },
+        {
+          "id": "1-B",
+          "nom": "Repaire du Roi Gobelin",
+          "emoji": "👑",
+          "description": "Le Roi Gobelin attend dans son repaire. Fuite impossible.",
+          "ennemis": [
+            {
+              "type": "gobelin",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "gobelin",
+              "min": 1,
+              "max": 1,
+              "estBoss": true,
+              "nom": "Roi Gobelin",
+              "multiplicateurHP": 3,
+              "multiplicateurATK": 2
+            }
+          ],
+          "fuiteInterdite": true,
+          "debloquee": false,
+          "prerequis": "1-3",
+          "debloqueZone": "zone_2"
+        }
+      ]
+    },
+    {
+      "id": "zone_2",
+      "numero": 2,
+      "nom": "Forêt des Ombres",
+      "emoji": "🌑",
+      "description": "Une forêt dense où rôdent des créatures plus dangereuses.",
+      "difficulte": 2,
+      "orBase": 30,
+      "orBonus": 20,
+      "debloquee": false,
+      "prerequis": "1-B",
+      "sous_zones": [
+        {
+          "id": "2-1",
+          "nom": "Lisière de la Forêt",
+          "emoji": "🌲",
+          "description": "Les premiers arbres cachent déjà des dangers.",
+          "ennemis": [
+            {
+              "type": "gobelin",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "loup",
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": true
+        },
+        {
+          "id": "2-2",
+          "nom": "Clairière Sombre",
+          "emoji": "🌿",
+          "description": "Une clairière occupée par des orcs belliqueux.",
+          "ennemis": [
+            {
+              "type": "orc",
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "2-1"
+        },
+        {
+          "id": "2-3",
+          "nom": "Cœur de la Forêt",
+          "emoji": "🌳",
+          "description": "Les orcs ont établi leur quartier général ici.",
+          "ennemis": [
+            {
+              "type": "orc",
+              "min": 3,
+              "max": 4
+            },
+            {
+              "type": "gobelin",
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "2-2"
+        },
+        {
+          "id": "2-B",
+          "nom": "Trône du Seigneur Orc",
+          "emoji": "👹",
+          "description": "Le Seigneur Orc règne sur sa forêt. Il ne laisse pas partir.",
+          "ennemis": [
+            {
+              "type": "orc",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "orc",
+              "min": 1,
+              "max": 1,
+              "estBoss": true,
+              "nom": "Seigneur Orc",
+              "multiplicateurHP": 4,
+              "multiplicateurATK": 2.5
+            }
+          ],
+          "fuiteInterdite": true,
+          "debloquee": false,
+          "prerequis": "2-3",
+          "debloqueZone": "zone_3"
+        }
+      ]
+    },
+    {
+      "id": "zone_3",
+      "numero": 3,
+      "nom": "Marais Maudit",
+      "emoji": "☠️",
+      "description": "Les morts marchent ici. Votre acier ne les arrêtera pas.",
+      "difficulte": 3,
+      "orBase": 60,
+      "orBonus": 35,
+      "debloquee": false,
+      "prerequis": "2-B",
+      "sous_zones": [
+        {
+          "id": "3-1",
+          "nom": "Berges Pourries",
+          "emoji": "💧",
+          "description": "Les marécages cachent des squelettes sous leurs eaux sombres.",
+          "ennemis": [
+            {
+              "type": "squelette",
+              "min": 3,
+              "max": 4
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": true
+        },
+        {
+          "id": "3-2",
+          "nom": "Village Abandonné",
+          "emoji": "🏚️",
+          "description": "Les anciens habitants sont toujours là. Différemment.",
+          "ennemis": [
+            {
+              "type": "squelette",
+              "min": 3,
+              "max": 4
+            },
+            {
+              "type": "sorcier",
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "3-1"
+        },
+        {
+          "id": "3-3",
+          "nom": "Cimetière",
+          "emoji": "🪦",
+          "description": "Un cimetière qui ne garde pas ses morts.",
+          "ennemis": [
+            {
+              "type": "squelette",
+              "min": 4,
+              "max": 5
+            },
+            {
+              "type": "sorcier",
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "3-2"
+        },
+        {
+          "id": "3-B",
+          "nom": "Tour de l'Archilliche",
+          "emoji": "💀",
+          "description": "L'Archilliche observe tout depuis sa tour. Nul ne s'échappe.",
+          "ennemis": [
+            {
+              "type": "squelette",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "sorcier",
+              "min": 1,
+              "max": 2
+            },
+            {
+              "type": "sorcier",
+              "min": 1,
+              "max": 1,
+              "estBoss": true,
+              "nom": "Archilliche",
+              "multiplicateurHP": 5,
+              "multiplicateurATK": 3
+            }
+          ],
+          "fuiteInterdite": true,
+          "debloquee": false,
+          "prerequis": "3-3",
+          "debloqueZone": "zone_4"
+        }
+      ]
+    },
+    {
+      "id": "zone_4",
+      "numero": 4,
+      "nom": "Mines Abandonnées",
+      "emoji": "⛏️",
+      "description": "Des tunnels obscurs peuplés de créatures qui n'ont jamais vu la lumière.",
+      "difficulte": 4,
+      "orBase": 100,
+      "orBonus": 60,
+      "debloquee": false,
+      "prerequis": "3-B",
+      "sous_zones": [
+        {
+          "id": "4-1",
+          "nom": "Entrée des Mines",
+          "emoji": "🕳️",
+          "description": "L'obscurité avale tout dès les premiers mètres.",
+          "ennemis": [
+            {
+              "type": "araignee",
+              "min": 3,
+              "max": 5
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": true
+        },
+        {
+          "id": "4-2",
+          "nom": "Galeries Profondes",
+          "emoji": "🪨",
+          "description": "Les trolls ont colonisé les galeries les plus larges.",
+          "ennemis": [
+            {
+              "type": "troll",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "araignee",
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "4-1"
+        },
+        {
+          "id": "4-3",
+          "nom": "Salle des Profondeurs",
+          "emoji": "💎",
+          "description": "Une vaste caverne naturelle. Quelque chose de gros y vit.",
+          "ennemis": [
+            {
+              "type": "troll",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "araignee",
+              "min": 3,
+              "max": 4
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "4-2"
+        },
+        {
+          "id": "4-B",
+          "nom": "Nid de la Reine",
+          "emoji": "🕷️",
+          "description": "La Reine des Araignées attend au centre de son réseau.",
+          "ennemis": [
+            {
+              "type": "araignee",
+              "min": 3,
+              "max": 4
+            },
+            {
+              "type": "araignee",
+              "min": 1,
+              "max": 1,
+              "estBoss": true,
+              "nom": "Reine des Araignées",
+              "multiplicateurHP": 5,
+              "multiplicateurATK": 3
+            }
+          ],
+          "fuiteInterdite": true,
+          "debloquee": false,
+          "prerequis": "4-3",
+          "debloqueZone": "zone_5"
+        }
+      ]
+    },
+    {
+      "id": "zone_5",
+      "numero": 5,
+      "nom": "Citadelle en Ruine",
+      "emoji": "🏰",
+      "description": "Ce château abritait autrefois une armée entière. Ses habitants actuels sont bien pires.",
+      "difficulte": 5,
+      "orBase": 150,
+      "orBonus": 90,
+      "debloquee": false,
+      "prerequis": "4-B",
+      "sous_zones": [
+        {
+          "id": "5-1",
+          "nom": "Courtine",
+          "emoji": "🧱",
+          "description": "Les remparts sont gardés par des morts-vivants et des vampires.",
+          "ennemis": [
+            {
+              "type": "vampire",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "squelette",
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": true
+        },
+        {
+          "id": "5-2",
+          "nom": "Grande Salle",
+          "emoji": "🏛️",
+          "description": "Une salle du trône renversée. Les vampires y festoient.",
+          "ennemis": [
+            {
+              "type": "vampire",
+              "min": 3,
+              "max": 4
+            },
+            {
+              "type": "sorcier",
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "5-1"
+        },
+        {
+          "id": "5-3",
+          "nom": "Tour du Sang",
+          "emoji": "🗼",
+          "description": "La tour la plus haute. Le Prince y attend sa proie.",
+          "ennemis": [
+            {
+              "type": "vampire",
+              "min": 3,
+              "max": 5
+            },
+            {
+              "type": "sorcier",
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "fuiteInterdite": false,
+          "debloquee": false,
+          "prerequis": "5-2"
+        },
+        {
+          "id": "5-B",
+          "nom": "Chambre du Prince",
+          "emoji": "🧛",
+          "description": "Le Prince des Vampires. Ancien. Patient. Affamé.",
+          "ennemis": [
+            {
+              "type": "vampire",
+              "min": 2,
+              "max": 3
+            },
+            {
+              "type": "vampire",
+              "min": 1,
+              "max": 1,
+              "estBoss": true,
+              "nom": "Prince des Vampires",
+              "multiplicateurHP": 6,
+              "multiplicateurATK": 3.5
+            }
+          ],
+          "fuiteInterdite": true,
+          "debloquee": false,
+          "prerequis": "5-3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,584 @@
+{
+  "version": "1.0.0",
+  "scaling": {
+    "commun":     { "zoneMin": 1, "zoneMax": 2 },
+    "rare":       { "zoneMin": 3, "zoneMax": 4 },
+    "epique":     { "zoneMin": 4, "zoneMax": 5 },
+    "legendaire": { "zoneMin": 5, "zoneMax": 99 }
+  },
+  "objets": [
+
+    // ════════════════════════════════════
+    // RESSOURCES DE BASE — Zone 1-2
+    // ════════════════════════════════════
+    {
+      "id": "debris_bois",
+      "nom": "Débris de Bois",
+      "emoji": "🪵",
+      "type": "ressource",
+      "qualite": "commun",
+      "valeurBase": 5,
+      "description": "Des planches récupérées dans les ruines. Utiles pour les premières reconstructions.",
+      "utilisations": {
+        "construction": ["dortoir", "cuisine", "taverne", "bureauDeRecrutement"],
+        "amelioration": ["dortoir_1_2", "cuisine_1_2", "taverne_1_2"]
+      },
+      "sources": ["drop_combat", "poste_nature"]
+    },
+    {
+      "id": "eclat_pierre",
+      "nom": "Éclat de Pierre",
+      "emoji": "🪨",
+      "type": "ressource",
+      "qualite": "commun",
+      "valeurBase": 12,
+      "description": "De la pierre brute. La base de toute construction solide.",
+      "utilisations": {
+        "construction": ["forge", "infirmerie", "tourDeGarde", "terrainEntrainement"],
+        "amelioration": ["forge_1_2", "infirmerie_1_2", "tourDeGarde_1_2", "terrainEntrainement_1_2"]
+      },
+      "sources": ["drop_combat", "poste_forge"]
+    },
+    {
+      "id": "vieux_parchemin",
+      "nom": "Vieux Parchemin",
+      "emoji": "📜",
+      "type": "ressource",
+      "qualite": "commun",
+      "valeurBase": 18,
+      "description": "Des parchemins abîmés mais encore lisibles. Indispensables pour les bâtiments de savoir.",
+      "utilisations": {
+        "construction": ["bibliotheque", "siteDeRituel"],
+        "amelioration": ["bibliotheque_1_2", "siteDeRituel_1_2"]
+      },
+      "sources": ["drop_combat", "poste_erudition"]
+    },
+    {
+      "id": "herbe_medicinale",
+      "nom": "Herbe Médicinale",
+      "emoji": "🌿",
+      "type": "ressource",
+      "qualite": "commun",
+      "valeurBase": 15,
+      "description": "Des plantes aux propriétés curatives. Essentielles pour l'infirmerie.",
+      "utilisations": {
+        "amelioration": ["infirmerie_1_2", "infirmerie_2_3"]
+      },
+      "sources": ["drop_combat", "poste_nature"]
+    },
+
+    // ════════════════════════════════════
+    // RESSOURCES INTERMÉDIAIRES — Zone 2-3
+    // ════════════════════════════════════
+    {
+      "id": "minerai_commun",
+      "nom": "Minerai Commun",
+      "emoji": "⛏️",
+      "type": "ressource",
+      "qualite": "commun",
+      "valeurBase": 25,
+      "description": "Du minerai brut extrait des combats. Améliore la forge.",
+      "utilisations": {
+        "amelioration": ["forge_2_3", "terrainEntrainement_2_3"]
+      },
+      "sources": ["drop_combat", "poste_forge"]
+    },
+    {
+      "id": "bois_robuste",
+      "nom": "Bois Robuste",
+      "emoji": "🌳",
+      "type": "ressource",
+      "qualite": "commun",
+      "valeurBase": 22,
+      "description": "Un bois dense et solide, bien meilleur que les débris du début.",
+      "utilisations": {
+        "amelioration": ["dortoir_2_3", "cuisine_2_3", "taverne_2_3", "bureauDeRecrutement_1_2"]
+      },
+      "sources": ["drop_combat", "poste_nature"]
+    },
+    {
+      "id": "cristal_soin",
+      "nom": "Cristal de Soin",
+      "emoji": "💎",
+      "type": "ressource",
+      "qualite": "rare",
+      "valeurBase": 60,
+      "description": "Un cristal aux propriétés régénératrices. Améliore drastiquement l'infirmerie.",
+      "utilisations": {
+        "amelioration": ["infirmerie_2_3", "infirmerie_3_max"]
+      },
+      "sources": ["drop_combat", "poste_soin"]
+    },
+    {
+      "id": "encre_runique",
+      "nom": "Encre Runique",
+      "emoji": "🖊️",
+      "type": "ressource",
+      "qualite": "rare",
+      "valeurBase": 55,
+      "description": "Une encre aux propriétés magiques. Indispensable pour les grimoires avancés.",
+      "utilisations": {
+        "amelioration": ["bibliotheque_2_3", "siteDeRituel_2_3"]
+      },
+      "sources": ["drop_combat", "poste_occultisme"]
+    },
+
+    // ════════════════════════════════════
+    // RESSOURCES RARES — Zone 3-4
+    // ════════════════════════════════════
+    {
+      "id": "pierre_rare",
+      "nom": "Pierre Rare",
+      "emoji": "💠",
+      "type": "ressource",
+      "qualite": "rare",
+      "valeurBase": 80,
+      "description": "Une pierre aux veines luminescentes. Rare et précieuse.",
+      "utilisations": {
+        "amelioration": [
+          "forge_3_max", "tourDeGarde_2_3", "tourDeGarde_3_max",
+          "terrainEntrainement_3_max", "temple_1_2"
+        ]
+      },
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "minerai_rare",
+      "nom": "Minerai Rare",
+      "emoji": "🔩",
+      "type": "ressource",
+      "qualite": "rare",
+      "valeurBase": 90,
+      "description": "Un minerai d'une qualité exceptionnelle. Renforce n'importe quelle structure.",
+      "utilisations": {
+        "amelioration": ["forge_3_max", "terrainEntrainement_3_max"]
+      },
+      "sources": ["drop_combat", "poste_forge"]
+    },
+    {
+      "id": "soie_araignee",
+      "nom": "Soie d'Araignée",
+      "emoji": "🕸️",
+      "type": "ressource",
+      "qualite": "rare",
+      "valeurBase": 70,
+      "description": "Une fibre incroyablement résistante tissée par les araignées des mines.",
+      "utilisations": {
+        "amelioration": ["repaire_ombres_1_2", "repaire_ombres_2_3"]
+      },
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "essence_magique",
+      "nom": "Essence Magique",
+      "emoji": "✨",
+      "type": "ressource",
+      "qualite": "rare",
+      "valeurBase": 100,
+      "description": "Une énergie condensée en forme liquide. Amplifie tout ce qu'elle touche.",
+      "utilisations": {
+        "amelioration": ["siteDeRituel_3_max", "temple_2_3"]
+      },
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "os_dragon",
+      "nom": "Os de Dragon",
+      "emoji": "🦴",
+      "type": "ressource",
+      "qualite": "epique",
+      "valeurBase": 200,
+      "description": "Un fragment d'os de dragon. Indestructible et chargé de puissance.",
+      "utilisations": {
+        "amelioration": ["forge_3_max", "tourDeGarde_3_max"],
+        "construction": ["forteresse"]
+      },
+      "sources": ["drop_combat"]
+    },
+
+    // ════════════════════════════════════
+    // RESSOURCES ÉPIQUES — Zone 4-5
+    // ════════════════════════════════════
+    {
+      "id": "coeur_vampire",
+      "nom": "Cœur de Vampire",
+      "emoji": "🫀",
+      "type": "ressource",
+      "qualite": "epique",
+      "valeurBase": 250,
+      "description": "Encore chaud malgré la mort. Pulse d'une énergie sombre.",
+      "utilisations": {
+        "amelioration": ["temple_3_max", "siteDeRituel_3_max"],
+        "construction": ["cimetiere"]
+      },
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "fragment_liche",
+      "nom": "Fragment de Liche",
+      "emoji": "💀",
+      "type": "ressource",
+      "qualite": "epique",
+      "valeurBase": 300,
+      "description": "Un fragment d'os de Liche. Rayonne d'une puissance nécrotique.",
+      "utilisations": {
+        "amelioration": ["siteDeRituel_3_max", "bibliotheque_3_max"]
+      },
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "acier_noir",
+      "nom": "Acier Noir",
+      "emoji": "⚫",
+      "type": "ressource",
+      "qualite": "epique",
+      "valeurBase": 280,
+      "description": "Un métal d'une dureté inégalée, aussi sombre que la nuit.",
+      "utilisations": {
+        "amelioration": ["forge_3_max", "terrainEntrainement_3_max", "tourDeGarde_3_max"]
+      },
+      "sources": ["drop_combat", "poste_forge"]
+    },
+
+    // ════════════════════════════════════
+    // DÉCLENCHEURS D'ÉVÉNEMENTS — Zone 3+
+    // ════════════════════════════════════
+    {
+      "id": "lettre_recommandation",
+      "nom": "Lettre de Recommandation",
+      "emoji": "✉️",
+      "type": "declencheur_evenement",
+      "qualite": "rare",
+      "valeurBase": 80,
+      "description": "Une lettre signée d'un noble inconnu. Quelqu'un cherche de la compagnie.",
+      "declencheEvenement": "ev_recrutement_rare",
+      "sources": ["drop_combat", "poste_commerce"]
+    },
+    {
+      "id": "carte_tresor",
+      "nom": "Carte au Trésor",
+      "emoji": "🗺️",
+      "type": "declencheur_evenement",
+      "qualite": "rare",
+      "valeurBase": 120,
+      "description": "Une carte mystérieuse qui mène vers l'inconnu.",
+      "declencheEvenement": "ev_exploration_secrete",
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "tome_interdit",
+      "nom": "Tome Interdit",
+      "emoji": "📕",
+      "type": "declencheur_evenement",
+      "qualite": "epique",
+      "valeurBase": 300,
+      "description": "Un livre dont la lecture a rendu fous ses précédents propriétaires.",
+      "declencheEvenement": "ev_classe_occultiste",
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "relique_ancienne",
+      "nom": "Relique Ancienne",
+      "emoji": "🏺",
+      "type": "declencheur_evenement",
+      "qualite": "epique",
+      "valeurBase": 350,
+      "description": "Un artefact d'une civilisation disparue. Sa fonction reste mystérieuse.",
+      "declencheEvenement": "ev_classe_secrete",
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "defi_champion",
+      "nom": "Défi de Champion",
+      "emoji": "⚔️",
+      "type": "declencheur_evenement",
+      "qualite": "rare",
+      "valeurBase": 150,
+      "description": "Un parchemin portant un défi lancé par un guerrier inconnu.",
+      "declencheEvenement": "ev_duel_champion",
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "invitation_secrete",
+      "nom": "Invitation Secrète",
+      "emoji": "🎭",
+      "type": "declencheur_evenement",
+      "qualite": "rare",
+      "valeurBase": 100,
+      "description": "Une invitation sans expéditeur. L'encre est encore fraîche.",
+      "declencheEvenement": "ev_guilde_alliee",
+      "sources": ["drop_combat", "poste_infiltration"]
+    },
+
+    // ════════════════════════════════════
+    // LÉGENDAIRES — Zone 5+
+    // ════════════════════════════════════
+    {
+      "id": "coeur_dragon",
+      "nom": "Cœur de Dragon",
+      "emoji": "🔥",
+      "type": "declencheur_evenement",
+      "qualite": "legendaire",
+      "valeurBase": 1000,
+      "description": "Le cœur d'un dragon. Pulse encore d'une chaleur terrible.",
+      "declencheEvenement": "ev_dragon_compagnon",
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "couronne_brisee",
+      "nom": "Couronne Brisée",
+      "emoji": "👑",
+      "type": "declencheur_evenement",
+      "qualite": "legendaire",
+      "valeurBase": 800,
+      "description": "La couronne d'un roi oublié. Quelqu'un la réclame encore.",
+      "declencheEvenement": "ev_heritage_royal",
+      "sources": ["drop_combat"]
+    },
+    {
+      "id": "cristal_ancien",
+      "nom": "Cristal Ancien",
+      "emoji": "🔮",
+      "type": "ressource",
+      "qualite": "legendaire",
+      "valeurBase": 600,
+      "description": "Un cristal formé il y a des millénaires. Améliore n'importe quel bâtiment au maximum.",
+      "utilisations": {
+        "amelioration": ["*_max"]
+      },
+      "sources": ["drop_combat"]
+    }
+  ],
+
+  "tables_drop": {
+    "zone_1": {
+      "difficulte": 1,
+      "sous_zones": {
+        "1-1": {
+          "garantis": [
+            { "objetId": "debris_bois", "quantite": [2, 4] }
+          ],
+          "chances": [
+            { "objetId": "eclat_pierre", "chance": 0.3, "quantite": [1, 1] }
+          ]
+        },
+        "1-2": {
+          "garantis": [
+            { "objetId": "debris_bois", "quantite": [2, 4] },
+            { "objetId": "eclat_pierre", "quantite": [1, 1] }
+          ],
+          "chances": [
+            { "objetId": "vieux_parchemin", "chance": 0.2, "quantite": [1, 1] }
+          ]
+        },
+        "1-3": {
+          "garantis": [
+            { "objetId": "eclat_pierre", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "debris_bois", "chance": 0.5, "quantite": [1, 2] },
+            { "objetId": "vieux_parchemin", "chance": 0.25, "quantite": [1, 1] },
+            { "objetId": "herbe_medicinale", "chance": 0.2, "quantite": [1, 1] }
+          ]
+        },
+        "1-B": {
+          "garantis": [
+            { "objetId": "eclat_pierre", "quantite": [2, 4] },
+            { "objetId": "debris_bois", "quantite": [1, 3] }
+          ],
+          "chances": [
+            { "objetId": "vieux_parchemin", "chance": 0.5, "quantite": [1, 2] },
+            { "objetId": "lettre_recommandation", "chance": 0.15, "quantite": [1, 1] }
+          ]
+        }
+      }
+    },
+
+    "zone_2": {
+      "difficulte": 2,
+      "sous_zones": {
+        "2-1": {
+          "garantis": [
+            { "objetId": "eclat_pierre", "quantite": [1, 3] },
+            { "objetId": "herbe_medicinale", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "minerai_commun", "chance": 0.3, "quantite": [1, 1] },
+            { "objetId": "bois_robuste", "chance": 0.4, "quantite": [1, 2] }
+          ]
+        },
+        "2-2": {
+          "garantis": [
+            { "objetId": "minerai_commun", "quantite": [1, 2] },
+            { "objetId": "bois_robuste", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "vieux_parchemin", "chance": 0.35, "quantite": [1, 2] },
+            { "objetId": "carte_tresor", "chance": 0.08, "quantite": [1, 1] }
+          ]
+        },
+        "2-3": {
+          "garantis": [
+            { "objetId": "minerai_commun", "quantite": [2, 3] },
+            { "objetId": "bois_robuste", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "cristal_soin", "chance": 0.25, "quantite": [1, 1] },
+            { "objetId": "encre_runique", "chance": 0.20, "quantite": [1, 1] }
+          ]
+        },
+        "2-B": {
+          "garantis": [
+            { "objetId": "minerai_commun", "quantite": [2, 4] },
+            { "objetId": "bois_robuste", "quantite": [2, 3] }
+          ],
+          "chances": [
+            { "objetId": "cristal_soin", "chance": 0.5, "quantite": [1, 2] },
+            { "objetId": "carte_tresor", "chance": 0.25, "quantite": [1, 1] },
+            { "objetId": "lettre_recommandation", "chance": 0.3, "quantite": [1, 1] }
+          ]
+        }
+      }
+    },
+
+    "zone_3": {
+      "difficulte": 3,
+      "sous_zones": {
+        "3-1": {
+          "garantis": [
+            { "objetId": "cristal_soin", "quantite": [1, 2] },
+            { "objetId": "encre_runique", "quantite": [1, 1] }
+          ],
+          "chances": [
+            { "objetId": "pierre_rare", "chance": 0.25, "quantite": [1, 1] },
+            { "objetId": "essence_magique", "chance": 0.15, "quantite": [1, 1] }
+          ]
+        },
+        "3-2": {
+          "garantis": [
+            { "objetId": "pierre_rare", "quantite": [1, 2] },
+            { "objetId": "encre_runique", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "essence_magique", "chance": 0.3, "quantite": [1, 1] },
+            { "objetId": "tome_interdit", "chance": 0.08, "quantite": [1, 1] }
+          ]
+        },
+        "3-3": {
+          "garantis": [
+            { "objetId": "pierre_rare", "quantite": [1, 2] },
+            { "objetId": "essence_magique", "quantite": [1, 1] }
+          ],
+          "chances": [
+            { "objetId": "minerai_rare", "chance": 0.3, "quantite": [1, 2] },
+            { "objetId": "defi_champion", "chance": 0.15, "quantite": [1, 1] }
+          ]
+        },
+        "3-B": {
+          "garantis": [
+            { "objetId": "pierre_rare", "quantite": [2, 3] },
+            { "objetId": "essence_magique", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "tome_interdit", "chance": 0.30, "quantite": [1, 1] },
+            { "objetId": "relique_ancienne", "chance": 0.15, "quantite": [1, 1] },
+            { "objetId": "minerai_rare", "chance": 0.5, "quantite": [1, 2] }
+          ]
+        }
+      }
+    },
+
+    "zone_4": {
+      "difficulte": 4,
+      "sous_zones": {
+        "4-1": {
+          "garantis": [
+            { "objetId": "soie_araignee", "quantite": [1, 3] },
+            { "objetId": "minerai_rare", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "acier_noir", "chance": 0.25, "quantite": [1, 1] },
+            { "objetId": "os_dragon", "chance": 0.10, "quantite": [1, 1] }
+          ]
+        },
+        "4-2": {
+          "garantis": [
+            { "objetId": "soie_araignee", "quantite": [2, 3] },
+            { "objetId": "acier_noir", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "os_dragon", "chance": 0.20, "quantite": [1, 1] },
+            { "objetId": "invitation_secrete", "chance": 0.15, "quantite": [1, 1] }
+          ]
+        },
+        "4-3": {
+          "garantis": [
+            { "objetId": "acier_noir", "quantite": [1, 2] },
+            { "objetId": "os_dragon", "quantite": [1, 1] }
+          ],
+          "chances": [
+            { "objetId": "fragment_liche", "chance": 0.15, "quantite": [1, 1] },
+            { "objetId": "defi_champion", "chance": 0.25, "quantite": [1, 1] }
+          ]
+        },
+        "4-B": {
+          "garantis": [
+            { "objetId": "os_dragon", "quantite": [1, 2] },
+            { "objetId": "acier_noir", "quantite": [2, 3] }
+          ],
+          "chances": [
+            { "objetId": "relique_ancienne", "chance": 0.35, "quantite": [1, 1] },
+            { "objetId": "fragment_liche", "chance": 0.25, "quantite": [1, 1] },
+            { "objetId": "invitation_secrete", "chance": 0.30, "quantite": [1, 1] }
+          ]
+        }
+      }
+    },
+
+    "zone_5": {
+      "difficulte": 5,
+      "sous_zones": {
+        "5-1": {
+          "garantis": [
+            { "objetId": "coeur_vampire", "quantite": [1, 1] },
+            { "objetId": "acier_noir", "quantite": [2, 3] }
+          ],
+          "chances": [
+            { "objetId": "cristal_ancien", "chance": 0.10, "quantite": [1, 1] },
+            { "objetId": "couronne_brisee", "chance": 0.05, "quantite": [1, 1] }
+          ]
+        },
+        "5-2": {
+          "garantis": [
+            { "objetId": "coeur_vampire", "quantite": [1, 2] },
+            { "objetId": "fragment_liche", "quantite": [1, 1] }
+          ],
+          "chances": [
+            { "objetId": "cristal_ancien", "chance": 0.15, "quantite": [1, 1] },
+            { "objetId": "coeur_dragon", "chance": 0.05, "quantite": [1, 1] }
+          ]
+        },
+        "5-3": {
+          "garantis": [
+            { "objetId": "coeur_vampire", "quantite": [1, 2] },
+            { "objetId": "fragment_liche", "quantite": [1, 2] }
+          ],
+          "chances": [
+            { "objetId": "cristal_ancien", "chance": 0.20, "quantite": [1, 1] },
+            { "objetId": "couronne_brisee", "chance": 0.15, "quantite": [1, 1] }
+          ]
+        },
+        "5-B": {
+          "garantis": [
+            { "objetId": "coeur_vampire", "quantite": [2, 3] },
+            { "objetId": "cristal_ancien", "quantite": [1, 1] }
+          ],
+          "chances": [
+            { "objetId": "coeur_dragon", "chance": 0.35, "quantite": [1, 1] },
+            { "objetId": "couronne_brisee", "chance": 0.30, "quantite": [1, 1] }
+          ]
+        }
+      }
+    }
+  }
+}

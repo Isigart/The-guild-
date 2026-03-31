@@ -1,0 +1,6807 @@
+{
+  "version": "1.0.0",
+  "minGameVersion": "1.0.0",
+  "description": "Classes civiles — 7 arbres complets",
+  "changelog": {
+    "1.0.0": "Version initiale — Cuisine, Forge, Érudition, Nature, Soin, Tactique, Commerce"
+  },
+  "classes_civiles": [
+    {
+      "id": "cuisinier",
+      "nom": "Cuisinier",
+      "emoji": "👨‍🍳",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Ce qu'il prépare nourrit les corps et les âmes. Son feu réchauffe toute la compagnie.",
+      "sort": {
+        "id": "sort_ration_combat",
+        "nom": "Ration de Combat",
+        "emoji": "🍖",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Distribue des rations : toute l'équipe récupère 10% HP et +10% END pendant 2 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 5
+      },
+      "affinites": [
+        "cuisine"
+      ],
+      "bonusSoutien": {
+        "description": "+5% HP max à l'équipe de combat",
+        "modificateurs": {
+          "hpMax": 0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.05,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+5% HP max à l'équipe de combat"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "chef_camp",
+      "nom": "Chef de Camp",
+      "emoji": "🍖",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Il nourrit les guerriers avant la bataille. Ce qu'il cuisine transforme les hommes ordinaires en soldats.",
+      "sort": {
+        "id": "sort_festin_revigorant",
+        "nom": "Festin Revigorant",
+        "emoji": "🍖",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Repas complet : toute l'équipe récupère 35% HP et retire toutes les altérations.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.35,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 15
+      },
+      "affinites": [
+        "cuisine"
+      ],
+      "bonusSoutien": {
+        "description": "+10% HP max + soin 5% entre rounds",
+        "modificateurs": {
+          "hpMax": 0.1,
+          "soinParRound": 0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% HP max + soin 5% entre rounds"
+        },
+        {
+          "type": "hpMax",
+          "valeur": 0.05,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% HP max + soin 5% entre rounds"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "maitre_cuisinier",
+      "nom": "Maître Cuisinier",
+      "emoji": "🌶️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Ses créations dépassent la simple nourriture. Ceux qui mangent à sa table deviennent plus forts.",
+      "sort": {
+        "id": "sort_grand_festin",
+        "nom": "Grand Festin",
+        "emoji": "🍽️",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Prépare un repas magique : soigne toute l'équipe de 30% HP et donne +20% ATK 3 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 30
+      },
+      "affinites": [
+        "cuisine"
+      ],
+      "bonusSoutien": {
+        "description": "+15% HP max + immunité poison",
+        "modificateurs": {
+          "hpMax": 0.15,
+          "immunitePoison": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% HP max + immunité poison"
+        },
+        {
+          "type": "immunitePoison",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% HP max + immunité poison"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "grand_alchimiste_culinaire",
+      "nom": "Grand Alchimiste Culinaire",
+      "emoji": "🍄",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "La frontière entre cuisine et alchimie a disparu pour lui. Ce qu'il prépare touche à la magie pure.",
+      "sort": {
+        "id": "sort_potion_unique",
+        "nom": "Élixir de Gloire",
+        "emoji": "⚗️",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Crée une potion unique avant le combat qui double les stats d'un mercenaire pendant 5 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 5
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 50
+      },
+      "affinites": [
+        "cuisine",
+        "laboratoire"
+      ],
+      "bonusSoutien": {
+        "description": "+25% HP max + potion unique par combat",
+        "modificateurs": {
+          "hpMax": 0.25,
+          "potionUnique": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% HP max + potion unique par combat"
+        },
+        {
+          "type": "armeUnique",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% HP max + potion unique par combat"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "artisan",
+      "nom": "Artisan",
+      "emoji": "🔩",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Ses mains calleuses façonnent le métal avec soin. L'acier qu'il touche devient plus tranchant.",
+      "sort": {
+        "id": "sort_reparation_rapide",
+        "nom": "Réparation Rapide",
+        "emoji": "🔧",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Répare une armure alliée : +20% DEF pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 5
+      },
+      "affinites": [
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+5% ATK à l'équipe",
+        "modificateurs": {
+          "atk": 0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.05,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+5% ATK à l'équipe"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "forgeron",
+      "nom": "Forgeron",
+      "emoji": "🔨",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Il forge sans relâche. Les armes qu'il produit ne se brisent jamais au mauvais moment.",
+      "sort": {
+        "id": "sort_arme_renforcee",
+        "nom": "Arme Renforcée",
+        "emoji": "⚔️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+15% dégâts physiques permanents. Les armes ne se brisent jamais.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 15
+      },
+      "affinites": [
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+10% ATK + -10% dégâts reçus",
+        "modificateurs": {
+          "atk": 0.1,
+          "degatsRecus": -0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% ATK + -10% dégâts reçus"
+        },
+        {
+          "type": "armure",
+          "valeur": -0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% ATK + -10% dégâts reçus"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "maitre_forgeron",
+      "nom": "Maître Forgeron",
+      "emoji": "⚒️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Ses créations sont des légendes. Un mercenaire armé par lui est un mercenaire redoutable.",
+      "sort": {
+        "id": "sort_chef_oeuvre",
+        "nom": "Chef-d'Œuvre",
+        "emoji": "⚔️",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Forge une arme légendaire en plein combat : +80% ATK permanente jusqu'à la fin du combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.8,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 30
+      },
+      "affinites": [
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+15% ATK + armes indestructibles",
+        "modificateurs": {
+          "atk": 0.15,
+          "indestructible": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK + armes indestructibles"
+        },
+        {
+          "type": "armure",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK + armes indestructibles"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "forgeron_legendaire",
+      "nom": "Forgeron Légendaire",
+      "emoji": "🌋",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "On raconte que ses armes ont des âmes. Que les lames qu'il forge choisissent leur maître.",
+      "sort": {
+        "id": "sort_forge_avant_combat",
+        "nom": "Arme de Destin",
+        "emoji": "⚡",
+        "type": "actif",
+        "cooldown": 9,
+        "description": "Forge une arme unique avant le combat : +120% ATK au mercenaire le plus fort.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 50
+      },
+      "affinites": [
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+25% ATK + forge arme unique avant combat",
+        "modificateurs": {
+          "atk": 0.25,
+          "armeUnique": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% ATK + forge arme unique avant combat"
+        },
+        {
+          "type": "armeUnique",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% ATK + forge arme unique avant combat"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "lettre",
+      "nom": "Lettré",
+      "emoji": "📖",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il a lu des choses que la plupart ne comprennent même pas. Son savoir est une arme subtile.",
+      "sort": {
+        "id": "sort_analyse",
+        "nom": "Analyse",
+        "emoji": "🔍",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle les faiblesses ennemies : +10% dégâts de toute l'équipe sur cet ennemi.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 5
+      },
+      "affinites": [
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle les résistances ennemies après 1 combat",
+        "modificateurs": {
+          "reveleResistances": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleResistances",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Révèle les résistances ennemies après 1 combat"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "erudit",
+      "nom": "Érudit",
+      "emoji": "🎓",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Sa connaissance du monde est encyclopédique. Il prédit les comportements ennemis avec précision.",
+      "sort": {
+        "id": "sort_savoir_ancien",
+        "nom": "Savoir Ancien",
+        "emoji": "📚",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+20% à tous les sorts magiques de l'équipe entière.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 15
+      },
+      "affinites": [
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "+10% dégâts sur ennemis analysés",
+        "modificateurs": {
+          "degatsAnalyses": 0.1
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsBonus",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "+10% dégâts sur ennemis analysés"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "sage",
+      "nom": "Sage",
+      "emoji": "📚",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il a passé sa vie à accumuler un savoir que peu pourront jamais égaler. La sagesse est son bouclier.",
+      "sort": {
+        "id": "sort_prevision_boss",
+        "nom": "Prévision Tactique",
+        "emoji": "🔭",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+15% tous sorts + prévoit les attaques boss (réduit les dégâts de 20%).",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 30
+      },
+      "affinites": [
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "+15% tous sorts + prévoit attaques boss",
+        "modificateurs": {
+          "sorts": 0.15,
+          "previsionBoss": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsMagiques",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% tous sorts + prévoit attaques boss"
+        },
+        {
+          "type": "previsionBoss",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% tous sorts + prévoit attaques boss"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "archiviste",
+      "nom": "Archiviste",
+      "emoji": "🔭",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il connaît tout ce qui a été écrit. Et certaines choses qui ne l'ont pas encore été.",
+      "sort": {
+        "id": "sort_connaissance_totale",
+        "nom": "Connaissance Totale",
+        "emoji": "📖",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Connaît toutes les faiblesses ennemies dès le début. +25% sorts. Révèle 2 zones d'avance.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 50
+      },
+      "affinites": [
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Connaît toutes faiblesses + +25% sorts + révèle zones",
+        "modificateurs": {
+          "sorts": 0.25,
+          "reveleZones": 2.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsMagiques",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Connaît toutes faiblesses + +25% sorts + révèle zones"
+        },
+        {
+          "type": "indiceClasse",
+          "valeur": 2.0,
+          "cible": "utilisateurs",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Connaît toutes faiblesses + +25% sorts + révèle zones"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "herboriste",
+      "nom": "Herboriste",
+      "emoji": "🌿",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "La nature lui parle. Il sait guérir, empoisonner, nourrir — la forêt est son armurerie.",
+      "sort": {
+        "id": "sort_potion_soin",
+        "nom": "Potion de Soin",
+        "emoji": "🧪",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne un allié de 20% de ses HP max.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "declencheur": "allieBasHP"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 5
+      },
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "Soin 5% HP entre rounds",
+        "modificateurs": {
+          "soinParRound": 0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.05,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Soin 5% HP entre rounds"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "apothicaire",
+      "nom": "Apothicaire",
+      "emoji": "🌿",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Entre ses mains, chaque plante devient un remède. Il retire les maux que les autres ne voient pas.",
+      "sort": {
+        "id": "sort_remede_express",
+        "nom": "Remède Express",
+        "emoji": "🌱",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne un allié de 25% HP et retire 1 altération d'état négative.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "declencheur": "allieBasHP"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 15
+      },
+      "affinites": [
+        "foret",
+        "infirmerie"
+      ],
+      "bonusSoutien": {
+        "description": "Soigne blessures + retire altérations",
+        "modificateurs": {
+          "soinParRound": 0.08,
+          "retireAlteration": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.08,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Soigne blessures + retire altérations"
+        },
+        {
+          "type": "immunitePoison",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Soigne blessures + retire altérations"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "druide_civil",
+      "nom": "Druide Civil",
+      "emoji": "🌳",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Il communique avec les forces primitives de la nature. Les arbres plient à sa volonté.",
+      "sort": {
+        "id": "sort_regeneration_naturelle",
+        "nom": "Régénération Naturelle",
+        "emoji": "🌿",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "L'équipe récupère 10% HP par round. Immunité aux poisons naturels.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 30
+      },
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "Régénère 10% HP/round + résistance terrain",
+        "modificateurs": {
+          "soinParRound": 0.1,
+          "resistanceTerrain": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Régénère 10% HP/round + résistance terrain"
+        },
+        {
+          "type": "armure",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "Régénère 10% HP/round + résistance terrain"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "gardien_terre",
+      "nom": "Gardien de la Terre",
+      "emoji": "🌍",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Il est devenu la forêt elle-même. La nature entière répond à son appel.",
+      "sort": {
+        "id": "sort_resurrection_nature",
+        "nom": "Souffle de Vie",
+        "emoji": "🌱",
+        "type": "actif",
+        "cooldown": 9,
+        "description": "Ressuscite un mercenaire tombé avec 50% HP, une fois par combat.",
+        "effet": {
+          "typeEffet": "resurrection",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 50
+      },
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "Ressuscite 1 mercenaire/combat + régénération 15% HP",
+        "modificateurs": {
+          "resurrection": 1.0,
+          "soinParRound": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "resurrectionAuto",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ressuscite 1 mercenaire/combat + régénération 15% HP"
+        },
+        {
+          "type": "hpMax",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ressuscite 1 mercenaire/combat + régénération 15% HP"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "aide_soignant",
+      "nom": "Aide-Soignant",
+      "emoji": "🩹",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Il soigne les blessés avec patience et dévouement. Sa présence à l'infirmerie change tout.",
+      "sort": {
+        "id": "sort_premiers_soins",
+        "nom": "Premiers Soins",
+        "emoji": "🩹",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Soigne rapidement un allié de 15% HP.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "declencheur": "allieBasHP"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 5
+      },
+      "affinites": [
+        "infirmerie"
+      ],
+      "bonusSoutien": {
+        "description": "Durée blessures -20%",
+        "modificateurs": {
+          "dureeBlessures": -0.2
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.2,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -20%"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "infirmier",
+      "nom": "Infirmier",
+      "emoji": "⚕️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Il peut s'occuper de plusieurs blessés en même temps sans perdre en qualité.",
+      "sort": {
+        "id": "sort_benediction_soins",
+        "nom": "Bénédiction de Soins",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Bénit toute l'équipe : +15% à toutes les stats et immunité aux altérations 2 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 15
+      },
+      "affinites": [
+        "infirmerie"
+      ],
+      "bonusSoutien": {
+        "description": "Durée blessures -40% + soigne 2 mercenaires/jour",
+        "modificateurs": {
+          "dureeBlessures": -0.4,
+          "soigneParJour": 2.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.4,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -40% + soigne 2 mercenaires/jour"
+        },
+        {
+          "type": "guerrisonAuto",
+          "valeur": 2.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -40% + soigne 2 mercenaires/jour"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "medecin",
+      "nom": "Médecin",
+      "emoji": "🏥",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Il a vu des plaies que d'autres jugeaient mortelles. Pour lui, il n'y a pas de blessure sans remède.",
+      "sort": {
+        "id": "sort_guerison_avancee",
+        "nom": "Guérison Avancée",
+        "emoji": "💚",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Soigne un allié à 60% HP et retire toutes les altérations négatives.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.6,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "declencheur": "allieBasHP"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 30
+      },
+      "affinites": [
+        "infirmerie"
+      ],
+      "bonusSoutien": {
+        "description": "Durée blessures -60% + réduit gravité",
+        "modificateurs": {
+          "dureeBlessures": -0.6,
+          "reduitGravite": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.6,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -60% + réduit gravité"
+        },
+        {
+          "type": "reduitGravite",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -60% + réduit gravité"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "grand_medecin",
+      "nom": "Grand Médecin",
+      "emoji": "👨‍⚕️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Sa réputation précède ses soins. On dit qu'il a ramené des hommes du bord de la mort.",
+      "sort": {
+        "id": "sort_miracle_medical",
+        "nom": "Miracle Médical",
+        "emoji": "✝️",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Soigne tous les alliés à 80% HP et immunise contre les blessures critiques 3 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.8,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 50
+      },
+      "affinites": [
+        "infirmerie"
+      ],
+      "bonusSoutien": {
+        "description": "Durée blessures -80% + immunise blessures critiques",
+        "modificateurs": {
+          "dureeBlessures": -0.8,
+          "immuniseBlessuresCritiques": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.8,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -80% + immunise blessures critiques"
+        },
+        {
+          "type": "reduitGravite",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -80% + immunise blessures critiques"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "guetteur",
+      "nom": "Guetteur",
+      "emoji": "🛡️",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il observe, analyse, planifie. Sur le champ de bataille, la tactique vaut mieux que la force brute.",
+      "sort": {
+        "id": "sort_vigilance_tactique",
+        "nom": "Vigilance",
+        "emoji": "👁️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "L'équipe ne peut jamais être surprise. +10% défense collective.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 5
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "Équipe toujours en initiative",
+        "modificateurs": {
+          "initiative": 10.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "initiative",
+          "valeur": 10.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Équipe toujours en initiative"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "stratege",
+      "nom": "Stratège",
+      "emoji": "🗺️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Chaque combat est une partie d'échecs pour lui. Il voit toujours plusieurs coups d'avance.",
+      "sort": {
+        "id": "sort_precision_tactique",
+        "nom": "Précision Tactique",
+        "emoji": "🎯",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+15% précision équipe. Réduit les chances d'esquive ennemie de 10%.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 15
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+15% précision équipe",
+        "modificateurs": {
+          "precision": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "initiative",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% précision équipe"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "commandant",
+      "nom": "Commandant",
+      "emoji": "🏛️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Sa voix porte sur le champ de bataille même depuis la guilde. Les combattants agissent à l'unisson.",
+      "sort": {
+        "id": "sort_repositionnement",
+        "nom": "Repositionnement",
+        "emoji": "🗺️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Repositionne les combattants entre les rounds pour maximiser les synergies.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 30
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "Repositionne combattants entre rounds",
+        "modificateurs": {
+          "repositionnement": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "initiative",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Repositionne combattants entre rounds"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "maitre_guerre",
+      "nom": "Maître de Guerre",
+      "emoji": "👑",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il a orchestré des guerres entières depuis son bureau. Chaque mercenaire au combat est une pièce sur son échiquier.",
+      "sort": {
+        "id": "sort_ordre_attaque",
+        "nom": "Ordre d'Attaque",
+        "emoji": "⚔️",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Choisit l'ordre d'attaque chaque round. L'équipe agit dans l'ordre optimal.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 50
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "Choisit ordre d'attaque chaque round",
+        "modificateurs": {
+          "ordreAttaque": 1.0,
+          "precision": 0.25
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "initiative",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Choisit ordre d'attaque chaque round"
+        },
+        {
+          "type": "initiative",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Choisit ordre d'attaque chaque round"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "camelot",
+      "nom": "Camelot",
+      "emoji": "🪙",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il vend n'importe quoi à n'importe qui. Son sourire est son outil de travail principal.",
+      "sort": {
+        "id": "sort_bonne_affaire",
+        "nom": "Bonne Affaire",
+        "emoji": "💰",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Ventes +10% prix. Achats -5%.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 5
+      },
+      "affinites": [
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "Ventes +10% prix",
+        "modificateurs": {
+          "prixVente": 0.1
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ventes +10% prix"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "marchand",
+      "nom": "Marchand",
+      "emoji": "🛒",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il connaît la valeur de toute chose. Et sait comment en tirer le maximum.",
+      "sort": {
+        "id": "sort_negoce",
+        "nom": "Négoce",
+        "emoji": "🤝",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Ventes +25% prix. Achats -10%. Attire des clients spéciaux.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 15
+      },
+      "affinites": [
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "Ventes +25% + négocie achats -10%",
+        "modificateurs": {
+          "prixVente": 0.25,
+          "prixAchat": -0.1
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ventes +25% + négocie achats -10%"
+        },
+        {
+          "type": "remiseBatiments",
+          "valeur": -0.1,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Ventes +25% + négocie achats -10%"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "commercant",
+      "nom": "Commerçant",
+      "emoji": "🏪",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Sa boutique est connue dans toute la région. Les clients viennent de loin pour ses marchandises.",
+      "sort": {
+        "id": "sort_clients_speciaux",
+        "nom": "Clients Spéciaux",
+        "emoji": "⭐",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Ventes +40% prix. Clients spéciaux avec événements uniques.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 30
+      },
+      "affinites": [
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "Ventes +40% + clients spéciaux",
+        "modificateurs": {
+          "prixVente": 0.4,
+          "clientsSpeciaux": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.4,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ventes +40% + clients spéciaux"
+        },
+        {
+          "type": "orQuotidien",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Ventes +40% + clients spéciaux"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "grand_marchand",
+      "nom": "Grand Marchand",
+      "emoji": "💎",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il contrôle une part significative du commerce régional. Sa guilde est devenue un empire économique.",
+      "sort": {
+        "id": "sort_marche_noir",
+        "nom": "Marché Noir",
+        "emoji": "🌑",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Accède au marché noir : objets rares disponibles, transactions secrètes.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.6,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 50
+      },
+      "affinites": [
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "Ventes +60% + marché noir + objets rares",
+        "modificateurs": {
+          "prixVente": 0.6,
+          "marcheNoir": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.6,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ventes +60% + marché noir + objets rares"
+        },
+        {
+          "type": "remiseBatiments",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Ventes +60% + marché noir + objets rares"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "aide_entraineur",
+      "nom": "Aide-Entraîneur",
+      "emoji": "🥊",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il observe les combattants s'entraîner et retient leurs techniques. Sa présence les pousse à se dépasser.",
+      "sort": {
+        "id": "sort_encouragement",
+        "nom": "Encouragement",
+        "emoji": "💪",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+5% ATK physique à toute l'équipe.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.05,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 5
+      },
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": {
+        "description": "+5% ATK physique à l'équipe",
+        "modificateurs": {
+          "atk": 0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.05,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+5% ATK physique à l'équipe"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "entraineur",
+      "nom": "Entraîneur",
+      "emoji": "💪",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Sous sa direction, les mercenaires progressent deux fois plus vite. Il sait exactement comment pousser chacun.",
+      "sort": {
+        "id": "sort_programme_intensif",
+        "nom": "Programme Intensif",
+        "emoji": "🏋️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+10% ATK + -10% dégâts reçus physiques.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 15
+      },
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": {
+        "description": "+10% ATK + -10% dégâts reçus",
+        "modificateurs": {
+          "atk": 0.1,
+          "degatsRecus": -0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% ATK + -10% dégâts reçus"
+        },
+        {
+          "type": "armure",
+          "valeur": -0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% ATK + -10% dégâts reçus"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "maitre_entraineur",
+      "nom": "Maître Entraîneur",
+      "emoji": "🏋️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il a formé des champions. Ses méthodes sont dures, ses résultats sont incontestables.",
+      "sort": {
+        "id": "sort_preparation_maximale",
+        "nom": "Préparation Maximale",
+        "emoji": "⚔️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+15% ATK + critiques +10%.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 30
+      },
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": {
+        "description": "+15% ATK + critiques +10%",
+        "modificateurs": {
+          "atk": 0.15,
+          "critique": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK + critiques +10%"
+        },
+        {
+          "type": "critique",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK + critiques +10%"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "legende_vivante",
+      "nom": "Légende Vivante",
+      "emoji": "⚔️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il est lui-même une légende. Sa présence inspire une rage sacrée dans le cœur de chaque combattant.",
+      "sort": {
+        "id": "sort_rage_sacree",
+        "nom": "Rage Sacrée",
+        "emoji": "🔥",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "L'équipe commence en état de rage : +30% ATK pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 50
+      },
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": {
+        "description": "Équipe commence avec rage +30% ATK 3 tours",
+        "modificateurs": {
+          "atk": 0.3,
+          "rageSacree": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Équipe commence avec rage +30% ATK 3 tours"
+        },
+        {
+          "type": "rageSacree",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Équipe commence avec rage +30% ATK 3 tours"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "acolyte_civil",
+      "nom": "Acolyte Civil",
+      "emoji": "🕯️",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il psalmodie des mots qu'il ne comprend pas tout à fait. Mais quelque chose l'entend.",
+      "sort": {
+        "id": "sort_malediction_mineure",
+        "nom": "Malédiction Mineure",
+        "emoji": "💀",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "-5% ATK de tous les ennemis.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": -0.05,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 5
+      },
+      "affinites": [
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-5% ATK des ennemis",
+        "modificateurs": {
+          "atkEnnemis": -0.05
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.05,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-5% ATK des ennemis"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "ritualiste",
+      "nom": "Ritualiste",
+      "emoji": "💀",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Les rituels qu'il accomplit laissent des traces sur le monde. Et sur lui.",
+      "sort": {
+        "id": "sort_malediction_boss",
+        "nom": "Malédiction du Boss",
+        "emoji": "☠️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Maudit le boss : -20% toutes ses stats.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": -0.2,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 15
+      },
+      "affinites": [
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "Malédiction sur boss -20% stats",
+        "modificateurs": {
+          "atkEnnemis": -0.2,
+          "defEnnemis": -0.2
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Malédiction sur boss -20% stats"
+        },
+        {
+          "type": "statsEnnemis",
+          "valeur": -0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Malédiction sur boss -20% stats"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "informateur",
+      "nom": "Informateur",
+      "emoji": "👀",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il écoute, observe, mémorise. Rien de ce qui se passe dans la ville ne lui échappe.",
+      "sort": {
+        "id": "sort_renseignement",
+        "nom": "Renseignement",
+        "emoji": "📋",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle les capacités ennemies avant chaque combat.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 5
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle les capacités ennemies avant combat",
+        "modificateurs": {
+          "reveleCapa": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleCapa",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Révèle les capacités ennemies avant combat"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "espion",
+      "nom": "Espion",
+      "emoji": "🕵️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il entre et sort sans laisser de trace. Ce qu'il rapporte change souvent l'issue des combats.",
+      "sort": {
+        "id": "sort_vol_info",
+        "nom": "Vol d'Information",
+        "emoji": "🗝️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Vol 10% or ennemi + révèle faiblesses du boss.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 15
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "Vol 10% or ennemi + infos sur boss",
+        "modificateurs": {
+          "volOr": 0.1,
+          "reveléFaiblesses": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Vol 10% or ennemi + infos sur boss"
+        },
+        {
+          "type": "orCombat",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "Vol en combat +10% or"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "pecheur",
+      "nom": "Pêcheur",
+      "emoji": "🎣",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "La patience est sa vertu principale. Ce qu'il ramène du lac fait vivre toute la guilde.",
+      "sort": {
+        "id": "sort_poisson_frais",
+        "nom": "Poisson Frais",
+        "emoji": "🐟",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+10% or après chaque combat.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 5
+      },
+      "affinites": [
+        "lac"
+      ],
+      "bonusSoutien": {
+        "description": "+10% or après combat",
+        "modificateurs": {
+          "orCombat": 0.1
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% or après combat"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "maitre_pecheur",
+      "nom": "Maître Pêcheur",
+      "emoji": "🌊",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Il connaît chaque courant, chaque profondeur. Ce qu'il ramène vaut parfois une fortune.",
+      "sort": {
+        "id": "sort_tresors_lac",
+        "nom": "Trésors du Lac",
+        "emoji": "💎",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+20% or + chance de trouver objets rares.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 15
+      },
+      "affinites": [
+        "lac"
+      ],
+      "bonusSoutien": {
+        "description": "+20% or + trouve objets rares",
+        "modificateurs": {
+          "orCombat": 0.2,
+          "objetsRares": 0.15
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% or + trouve objets rares"
+        },
+        {
+          "type": "objetsRares",
+          "valeur": 0.15,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+20% or + trouve objets rares"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "grand_pecheur",
+      "nom": "Grand Pêcheur",
+      "emoji": "🌀",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Les créatures des eaux profondes le respectent. Il ramène parfois des choses qui n'auraient pas dû remonter.",
+      "sort": {
+        "id": "sort_creature_eaux",
+        "nom": "Appel des Profondeurs",
+        "emoji": "🌊",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Invoque une créature aquatique pour combattre 3 tours.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 30
+      },
+      "affinites": [
+        "lac"
+      ],
+      "bonusSoutien": {
+        "description": "+30% or + ressources pour bâtiments",
+        "modificateurs": {
+          "orCombat": 0.3,
+          "ressourcesBatiments": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% or + ressources pour bâtiments"
+        },
+        {
+          "type": "substratBonus",
+          "valeur": 1.0,
+          "cible": "batiment",
+          "moment": "horsJournee",
+          "estGlobal": false,
+          "description": "+30% or + ressources pour bâtiments"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "medium",
+      "nom": "Médium",
+      "emoji": "👻",
+      "tier": "t1",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il entend les morts. Pas toujours ce qu'il veut entendre.",
+      "sort": {
+        "id": "sort_voix_morts",
+        "nom": "Voix des Morts",
+        "emoji": "👻",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Parfois révèle les faiblesses ennemies avant combat.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 5
+      },
+      "affinites": [
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle parfois une faiblesse ennemie avant combat",
+        "modificateurs": {
+          "reveleWeakness": 0.3
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "Révèle parfois une faiblesse ennemie avant combat"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "necromant_civil",
+      "nom": "Nécromant Civil",
+      "emoji": "☠️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il parle aux morts comme on parle à des vieux amis. Ils l'écoutent.",
+      "sort": {
+        "id": "sort_aide_spectrale",
+        "nom": "Aide Spectrale",
+        "emoji": "👁️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Invoque un spectre pour distraire un ennemi pendant 2 tours.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 15
+      },
+      "affinites": [
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "-10% ATK ennemis (malédiction spectrale)",
+        "modificateurs": {
+          "atkEnnemis": -0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.1,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-10% ATK ennemis (malédiction spectrale)"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "gardien_morts",
+      "nom": "Gardien des Morts",
+      "emoji": "💀",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il a passé tant de temps avec les morts qu'il est devenu leur intermédiaire officiel.",
+      "sort": {
+        "id": "sort_armee_spectrale",
+        "nom": "Armée Spectrale",
+        "emoji": "💀",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Invoque 3 spectres de soutien pendant 3 tours.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 30
+      },
+      "affinites": [
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "-20% ATK ennemis + immunité peur",
+        "modificateurs": {
+          "atkEnnemis": -0.2,
+          "immunitePeur": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-20% ATK ennemis + immunité peur"
+        },
+        {
+          "type": "immunitePeur",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-20% ATK ennemis + immunité peur"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "oracle_des_morts",
+      "nom": "Oracle des Morts",
+      "emoji": "🌑",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Tous les morts lui parlent. Il sait ce qui va arriver parce qu'ils le lui ont déjà raconté.",
+      "sort": {
+        "id": "sort_prophetie_mort",
+        "nom": "Prophétie de Mort",
+        "emoji": "☠️",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Désigne un ennemi pour mourir. Il meurt dans 3 tours quoi qu'il arrive.",
+        "effet": {
+          "typeEffet": "execution",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 50
+      },
+      "affinites": [
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "Désigne un ennemi à mourir + -30% ATK tous ennemis",
+        "modificateurs": {
+          "atkEnnemis": -0.3,
+          "prophétie": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.3,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Désigne un ennemi à mourir + -30% ATK tous ennemis"
+        },
+        {
+          "type": "previsionBoss",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Désigne un ennemi à mourir + -30% ATK tous ennemis"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "empoisonneur",
+      "nom": "Empoisonneur",
+      "emoji": "🧪",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Il cuisine pour tuer. Ses plats sont indétectables jusqu'au dernier moment.",
+      "sort": {
+        "id": "sort_poison_repas",
+        "nom": "Poison dans le Repas",
+        "emoji": "🧪",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Empoisonne un ennemi, -10% HP par round pendant 5 rounds.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": "INT",
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 5
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 10,
+        "alchimie": 10
+      },
+      "affinites": [
+        "cuisine",
+        "laboratoire"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "empoisonnementInitial",
+          "valeur": 1.0,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ennemis empoisonnés dès le début du combat"
+        },
+        {
+          "type": "degatsPoison",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% dégâts de poison"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "maitre_empoisonneur",
+      "nom": "Maître Empoisonneur",
+      "emoji": "☠️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Ses poisons sont indétectables. La mort arrive sans que personne comprenne pourquoi.",
+      "sort": {
+        "id": "sort_poison_invisible",
+        "nom": "Poison Invisible",
+        "emoji": "☠️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Empoisonne toute l'équipe ennemie sans qu'ils le sachent.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": "INT",
+          "multiplicateur": 0.08,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 6
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 20,
+        "alchimie": 20
+      },
+      "affinites": [
+        "cuisine",
+        "laboratoire"
+      ],
+      "bonusSoutien": {
+        "description": "+15% dégâts de poison équipe",
+        "modificateurs": {
+          "degatsPoison": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsPoison",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% dégâts de poison équipe"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "grand_empoisonneur",
+      "nom": "Grand Empoisonneur",
+      "emoji": "💀",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Un seul repas suffit à paralyser une armée entière.",
+      "sort": {
+        "id": "sort_festin_mortel",
+        "nom": "Festin Mortel",
+        "emoji": "💀",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Paralyse tous les ennemis pendant 2 rounds.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 35,
+        "alchimie": 35
+      },
+      "affinites": [
+        "cuisine",
+        "laboratoire"
+      ],
+      "bonusSoutien": {
+        "description": "Empoisonne les ennemis dès le début du combat",
+        "modificateurs": {
+          "empoisonnementInitial": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "empoisonnementInitial",
+          "valeur": 1.0,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Empoisonne les ennemis dès le début du combat"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "cueilleur",
+      "nom": "Cueilleur",
+      "emoji": "🌾",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Il trouve dans la nature ce que personne d'autre ne voit.",
+      "sort": {
+        "id": "sort_ingredients_rares",
+        "nom": "Ingrédients Rares",
+        "emoji": "🌾",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+20% chance de trouver des ingrédients rares après combat.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 10,
+        "nature": 10
+      },
+      "affinites": [
+        "cuisine",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "+15% or après combat (ingrédients vendus)",
+        "modificateurs": {
+          "orCombat": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% or après combat (ingrédients vendus)"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "botaniste_expeditionnaire",
+      "nom": "Botaniste Expéditionnaire",
+      "emoji": "🗺️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Il part loin pour ramener l'introuvable. Ses expéditions changent la guilde.",
+      "sort": {
+        "id": "sort_expedition",
+        "nom": "Expédition",
+        "emoji": "🗺️",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Rapporte des ingrédients légendaires — bonus massif prochain repas.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 20,
+        "nature": 20
+      },
+      "affinites": [
+        "cuisine",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "+25% HP max équipe (alimentation améliorée)",
+        "modificateurs": {
+          "hpMax": 0.25
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% HP max équipe (alimentation améliorée)"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "gardien_recettes",
+      "nom": "Gardien des Recettes",
+      "emoji": "📜",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "cuisine",
+      "description": "Il préserve des recettes anciennes et puissantes. Chaque plat est une légende.",
+      "sort": {
+        "id": "sort_recette_legendaire",
+        "nom": "Recette Légendaire",
+        "emoji": "📜",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Repas légendaire : +50% toutes stats équipe pendant tout le combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "cuisine": 40,
+        "nature": 35
+      },
+      "affinites": [
+        "cuisine",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "+35% HP max + régénération 10% HP/round",
+        "modificateurs": {
+          "hpMax": 0.35,
+          "regenHP": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.35,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+35% HP max + régénération 10% HP/round"
+        },
+        {
+          "type": "hpMax",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+35% HP max + régénération 10% HP/round"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "rebouteux",
+      "nom": "Rebouteux",
+      "emoji": "🦴",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Il remet les os en place. Pas élégant, mais efficace.",
+      "sort": {
+        "id": "sort_remise_en_place",
+        "nom": "Remise en Place",
+        "emoji": "🦴",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Réduit la durée d'une blessure de 3 jours immédiatement.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 10,
+        "soin": 10
+      },
+      "affinites": [
+        "infirmerie",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "-30% durée blessures",
+        "modificateurs": {
+          "dureeBlessures": -0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.3,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-30% durée blessures"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "guerisseur_bois",
+      "nom": "Guérisseur des Bois",
+      "emoji": "🌿",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "La forêt lui fournit tout ce qu'il faut. Ses soins ne coûtent rien.",
+      "sort": {
+        "id": "sort_soin_naturel",
+        "nom": "Soin Naturel",
+        "emoji": "🌿",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne 30% HP + retire un effet négatif.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 22,
+        "soin": 20
+      },
+      "affinites": [
+        "infirmerie",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "-50% durée blessures + soin 8% HP/round",
+        "modificateurs": {
+          "dureeBlessures": -0.5,
+          "regenHP": 0.08
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.5,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-50% durée blessures + soin 8% HP/round"
+        },
+        {
+          "type": "hpMax",
+          "valeur": 0.08,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-50% durée blessures + soin 8% HP/round"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "sage_medecin",
+      "nom": "Sage Médecin",
+      "emoji": "🌳",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Son savoir dépasse tous les médecins du royaume. Nature et science réunies.",
+      "sort": {
+        "id": "sort_guerison_totale",
+        "nom": "Guérison Totale",
+        "emoji": "🌳",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Soigne complètement un mercenaire blessé, remet ses stats à leur maximum.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 38,
+        "soin": 35
+      },
+      "affinites": [
+        "infirmerie",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "Guérison instantanée des blessures légères",
+        "modificateurs": {
+          "guerrisonInstantanee": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "guerrisonAuto",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Guérison instantanée des blessures légères"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "druide_noir",
+      "nom": "Druide Noir",
+      "emoji": "🌑",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Il corrompt la nature pour en faire une arme. Les plantes obéissent à sa haine.",
+      "sort": {
+        "id": "sort_ronces_maudites",
+        "nom": "Ronces Maudites",
+        "emoji": "🌑",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Emprisonne un ennemi dans des ronces, immobile 2 tours.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 10,
+        "occultisme": 10
+      },
+      "affinites": [
+        "foret",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": 0.1,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-10% ATK ennemis (nature corrompue)"
+        },
+        {
+          "type": "empoisonnementInitial",
+          "valeur": 0.5,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "50% chance ennemis empoisonnés dès R1"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "corrupteur_nature",
+      "nom": "Corrupteur de Nature",
+      "emoji": "☠️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "Les plantes deviennent des armes toxiques entre ses mains.",
+      "sort": {
+        "id": "sort_foret_toxique",
+        "nom": "Forêt Toxique",
+        "emoji": "☠️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Transforme le terrain en zone toxique, -15% HP/round tous ennemis.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 4
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 22,
+        "occultisme": 18
+      },
+      "affinites": [
+        "foret",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-10% ATK ennemis (nature corrompue)",
+        "modificateurs": {
+          "atkEnnemis": -0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.1,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-10% ATK ennemis (nature corrompue)"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "seigneur_nature_corrompue",
+      "nom": "Seigneur de la Nature Corrompue",
+      "emoji": "🌿",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "nature",
+      "description": "La forêt lui obéit, même pourrie. Même morte, elle combat pour lui.",
+      "sort": {
+        "id": "sort_apocalypse_verte",
+        "nom": "Apocalypse Verte",
+        "emoji": "🌿",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Déchaîne la nature corrompue sur tous les ennemis, dégâts massifs + poison.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 5
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "nature": 38,
+        "occultisme": 30
+      },
+      "affinites": [
+        "foret",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "Zone de combat transformée en terrain hostile pour les ennemis",
+        "modificateurs": {
+          "terrainHostile": 1.0,
+          "atkEnnemis": -0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": 1.0,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Zone de combat transformée en terrain hostile pour les ennemis"
+        },
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Zone de combat transformée en terrain hostile pour les ennemis"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "ingenieur",
+      "nom": "Ingénieur",
+      "emoji": "⚙️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Il construit des mécanismes que personne n'a vus avant.",
+      "sort": {
+        "id": "sort_piege_mecanique",
+        "nom": "Piège Mécanique",
+        "emoji": "⚙️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Pose un piège qui inflige dégâts à l'ennemi qui l'active.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 10,
+        "erudition": 10
+      },
+      "affinites": [
+        "forge",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Les bâtiments endommagés se réparent 50% plus vite",
+        "modificateurs": {
+          "reparationBatiments": 0.5
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reparationBatiments",
+          "valeur": 0.5,
+          "cible": "batiment",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Les bâtiments endommagés se réparent 50% plus vite"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "inventeur",
+      "nom": "Inventeur",
+      "emoji": "🔬",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Ses machines n'existent nulle part ailleurs. Il expérimente sans jamais s'arrêter.",
+      "sort": {
+        "id": "sort_machine_guerre",
+        "nom": "Machine de Guerre",
+        "emoji": "🔬",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Déploie une machine automatique qui attaque chaque round.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "aleatoire"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 22,
+        "erudition": 20
+      },
+      "affinites": [
+        "forge",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Construit des améliorations de bâtiments uniques",
+        "modificateurs": {
+          "ameliorationsBatiments": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "substratVitesse",
+          "valeur": 1.0,
+          "cible": "batiment",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Construit des améliorations de bâtiments uniques"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "grand_inventeur",
+      "nom": "Grand Inventeur",
+      "emoji": "💡",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Ses machines font gagner des guerres. Ses inventions changent le monde.",
+      "sort": {
+        "id": "sort_arsenal_automatique",
+        "nom": "Arsenal Automatique",
+        "emoji": "💡",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "3 machines de guerre déployées simultanément pendant tout le combat.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 38,
+        "erudition": 35
+      },
+      "affinites": [
+        "forge",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "+30% ATK équipe grâce aux équipements inventés",
+        "modificateurs": {
+          "atk": 0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% ATK équipe grâce aux équipements inventés"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "enchanteur_lames",
+      "nom": "Enchanteur de Lames",
+      "emoji": "✨",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Il infuse de la magie dans les armes. Chaque lame devient une extension de sa volonté.",
+      "sort": {
+        "id": "sort_lame_enchantee",
+        "nom": "Lame Enchantée",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "+40% dégâts magiques sur les armes de l'équipe pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 10,
+        "occultisme": 10
+      },
+      "affinites": [
+        "forge",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "+10% dégâts magiques équipe",
+        "modificateurs": {
+          "degatsMagiques": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsMagiques",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% dégâts magiques équipe"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "forge_mage",
+      "nom": "Forge-Mage",
+      "emoji": "🔮",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Forge et magie ne font qu'un. Ses créations défient les lois naturelles.",
+      "sort": {
+        "id": "sort_arme_magique",
+        "nom": "Arme Magique",
+        "emoji": "🔮",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Crée une arme magique temporaire +60% ATK magique pendant 4 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.6,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 4
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 22,
+        "occultisme": 18
+      },
+      "affinites": [
+        "forge",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "+20% dégâts magiques + armes infligent effets élémentaux",
+        "modificateurs": {
+          "degatsMagiques": 0.2,
+          "effetsElementaux": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsMagiques",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% dégâts magiques + armes infligent effets élémentaux"
+        },
+        {
+          "type": "degatsMagiques",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "+20% dégâts magiques + armes infligent effets élémentaux"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "alchimiste_metaux",
+      "nom": "Alchimiste des Métaux",
+      "emoji": "⚗️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "forge",
+      "description": "Il crée des métaux qui n'existent pas. Ses armes transcendent le possible.",
+      "sort": {
+        "id": "sort_metal_impossible",
+        "nom": "Métal Impossible",
+        "emoji": "⚗️",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Forge une arme transcendante : +100% ATK physique ET magique pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "forge": 38,
+        "occultisme": 30
+      },
+      "affinites": [
+        "forge",
+        "siteDeRituel",
+        "forgeMaudite"
+      ],
+      "bonusSoutien": {
+        "description": "+40% ATK physique et magique équipe",
+        "modificateurs": {
+          "atk": 0.4,
+          "degatsMagiques": 0.4
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.4,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+40% ATK physique et magique équipe"
+        },
+        {
+          "type": "degatsMagiques",
+          "valeur": 0.4,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+40% ATK physique et magique équipe"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "chercheur",
+      "nom": "Chercheur",
+      "emoji": "🔭",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il expérimente sans limites. Chaque échec lui apprend quelque chose de nouveau.",
+      "sort": {
+        "id": "sort_potion_experimentale",
+        "nom": "Potion Expérimentale",
+        "emoji": "🔭",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Effet aléatoire puissant sur un ennemi ou un allié.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "aleatoire"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 10,
+        "alchimie": 10
+      },
+      "affinites": [
+        "bibliotheque",
+        "laboratoire"
+      ],
+      "bonusSoutien": {
+        "description": "+15% efficacité des potions",
+        "modificateurs": {
+          "efficacitePotions": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "hpMax",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% efficacité des potions"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "alchimiste",
+      "nom": "Alchimiste",
+      "emoji": "⚗️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il maîtrise la transmutation. La matière n'a plus de secrets pour lui.",
+      "sort": {
+        "id": "sort_transmutation",
+        "nom": "Transmutation",
+        "emoji": "⚗️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Transforme les dégâts reçus en HP pour l'équipe.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 22,
+        "alchimie": 20
+      },
+      "affinites": [
+        "bibliotheque",
+        "laboratoire"
+      ],
+      "bonusSoutien": {
+        "description": "+20% résistances équipe (protections alchimiques)",
+        "modificateurs": {
+          "resistances": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "resistanceMagique",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% résistances équipe (protections alchimiques)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "grand_alchimiste",
+      "nom": "Grand Alchimiste",
+      "emoji": "🌟",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il transforme n'importe quoi en n'importe quoi. Les lois de la matière lui obéissent.",
+      "sort": {
+        "id": "sort_grande_oeuvre",
+        "nom": "Grande Œuvre",
+        "emoji": "🌟",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Transmute l'échec en victoire — annule une défaite certaine une fois par combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 38,
+        "alchimie": 35
+      },
+      "affinites": [
+        "bibliotheque",
+        "laboratoire"
+      ],
+      "bonusSoutien": {
+        "description": "+30% toutes résistances + potions gratuites avant chaque combat",
+        "modificateurs": {
+          "resistances": 0.3,
+          "potionsGratuites": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "resistanceMagique",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% toutes résistances + potions gratuites avant chaque combat"
+        },
+        {
+          "type": "immunitePoison",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% toutes résistances + potions gratuites avant chaque combat"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "analyste",
+      "nom": "Analyste",
+      "emoji": "📊",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Il décrypte les ennemis avant le combat. Ses analyses changent tout.",
+      "sort": {
+        "id": "sort_analyse_combat",
+        "nom": "Analyse de Combat",
+        "emoji": "📊",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle les faiblesses de tous les ennemis au début du combat.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 10,
+        "tactique": 10
+      },
+      "affinites": [
+        "bibliotheque",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle faiblesses ennemies avant chaque combat",
+        "modificateurs": {
+          "reveleFaiblesses": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Révèle faiblesses ennemies avant chaque combat"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "conseiller_militaire",
+      "nom": "Conseiller Militaire",
+      "emoji": "📋",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Son analyse guide chaque décision. Avec lui, aucun combat n'est une surprise.",
+      "sort": {
+        "id": "sort_briefing",
+        "nom": "Briefing",
+        "emoji": "📋",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "+25% dégâts contre les faiblesses révélées pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 22,
+        "tactique": 20
+      },
+      "affinites": [
+        "bibliotheque",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+15% dégâts sur faiblesses + prévision des attaques boss",
+        "modificateurs": {
+          "degatsBonus": 0.15,
+          "previsionBoss": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "degatsBonus",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "+15% dégâts sur faiblesses + prévision des attaques boss"
+        },
+        {
+          "type": "previsionBoss",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% dégâts sur faiblesses + prévision des attaques boss"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "stratege_absolu",
+      "nom": "Stratège Absolu",
+      "emoji": "🧠",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "erudition",
+      "description": "Aucun combat ne le surprend. Il a tout prévu, tout analysé, tout anticipé.",
+      "sort": {
+        "id": "sort_strategie_parfaite",
+        "nom": "Stratégie Parfaite",
+        "emoji": "🧠",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Combat parfaitement planifié : +40% toutes stats, 0 dégâts au round 1.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "erudition": 38,
+        "tactique": 35
+      },
+      "affinites": [
+        "bibliotheque",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+25% toutes stats équipe (plan parfait)",
+        "modificateurs": {
+          "toutes": 0.25
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% toutes stats équipe (plan parfait)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "receleur",
+      "nom": "Receleur",
+      "emoji": "💼",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il écoule les butins sans laisser de traces. Aucune question n'est posée.",
+      "sort": {
+        "id": "sort_ecoulement_rapide",
+        "nom": "Écoulement Rapide",
+        "emoji": "💼",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+25% or récupéré après chaque combat.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 10,
+        "commerce": 10
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "+20% or après combat",
+        "modificateurs": {
+          "orCombat": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% or après combat"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "trafiquant",
+      "nom": "Trafiquant",
+      "emoji": "🕳️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Son réseau souterrain couvre tout le royaume. Tout s'achète et se vend.",
+      "sort": {
+        "id": "sort_reseau_souterrain",
+        "nom": "Réseau Souterrain",
+        "emoji": "🕳️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Obtient des informations sur les ennemis + réduit leur ATK de 20%.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 22,
+        "commerce": 20
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "+35% or + accès à des objets rares",
+        "modificateurs": {
+          "orCombat": 0.35,
+          "objetsRares": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.35,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+35% or + accès à des objets rares"
+        },
+        {
+          "type": "objetsRares",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+35% or + accès à des objets rares"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "baron_marche_noir",
+      "nom": "Baron du Marché Noir",
+      "emoji": "👑",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il contrôle tout ce qui circule illégalement. Même les ennemis lui achètent des choses.",
+      "sort": {
+        "id": "sort_monopole_noir",
+        "nom": "Monopole Noir",
+        "emoji": "👑",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Double tous les gains d'or du prochain combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 38,
+        "commerce": 35
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "+50% or + peut acheter des informations sur les boss",
+        "modificateurs": {
+          "orCombat": 0.5,
+          "infoBoss": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.5,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+50% or + peut acheter des informations sur les boss"
+        },
+        {
+          "type": "previsionBoss",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+50% or + peut acheter des informations sur les boss"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "codeur",
+      "nom": "Codeur",
+      "emoji": "🔐",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il chiffre les messages, décode ceux des ennemis. L'information est son arme.",
+      "sort": {
+        "id": "sort_decryptage",
+        "nom": "Décryptage",
+        "emoji": "🔐",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle les ordres ennemis — l'équipe esquive la première attaque de chaque groupe.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 10,
+        "erudition": 10
+      },
+      "affinites": [
+        "repaireDesOmbres",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle les plans ennemis avant le combat",
+        "modificateurs": {
+          "reveleOrdres": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleOrdres",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Révèle les plans ennemis avant le combat"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "cryptographe",
+      "nom": "Cryptographe",
+      "emoji": "🗝️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Aucun code ne lui résiste. Il lit tout, entend tout, sait tout.",
+      "sort": {
+        "id": "sort_interception",
+        "nom": "Interception",
+        "emoji": "🗝️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Annule l'attaque spéciale d'un ennemi ce tour.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 22,
+        "erudition": 20
+      },
+      "affinites": [
+        "repaireDesOmbres",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Annule 1 capacité spéciale ennemie par combat",
+        "modificateurs": {
+          "annuleCapa": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "annuleCapa",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Annule 1 capacité spéciale ennemie par combat"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "maitre_renseignement",
+      "nom": "Maître du Renseignement",
+      "emoji": "👁️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il sait tout sur tout le monde. Aucun secret ne lui échappe.",
+      "sort": {
+        "id": "sort_omniscience",
+        "nom": "Omniscience",
+        "emoji": "👁️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Connaît toutes les capacités et faiblesses ennemies avant le combat.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 38,
+        "erudition": 35
+      },
+      "affinites": [
+        "repaireDesOmbres",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Toutes faiblesses révélées + +20% dégâts dessus",
+        "modificateurs": {
+          "reveleFaiblesses": 1.0,
+          "degatsBonus": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Toutes faiblesses révélées + +20% dégâts dessus"
+        },
+        {
+          "type": "degatsBonus",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "Toutes faiblesses révélées + +20% dégâts dessus"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "necrologue",
+      "nom": "Nécrologue",
+      "emoji": "📖",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il étudie les morts avec méthode. Pour lui, la mort est une science.",
+      "sort": {
+        "id": "sort_autopsie_spectrale",
+        "nom": "Autopsie Spectrale",
+        "emoji": "📖",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Analyse un ennemi vaincu pour révéler les faiblesses de son espèce.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 10,
+        "communion": 10
+      },
+      "affinites": [
+        "siteDeRituel",
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle faiblesses de tous les ennemis du même type",
+        "modificateurs": {
+          "reveleFaiblesses": 0.5
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 0.5,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Révèle faiblesses de tous les ennemis du même type"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "archiviste_morts",
+      "nom": "Archiviste des Morts",
+      "emoji": "🗂️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il catalogue chaque âme. Son registre des morts est le plus complet du royaume.",
+      "sort": {
+        "id": "sort_appel_archive",
+        "nom": "Appel de l'Archive",
+        "emoji": "🗂️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Invoque l'esprit d'un ennemi vaincu pour combattre à ses côtés 3 tours.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 22,
+        "communion": 18
+      },
+      "affinites": [
+        "siteDeRituel",
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "-15% ATK ennemis (malédictions archivées)",
+        "modificateurs": {
+          "atkEnnemis": -0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.15,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-15% ATK ennemis (malédictions archivées)"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "grand_necromant",
+      "nom": "Grand Nécromant",
+      "emoji": "💀",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il ressuscite les morts comme s'ils n'avaient jamais quitté ce monde.",
+      "sort": {
+        "id": "sort_resurrection_massive",
+        "nom": "Résurrection Massive",
+        "emoji": "💀",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Ressuscite 2 mercenaires tombés au combat avec 50% HP.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 38,
+        "communion": 30
+      },
+      "affinites": [
+        "siteDeRituel",
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "Ressuscite automatiquement 1 mercenaire par combat",
+        "modificateurs": {
+          "resurrectionAuto": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "resurrectionAuto",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Ressuscite automatiquement 1 mercenaire par combat"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "theologien_noir",
+      "nom": "Théologien Noir",
+      "emoji": "📚",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il comprend et documente le surnaturel. La peur devient sa matière première.",
+      "sort": {
+        "id": "sort_traite_peur",
+        "nom": "Traité de la Peur",
+        "emoji": "📚",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Paralyse un ennemi de peur pendant 2 tours.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 10,
+        "erudition": 10
+      },
+      "affinites": [
+        "siteDeRituel",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "Les ennemis ont 20% de chances d'être paralysés par la peur",
+        "modificateurs": {
+          "peurEnnemis": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "peurEnnemis",
+          "valeur": 0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Les ennemis ont 20% de chances d'être paralysés par la peur"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "theologue_ombre",
+      "nom": "Théologue de l'Ombre",
+      "emoji": "🕯️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Ses traités sur l'interdit changent ceux qui les lisent. Souvent pour le pire.",
+      "sort": {
+        "id": "sort_traite_interdit",
+        "nom": "Traité Interdit",
+        "emoji": "🕯️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Réduit toutes les stats ennemies de 20% (malédiction documentée).",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 22,
+        "erudition": 18
+      },
+      "affinites": [
+        "siteDeRituel",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "-20% toutes stats ennemies (malédictions documentées)",
+        "modificateurs": {
+          "statsEnnemis": -0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "statsEnnemis",
+          "valeur": -0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-20% toutes stats ennemies (malédictions documentées)"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "gardien_interdit",
+      "nom": "Gardien de l'Interdit",
+      "emoji": "🔒",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il protège les secrets que personne ne devrait connaître. Et les utilise.",
+      "sort": {
+        "id": "sort_secret_absolu",
+        "nom": "Secret Absolu",
+        "emoji": "🔒",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Révèle et exploite le secret le plus sombre d'un ennemi : dégâts ×3.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 38,
+        "erudition": 30
+      },
+      "affinites": [
+        "siteDeRituel",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "-30% toutes stats ennemies (secrets révélés)",
+        "modificateurs": {
+          "statsEnnemis": -0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "statsEnnemis",
+          "valeur": -0.3,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-30% toutes stats ennemies (secrets révélés)"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "diplomate",
+      "nom": "Diplomate",
+      "emoji": "🤝",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il évite les conflits inutiles. Chaque guerre gagnée sans combattre lui appartient.",
+      "sort": {
+        "id": "sort_negociation",
+        "nom": "Négociation",
+        "emoji": "🤝",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Réduit l'hostilité d'un groupe ennemi, -30% ATK pendant 3 tours.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 10,
+        "commerce": 10
+      },
+      "affinites": [
+        "tourDeGarde",
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "+20% or gagné après combat (butins négociés)",
+        "modificateurs": {
+          "orCombat": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% or gagné après combat (butins négociés)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "ambassadeur",
+      "nom": "Ambassadeur",
+      "emoji": "🎖️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il représente la guilde auprès des grandes puissances. Son prestige ouvre toutes les portes.",
+      "sort": {
+        "id": "sort_accord_commercial",
+        "nom": "Accord Commercial",
+        "emoji": "🎖️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "+30% or prochain combat + allié temporaire pour 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 22,
+        "commerce": 20
+      },
+      "affinites": [
+        "tourDeGarde",
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "+25% renommée gagnée + +20% or",
+        "modificateurs": {
+          "renommee": 0.25,
+          "orCombat": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "renommeeBonus",
+          "valeur": 0.25,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+25% renommée gagnée + +20% or"
+        },
+        {
+          "type": "orCombat",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% renommée gagnée + +20% or"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "grand_diplomate",
+      "nom": "Grand Diplomate",
+      "emoji": "🌐",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Ses traités font l'histoire. Une négociation bien menée vaut une armée.",
+      "sort": {
+        "id": "sort_traite_paix",
+        "nom": "Traité de Paix",
+        "emoji": "🌐",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Neutralise un groupe ennemi entier pour 2 rounds (ils ne combattent pas).",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 38,
+        "commerce": 35
+      },
+      "affinites": [
+        "tourDeGarde",
+        "boutique"
+      ],
+      "bonusSoutien": {
+        "description": "+40% renommée + évite parfois un combat",
+        "modificateurs": {
+          "renommee": 0.4,
+          "eviterCombat": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "renommeeBonus",
+          "valeur": 0.4,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+40% renommée + évite parfois un combat"
+        },
+        {
+          "type": "eviterCombat",
+          "valeur": 0.15,
+          "cible": "guilde",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+40% renommée + évite parfois un combat"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "agent_double",
+      "nom": "Agent Double",
+      "emoji": "🎭",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il joue sur les deux tableaux. Personne ne sait vraiment pour qui il travaille.",
+      "sort": {
+        "id": "sort_double_jeu",
+        "nom": "Double Jeu",
+        "emoji": "🎭",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Force un ennemi à attaquer ses alliés pendant 1 tour.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 10,
+        "infiltration": 10
+      },
+      "affinites": [
+        "tourDeGarde",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "10% chance qu'un ennemi attaque ses propres alliés",
+        "modificateurs": {
+          "confusionEnnemi": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "confusionEnnemi",
+          "valeur": 0.1,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "10% chance qu'un ennemi attaque ses propres alliés"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "maitre_espion",
+      "nom": "Maître Espion",
+      "emoji": "🕵️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il dirige un réseau d'agents invisibles. Rien ne lui échappe.",
+      "sort": {
+        "id": "sort_reseau_agents",
+        "nom": "Réseau d'Agents",
+        "emoji": "🕵️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Sabote les ennemis avant le combat : -25% toutes stats au round 1.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 22,
+        "infiltration": 20
+      },
+      "affinites": [
+        "tourDeGarde",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "-15% stats ennemies (sabotage pré-combat)",
+        "modificateurs": {
+          "statsEnnemis": -0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "statsEnnemis",
+          "valeur": -0.15,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-15% stats ennemies (sabotage pré-combat)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "main_invisible",
+      "nom": "Main Invisible",
+      "emoji": "👁️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "tactique",
+      "description": "Il orchestre tout sans jamais être vu. Ses ennemis ne savent même pas qu'ils ont perdu.",
+      "sort": {
+        "id": "sort_orchestration",
+        "nom": "Orchestration",
+        "emoji": "👁️",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Déclenche simultanément sabotage + confusion + affaiblissement sur tous les ennemis.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "tactique": 38,
+        "infiltration": 35
+      },
+      "affinites": [
+        "tourDeGarde",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "-25% toutes stats ennemies dès le début du combat",
+        "modificateurs": {
+          "statsEnnemis": -0.25
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "statsEnnemis",
+          "valeur": -0.25,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-25% toutes stats ennemies dès le début du combat"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "botaniste",
+      "nom": "Botaniste",
+      "emoji": "🌺",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Il cultive des plantes médicinales rares. Son jardin vaut une infirmerie.",
+      "sort": {
+        "id": "sort_remede_naturel",
+        "nom": "Remède Naturel",
+        "emoji": "🌺",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne 20% HP + retire poison/malédiction.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 10,
+        "nature": 10
+      },
+      "affinites": [
+        "infirmerie",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "-25% durée blessures (remèdes naturels)",
+        "modificateurs": {
+          "dureeBlessures": -0.25
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.25,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-25% durée blessures (remèdes naturels)"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "pharmacien",
+      "nom": "Pharmacien",
+      "emoji": "💊",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Il prépare des remèdes précis et efficaces. Chaque dose est calculée au grain près.",
+      "sort": {
+        "id": "sort_traitement_precis",
+        "nom": "Traitement Précis",
+        "emoji": "💊",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne 35% HP + réduit durée blessures de 2 jours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.35,
+          "bonusFixe": 0,
+          "cible": "allieBlesse"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 22,
+        "nature": 20
+      },
+      "affinites": [
+        "infirmerie",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "-40% durée blessures + immunité poisons",
+        "modificateurs": {
+          "dureeBlessures": -0.4,
+          "immunitePoison": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.4,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-40% durée blessures + immunité poisons"
+        },
+        {
+          "type": "immunitePoison",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-40% durée blessures + immunité poisons"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "sage_plantes",
+      "nom": "Sage des Plantes",
+      "emoji": "🌲",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Il connaît un remède à chaque mal connu. La nature n'a plus de secrets pour lui.",
+      "sort": {
+        "id": "sort_panacee",
+        "nom": "Panacée",
+        "emoji": "🌲",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Soigne complètement toute l'équipe, retire tous les effets négatifs.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 38,
+        "nature": 35
+      },
+      "affinites": [
+        "infirmerie",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "-60% durée blessures + soigne automatiquement entre les combats",
+        "modificateurs": {
+          "dureeBlessures": -0.6,
+          "soinAutomatique": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.6,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-60% durée blessures + soigne automatiquement entre les combats"
+        },
+        {
+          "type": "guerrisonAuto",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-60% durée blessures + soigne automatiquement entre les combats"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "moine_hospitalier",
+      "nom": "Moine Hospitalier",
+      "emoji": "🙏",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Sa vie est dédiée aux soins et à la prière. Corps et âme guéris ensemble.",
+      "sort": {
+        "id": "sort_priere_guerison",
+        "nom": "Prière de Guérison",
+        "emoji": "🙏",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne 25% HP + bénédiction +15% DEF 3 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 10,
+        "devotion": 10
+      },
+      "affinites": [
+        "infirmerie",
+        "temple"
+      ],
+      "bonusSoutien": {
+        "description": "-30% durée blessures + bénédiction passive",
+        "modificateurs": {
+          "dureeBlessures": -0.3,
+          "benediction": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.3,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-30% durée blessures + bénédiction passive"
+        },
+        {
+          "type": "resistanceMagique",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-30% durée blessures + bénédiction passive"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "guerisseur_sacre",
+      "nom": "Guérisseur Sacré",
+      "emoji": "✨",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Ses soins laissent une bénédiction durable. Ses patients ressortent plus forts.",
+      "sort": {
+        "id": "sort_benediction_guerison",
+        "nom": "Bénédiction de Guérison",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Soigne 40% HP + +20% toutes stats pendant 4 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 4
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 22,
+        "devotion": 18
+      },
+      "affinites": [
+        "infirmerie",
+        "temple"
+      ],
+      "bonusSoutien": {
+        "description": "-50% durée blessures + +15% stats après guérison",
+        "modificateurs": {
+          "dureeBlessures": -0.5,
+          "statBonus": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.5,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "-50% durée blessures + +15% stats après guérison"
+        },
+        {
+          "type": "atk",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-50% durée blessures + +15% stats après guérison"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "benisseur_divin",
+      "nom": "Bénisseur Divin",
+      "emoji": "👼",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "soin",
+      "description": "Ses blessés guérissent deux fois plus vite que la normale. La foi accélère tout.",
+      "sort": {
+        "id": "sort_miracle_divin",
+        "nom": "Miracle Divin",
+        "emoji": "👼",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Guérit instantanément toute l'équipe + immunité aux blessures 3 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "soin": 38,
+        "devotion": 30
+      },
+      "affinites": [
+        "infirmerie",
+        "temple"
+      ],
+      "bonusSoutien": {
+        "description": "Durée blessures -80% + guérison instantanée des blessures légères",
+        "modificateurs": {
+          "dureeBlessures": -0.8,
+          "guerrisonInstantanee": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "dureeBlessures",
+          "valeur": -0.8,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -80% + guérison instantanée des blessures légères"
+        },
+        {
+          "type": "guerrisonAuto",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "Durée blessures -80% + guérison instantanée des blessures légères"
+        }
+      ],
+      "role": "soigneur"
+    },
+    {
+      "id": "revendeur",
+      "nom": "Revendeur",
+      "emoji": "🏷️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il vend sans poser de questions. Ses clients apprécient sa discrétion et sa rapidité.",
+      "sort": {
+        "id": "sort_revendeur",
+        "nom": "Vente Rapide",
+        "emoji": "🎒",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+20% or après chaque combat.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 10,
+        "infiltration": 10
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "+20% or après combat",
+        "modificateurs": {
+          "orCombat": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% or après combat"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "faussaire",
+      "nom": "Faussaire",
+      "emoji": "🖊️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il contrefait des marchandises et des documents. Rien n'est ce qu'il semble être.",
+      "sort": {
+        "id": "sort_faux_papiers",
+        "nom": "Faux Papiers",
+        "emoji": "🖊️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Réduit le coût du prochain bâtiment de 50%.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 22,
+        "infiltration": 20
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "+30% or + réductions sur achats de bâtiments",
+        "modificateurs": {
+          "orCombat": 0.3,
+          "remiseBatiments": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% or + réductions sur achats de bâtiments"
+        },
+        {
+          "type": "remiseBatiments",
+          "valeur": 0.2,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+30% or + réductions sur achats de bâtiments"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "parrain_ombres",
+      "nom": "Parrain des Ombres",
+      "emoji": "🌑",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il dirige un empire commercial clandestin. Tout lui appartient, personne ne le sait.",
+      "sort": {
+        "id": "sort_empire_noir",
+        "nom": "Empire Noir",
+        "emoji": "🌑",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+50% or après chaque combat + 10% chance de trouver équipement rare.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 38,
+        "infiltration": 35
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "+50% or + objets rares + réductions bâtiments",
+        "modificateurs": {
+          "orCombat": 0.5,
+          "objetsRares": 0.1,
+          "remiseBatiments": 0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.5,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+50% or + objets rares + réductions bâtiments"
+        },
+        {
+          "type": "objetsRares",
+          "valeur": 0.1,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+50% or + objets rares + réductions bâtiments"
+        },
+        {
+          "type": "remiseBatiments",
+          "valeur": 0.3,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+50% or + objets rares + réductions bâtiments"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "speculateur",
+      "nom": "Spéculateur",
+      "emoji": "📈",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il anticipe les marchés. Il achète bas et vend haut, toujours.",
+      "sort": {
+        "id": "sort_investissement",
+        "nom": "Investissement",
+        "emoji": "📈",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Investit 50 or, récupère 150 or après le prochain combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 10,
+        "tactique": 10
+      },
+      "affinites": [
+        "boutique",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+25% or si victoire rapide (< 5 rounds)",
+        "modificateurs": {
+          "orVictoireRapide": 0.25
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% or si victoire rapide (< 5 rounds)"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "banquier",
+      "nom": "Banquier",
+      "emoji": "🏦",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Il gère les fonds et prête à intérêt. L'argent fait des enfants.",
+      "sort": {
+        "id": "sort_pret_interesse",
+        "nom": "Prêt avec Intérêt",
+        "emoji": "🏦",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+35% or après chaque combat (investissements actifs).",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.35,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 22,
+        "tactique": 20
+      },
+      "affinites": [
+        "boutique",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+30% or + réduit coût des bâtiments de 15%",
+        "modificateurs": {
+          "orCombat": 0.3,
+          "remiseBatiments": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% or + réduit coût des bâtiments de 15%"
+        },
+        {
+          "type": "remiseBatiments",
+          "valeur": 0.15,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+30% or + réduit coût des bâtiments de 15%"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "grand_banquier",
+      "nom": "Grand Banquier",
+      "emoji": "💰",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "commerce",
+      "description": "Les rois lui empruntent de l'argent. Sa richesse dépasse celle de certains royaumes.",
+      "sort": {
+        "id": "sort_fortune_absolue",
+        "nom": "Fortune Absolue",
+        "emoji": "💰",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+60% or après chaque combat + 20% réduction bâtiments.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.6,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "commerce": 38,
+        "tactique": 35
+      },
+      "affinites": [
+        "boutique",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+60% or + -30% coût bâtiments + achats spéciaux",
+        "modificateurs": {
+          "orCombat": 0.6,
+          "remiseBatiments": 0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.6,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+60% or + -30% coût bâtiments + achats spéciaux"
+        },
+        {
+          "type": "remiseBatiments",
+          "valeur": 0.3,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+60% or + -30% coût bâtiments + achats spéciaux"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "garde_eaux",
+      "nom": "Garde des Eaux",
+      "emoji": "💧",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Il protège les cours d'eau et leur vie. Les rivières lui appartiennent.",
+      "sort": {
+        "id": "sort_appel_riviere",
+        "nom": "Appel de la Rivière",
+        "emoji": "💧",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Convoque un courant d'eau puissant, repousse les ennemis.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 10,
+        "nature": 10
+      },
+      "affinites": [
+        "lac",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "+15% or après combat (ressources aquatiques)",
+        "modificateurs": {
+          "orCombat": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% or après combat (ressources aquatiques)"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "biologiste_aquatique",
+      "nom": "Biologiste Aquatique",
+      "emoji": "🔬",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Il étudie les espèces rares des profondeurs. Ses découvertes n'ont pas de prix.",
+      "sort": {
+        "id": "sort_creature_rare",
+        "nom": "Créature Rare",
+        "emoji": "🔬",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Invoque une créature aquatique rare pour combattre 3 tours.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 22,
+        "nature": 20
+      },
+      "affinites": [
+        "lac",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "+25% or + chance de découvrir lieux secrets aquatiques",
+        "modificateurs": {
+          "orCombat": 0.25,
+          "decouverte": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% or + chance de découvrir lieux secrets aquatiques"
+        },
+        {
+          "type": "indiceClasse",
+          "valeur": 0.1,
+          "cible": "utilisateurs",
+          "moment": "horsJournee",
+          "estGlobal": false,
+          "description": "+25% or + chance de découvrir lieux secrets aquatiques"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "grand_naturaliste_aquatique",
+      "nom": "Grand Naturaliste Aquatique",
+      "emoji": "🌊",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Les créatures marines lui obéissent. Il commande ce qui vit sous les eaux.",
+      "sort": {
+        "id": "sort_armada_aquatique",
+        "nom": "Armada Aquatique",
+        "emoji": "🌊",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Déchaîne une armée de créatures marines sur les ennemis.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 38,
+        "nature": 35
+      },
+      "affinites": [
+        "lac",
+        "foret"
+      ],
+      "bonusSoutien": {
+        "description": "+40% or + créatures marines en soutien",
+        "modificateurs": {
+          "orCombat": 0.4,
+          "soutienAquatique": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.4,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+40% or + créatures marines en soutien"
+        },
+        {
+          "type": "creaAlliee",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "+40% or + créatures marines en soutien"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "charmeur_eaux",
+      "nom": "Charmeur des Eaux",
+      "emoji": "🎵",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Il attire les créatures rares à lui. Elles viennent d'elles-mêmes.",
+      "sort": {
+        "id": "sort_chant_abyssal",
+        "nom": "Chant Abyssal",
+        "emoji": "🎵",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Attire une créature des profondeurs pour combattre 2 tours.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 10,
+        "communion": 10
+      },
+      "affinites": [
+        "lac",
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "+20% or + créatures aquatiques aident parfois",
+        "modificateurs": {
+          "orCombat": 0.2,
+          "aideCrea": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% or + créatures aquatiques aident parfois"
+        },
+        {
+          "type": "creaAlliee",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "+20% or + créatures aquatiques aident parfois"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "interprete_abysses",
+      "nom": "Interprète des Abysses",
+      "emoji": "🌀",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Il traduit les messages des créatures des fonds. Leurs secrets valent une fortune.",
+      "sort": {
+        "id": "sort_message_abyssal",
+        "nom": "Message Abyssal",
+        "emoji": "🌀",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Révèle les faiblesses de tous les ennemis + invoque un allié aquatique.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 22,
+        "communion": 18
+      },
+      "affinites": [
+        "lac",
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "Révèle faiblesses + créature alliée par combat",
+        "modificateurs": {
+          "reveleFaiblesses": 1.0,
+          "creaAlliee": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Révèle faiblesses + créature alliée par combat"
+        },
+        {
+          "type": "creaAlliee",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "Révèle faiblesses + créature alliée par combat"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "voix_eaux",
+      "nom": "Voix des Eaux",
+      "emoji": "🔱",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Il parle au nom de tout ce qui habite les fonds. Les abysses répondent.",
+      "sort": {
+        "id": "sort_appel_abyme",
+        "nom": "Appel de l'Abyme",
+        "emoji": "🔱",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Invoque une créature légendaire des profondeurs pour tout le combat.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 38,
+        "communion": 30
+      },
+      "affinites": [
+        "lac",
+        "cimetiere"
+      ],
+      "bonusSoutien": {
+        "description": "Créature légendaire en soutien permanent + +30% or",
+        "modificateurs": {
+          "creaLegendaire": 1.0,
+          "orCombat": 0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "creaLegendaire",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "Créature légendaire en soutien permanent + +30% or"
+        },
+        {
+          "type": "orCombat",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Créature légendaire en soutien permanent + +30% or"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "memorialiste",
+      "nom": "Mémorialiste",
+      "emoji": "📿",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il préserve la mémoire des défunts. Chaque vie perdue n'est jamais oubliée.",
+      "sort": {
+        "id": "sort_souvenir",
+        "nom": "Souvenir",
+        "emoji": "📿",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Invoque le souvenir d'un mercenaire vaincu : +20% stats équipe 2 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 2
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 10,
+        "erudition": 10
+      },
+      "affinites": [
+        "cimetiere",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "+10% stats équipe (mémoire des anciens)",
+        "modificateurs": {
+          "toutes": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% stats équipe (mémoire des anciens)"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "biographe_morts",
+      "nom": "Biographe des Morts",
+      "emoji": "✒️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il raconte leurs histoires pour qu'ils reposent en paix. Et parfois ils reviennent aider.",
+      "sort": {
+        "id": "sort_recit_heroique",
+        "nom": "Récit Héroïque",
+        "emoji": "✒️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Invoque l'esprit d'un héros légendaire pour 3 tours.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 22,
+        "erudition": 18
+      },
+      "affinites": [
+        "cimetiere",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "+15% stats équipe + esprits alliés parfois",
+        "modificateurs": {
+          "toutes": 0.15,
+          "espritsAllie": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% stats équipe + esprits alliés parfois"
+        },
+        {
+          "type": "creaAlliee",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% stats équipe + esprits alliés parfois"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "grand_chroniqueur",
+      "nom": "Grand Chroniqueur",
+      "emoji": "📖",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il préserve l'histoire de tous les morts du royaume. Les morts lui doivent tout.",
+      "sort": {
+        "id": "sort_chronique_eternelle",
+        "nom": "Chronique Éternelle",
+        "emoji": "📖",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Invoque 3 esprits légendaires qui combattent jusqu'à la fin.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 38,
+        "erudition": 30
+      },
+      "affinites": [
+        "cimetiere",
+        "bibliotheque"
+      ],
+      "bonusSoutien": {
+        "description": "+25% stats équipe + armée de spectres en soutien",
+        "modificateurs": {
+          "toutes": 0.25,
+          "armeSpectre": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% stats équipe + armée de spectres en soutien"
+        },
+        {
+          "type": "entiteAlliee",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% stats équipe + armée de spectres en soutien"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "instructeur",
+      "nom": "Instructeur",
+      "emoji": "📐",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il enseigne les techniques militaires avec méthode. Ses élèves progressent vite.",
+      "sort": {
+        "id": "sort_lecon",
+        "nom": "Leçon",
+        "emoji": "📐",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "+15% ATK et DEF toute l'équipe pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 10,
+        "tactique": 10
+      },
+      "affinites": [
+        "terrainEntrainement",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+10% ATK équipe (techniques enseignées)",
+        "modificateurs": {
+          "atk": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+10% ATK équipe (techniques enseignées)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "sergent",
+      "nom": "Sergent",
+      "emoji": "🎖️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il forme les recrues à la discipline militaire. Ses soldats ne fuient jamais.",
+      "sort": {
+        "id": "sort_ordre_discipline",
+        "nom": "Ordre et Discipline",
+        "emoji": "🎖️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Immunise l'équipe aux effets de peur et confusion pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 22,
+        "tactique": 20
+      },
+      "affinites": [
+        "terrainEntrainement",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+15% ATK + immunité peur et confusion",
+        "modificateurs": {
+          "atk": 0.15,
+          "immuniteEffets": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK + immunité peur et confusion"
+        },
+        {
+          "type": "immuniteEffets",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK + immunité peur et confusion"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "grand_instructeur",
+      "nom": "Grand Instructeur",
+      "emoji": "🏆",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Ses méthodes créent des légendes. Chaque mercenaire qu'il forme devient exceptionnel.",
+      "sort": {
+        "id": "sort_formation_elite",
+        "nom": "Formation d'Élite",
+        "emoji": "🏆",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+25% toutes stats équipe + les mercenaires gagnent +1 niveau supplémentaire après victoire.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 38,
+        "tactique": 35
+      },
+      "affinites": [
+        "terrainEntrainement",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": {
+        "description": "+25% toutes stats + +1 niveau bonus par victoire",
+        "modificateurs": {
+          "toutes": 0.25,
+          "niveauBonus": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.25,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+25% toutes stats + +1 niveau bonus par victoire"
+        },
+        {
+          "type": "niveauBonus",
+          "valeur": 1.0,
+          "cible": "guilde",
+          "moment": "horsJournee",
+          "estGlobal": true,
+          "description": "+25% toutes stats + +1 niveau bonus par victoire"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "specialiste_armes",
+      "nom": "Spécialiste des Armes",
+      "emoji": "⚔️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Expert en maniement et fabrication. Il sait utiliser et créer chaque arme.",
+      "sort": {
+        "id": "sort_entretien_armes",
+        "nom": "Entretien des Armes",
+        "emoji": "⚔️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+15% ATK équipe (armes parfaitement entretenues).",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 10,
+        "forge": 10
+      },
+      "affinites": [
+        "terrainEntrainement",
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+15% ATK équipe (armes entretenues)",
+        "modificateurs": {
+          "atk": 0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+15% ATK équipe (armes entretenues)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "preparateur",
+      "nom": "Préparateur",
+      "emoji": "🛠️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il équipe et entretient les mercenaires avant chaque combat. Rien ne cloche jamais.",
+      "sort": {
+        "id": "sort_preparation_optimale",
+        "nom": "Préparation Optimale",
+        "emoji": "🛠️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "+20% ATK + -15% dégâts reçus toute l'équipe pendant tout le combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 22,
+        "forge": 20
+      },
+      "affinites": [
+        "terrainEntrainement",
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+20% ATK + -15% dégâts reçus (préparation avant combat)",
+        "modificateurs": {
+          "atk": 0.2,
+          "degatsRecus": -0.15
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.2,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% ATK + -15% dégâts reçus (préparation avant combat)"
+        },
+        {
+          "type": "armure",
+          "valeur": -0.15,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+20% ATK + -15% dégâts reçus (préparation avant combat)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "arsenal_vivant",
+      "nom": "Arsenal Vivant",
+      "emoji": "🗡️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "entrainement",
+      "description": "Il connaît et manie toute arme existante à la perfection. Il est lui-même un arsenal.",
+      "sort": {
+        "id": "sort_maitrise_absolue",
+        "nom": "Maîtrise Absolue",
+        "emoji": "🗡️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+30% ATK + chaque mercenaire utilise l'arme parfaite pour la situation.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "entrainement": 38,
+        "forge": 35
+      },
+      "affinites": [
+        "terrainEntrainement",
+        "forge"
+      ],
+      "bonusSoutien": {
+        "description": "+30% ATK + arme adaptée à chaque ennemi (+10% dégâts supplémentaires)",
+        "modificateurs": {
+          "atk": 0.3,
+          "adaptationArme": 0.1
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atk",
+          "valeur": 0.3,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% ATK + arme adaptée à chaque ennemi (+10% dégâts supplémentaires)"
+        },
+        {
+          "type": "adaptationArme",
+          "valeur": 0.1,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+30% ATK + arme adaptée à chaque ennemi (+10% dégâts supplémentaires)"
+        }
+      ],
+      "role": "soutien"
+    },
+    {
+      "id": "exorciste",
+      "nom": "Exorciste",
+      "emoji": "🕯️",
+      "tier": "t2",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il combat les entités avec leur propre énergie. Les esprits le respectent et le craignent.",
+      "sort": {
+        "id": "sort_exorcisme",
+        "nom": "Exorcisme",
+        "emoji": "🕯️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Bannit une entité ennemie, -30% ATK pendant 3 tours.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 3
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 10,
+        "occultisme": 10
+      },
+      "affinites": [
+        "cimetiere",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-15% ATK ennemis magiques (exorcismes préventifs)",
+        "modificateurs": {
+          "atkEnnemis": -0.15
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.15,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-15% ATK ennemis magiques (exorcismes préventifs)"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "chasseur_demons",
+      "nom": "Chasseur de Démons",
+      "emoji": "⚡",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il traque ce que personne d'autre n'ose affronter. Son expérience est inestimable.",
+      "sort": {
+        "id": "sort_traque_demoniaque",
+        "nom": "Traque Démoniaque",
+        "emoji": "⚡",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Désigne un ennemi magique : +50% dégâts dessus pour toute l'équipe.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 22,
+        "occultisme": 18
+      },
+      "affinites": [
+        "cimetiere",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-25% ATK ennemis magiques + révèle leurs faiblesses",
+        "modificateurs": {
+          "atkEnnemis": -0.25,
+          "reveleFaiblesses": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.25,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-25% ATK ennemis magiques + révèle leurs faiblesses"
+        },
+        {
+          "type": "reveleFaiblesses",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-25% ATK ennemis magiques + révèle leurs faiblesses"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "inquisiteur_spectral",
+      "nom": "Inquisiteur Spectral",
+      "emoji": "👁️",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "communion",
+      "description": "Il juge les esprits et les vivants. Son verdict est sans appel.",
+      "sort": {
+        "id": "sort_jugement_spectral",
+        "nom": "Jugement Spectral",
+        "emoji": "👁️",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Condamne tous les ennemis magiques — dégâts doublés sur eux pour tout le combat.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "communion": 38,
+        "occultisme": 30
+      },
+      "affinites": [
+        "cimetiere",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-40% ATK ennemis magiques + immunité envoûtements",
+        "modificateurs": {
+          "atkEnnemis": -0.4,
+          "immuniteEnvoutement": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.4,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-40% ATK ennemis magiques + immunité envoûtements"
+        },
+        {
+          "type": "immuniteEnvoutement",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-40% ATK ennemis magiques + immunité envoûtements"
+        }
+      ],
+      "role": "invocateur"
+    },
+    {
+      "id": "maitre_espion_inf",
+      "nom": "Maître Espion",
+      "emoji": "🕶️",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il dirige un réseau d'informateurs invisible. Aucun secret ne lui résiste.",
+      "sort": {
+        "id": "sort_reseau_invisible",
+        "nom": "Réseau Invisible",
+        "emoji": "🕶️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Sabote les ennemis avant le combat : -20% toutes stats au round 1.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 1
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 30
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "-20% stats ennemies au premier round",
+        "modificateurs": {
+          "sabotageInitial": 0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "sabotageInitial",
+          "valeur": 0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-20% stats ennemies au premier round"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "ombre_supreme",
+      "nom": "Ombre Suprême",
+      "emoji": "🌑",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "infiltration",
+      "description": "Il n'existe officiellement pas. Son réseau couvre tout le royaume sans que personne le sache.",
+      "sort": {
+        "id": "sort_disparition_totale",
+        "nom": "Disparition Totale",
+        "emoji": "🌑",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "La guilde est immunisée aux attaques surprises. Les ennemis ne peuvent pas planifier contre elle.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "infiltration": 50
+      },
+      "affinites": [
+        "repaireDesOmbres",
+        "sanctuaireOmbres"
+      ],
+      "bonusSoutien": {
+        "description": "Immunité attaques surprises + -30% stats ennemies",
+        "modificateurs": {
+          "immuniteSuprise": 1.0,
+          "statsEnnemis": -0.3
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "immuniteSuprise",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Immunité attaques surprises + -30% stats ennemies"
+        },
+        {
+          "type": "statsEnnemis",
+          "valeur": -0.3,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "Immunité attaques surprises + -30% stats ennemies"
+        }
+      ],
+      "role": "opportuniste"
+    },
+    {
+      "id": "grand_ritualiste",
+      "nom": "Grand Ritualiste",
+      "emoji": "🔮",
+      "tier": "t3",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Ses rituels laissent des traces permanentes sur le monde. Il façonne la réalité.",
+      "sort": {
+        "id": "sort_rituel_majeur",
+        "nom": "Rituel Majeur",
+        "emoji": "🔮",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Affaiblit tous les ennemis de 30% pour tout le combat.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 30
+      },
+      "affinites": [
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-20% ATK ennemis (malédiction rituelle)",
+        "modificateurs": {
+          "atkEnnemis": -0.2
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.2,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-20% ATK ennemis (malédiction rituelle)"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "seigneur_rituels",
+      "nom": "Seigneur des Rituels",
+      "emoji": "👁‍🗨",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "occultisme",
+      "description": "Il façonne la réalité par ses rituels. Le monde lui obéit, même à contrecœur.",
+      "sort": {
+        "id": "sort_rituel_absolu",
+        "nom": "Rituel Absolu",
+        "emoji": "👁‍🗨",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Rituel dévastateur : -50% toutes stats ennemies + invoque une entité alliée.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "occultisme": 50
+      },
+      "affinites": [
+        "siteDeRituel"
+      ],
+      "bonusSoutien": {
+        "description": "-40% ATK ennemis + entité invoquée en soutien",
+        "modificateurs": {
+          "atkEnnemis": -0.4,
+          "entiteAlliee": 1.0
+        },
+        "estGlobal": true
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "atkEnnemis",
+          "valeur": -0.4,
+          "cible": "ennemis",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-40% ATK ennemis + entité invoquée en soutien"
+        },
+        {
+          "type": "entiteAlliee",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "-40% ATK ennemis + entité invoquée en soutien"
+        }
+      ],
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "legende_des_eaux",
+      "nom": "Légende des Eaux",
+      "emoji": "🌊",
+      "tier": "t4",
+      "type": "civil",
+      "arbre": "peche",
+      "description": "Les pêcheurs racontent son nom autour des feux. Ce qu'il remonte du lac change des vies.",
+      "sort": {
+        "id": "sort_prise_legendaire",
+        "nom": "Prise Légendaire",
+        "emoji": "🌊",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Remonte une créature légendaire des profondeurs — combat à ses côtés.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 999
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {
+        "peche": 50
+      },
+      "affinites": [
+        "lac"
+      ],
+      "bonusSoutien": {
+        "description": "+50% or après combat + créature légendaire en soutien",
+        "modificateurs": {
+          "orCombat": 0.5,
+          "creaLegendaire": 1.0
+        },
+        "estGlobal": false
+      },
+      "conditionSpeciale": null,
+      "passifs": [
+        {
+          "type": "orCombat",
+          "valeur": 0.5,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": true,
+          "description": "+50% or après combat + créature légendaire en soutien"
+        },
+        {
+          "type": "creaLegendaire",
+          "valeur": 1.0,
+          "cible": "combattants",
+          "moment": "avantCombat",
+          "estGlobal": false,
+          "description": "+50% or après combat + créature légendaire en soutien"
+        }
+      ],
+      "role": "invocateur"
+    }
+  ]
+}

@@ -1,0 +1,3326 @@
+{
+  "version": "1.0.0",
+  "minGameVersion": "1.0.0",
+  "description": "Classes combattantes — Tier 1 à Tier 4",
+  "changelog": {
+    "1.0.0": "Version initiale — 8 T1, 7 T2, 6 T3, 5 T4"
+  },
+  "classes": [
+    {
+      "id": "mercenaire",
+      "nom": "Mercenaire",
+      "emoji": "⚔️",
+      "tier": "base",
+      "type": "combattant",
+      "description": "Cinq manants sans passé connu, sans avenir certain. Ils ont signé pour l'argent. La gloire viendra peut-être après.",
+      "sort": {
+        "id": "sort_attaque_base",
+        "nom": "Attaque",
+        "emoji": "⚔️",
+        "type": "actif",
+        "cooldown": 0,
+        "description": "Une attaque physique basique.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {},
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "guerrier",
+      "nom": "Guerrier",
+      "emoji": "🗡️",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Un combattant endurci qui vit pour le fracas du métal. Sa force brute en fait une menace directe sur le champ de bataille.",
+      "sort": {
+        "id": "sort_frappe_brutale",
+        "nom": "Frappe Brutale",
+        "emoji": "🗡️",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Attaque dévastatrice ×1.8 dégâts sur un ennemi, repousse d'une position.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.8,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "declencheur": "toujours"
+        }
+      },
+      "reqStats": {
+        "FOR": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique",
+      "compagnon": {
+        "nom": "Chien de Guerre",
+        "emoji": "🐕",
+        "hpMulti": 0.5,
+        "atkMulti": 0.45,
+        "initiative": 6
+      }
+    },
+    {
+      "id": "rodeur",
+      "nom": "Rôdeur",
+      "emoji": "🏹",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Agile et discret, il se fond dans l'ombre pour frapper avec précision. Né pour la forêt et la traque.",
+      "sort": {
+        "id": "sort_tir_precis",
+        "nom": "Tir Précis",
+        "emoji": "🏹",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Tir ciblé ignorant le bouclier, dégâts normaux mais garantit un saignement.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 1.0,
+          "bonusFixe": 3,
+          "cible": "ennemicible",
+          "declencheur": "toujours"
+        }
+      },
+      "reqStats": {
+        "AGI": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Loup",
+        "emoji": "🐺",
+        "hpMulti": 0.45,
+        "atkMulti": 0.35,
+        "initiative": 7
+      }
+    },
+    {
+      "id": "apprenti_mage",
+      "nom": "Apprenti Mage",
+      "emoji": "🔮",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Ses premiers sorts tremblent encore, mais derrière ses yeux brûle la flamme d'un pouvoir immense à venir.",
+      "sort": {
+        "id": "sort_projectile_magique",
+        "nom": "Projectile Magique",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Inflige des dégâts magiques purs à un ennemi, ignore l'armure physique.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "declencheur": "toujours"
+        }
+      },
+      "reqStats": {
+        "INT": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "bibliotheque"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_magique"
+    },
+    {
+      "id": "sentinelle",
+      "nom": "Sentinelle",
+      "emoji": "🛡️",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Un mur de chair et d'acier. Il ne recule jamais, encaisse tout, protège les siens avec une constance de roc.",
+      "sort": {
+        "id": "sort_vigilance",
+        "nom": "Vigilance",
+        "emoji": "🛡️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "L'équipe ne peut jamais être surprise. +10% défense collective.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CON",
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {
+        "CON": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "filou",
+      "nom": "Filou",
+      "emoji": "🎲",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "La chance semble lui sourire — ou peut-être la fabrique-t-il lui-même. Imprévisible, dangereux, insaisissable.",
+      "sort": {
+        "id": "sort_coup_de_chance",
+        "nom": "Coup de Chance",
+        "emoji": "🎲",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Attaque aléatoire : 33% dégâts normaux, 33% dégâts ×2, 33% dégâts ×4 critique.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "CHA",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "aleatoire",
+          "declencheur": "toujours"
+        }
+      },
+      "reqStats": {
+        "CHA": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "salleDeJeux"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Rat Espion",
+        "emoji": "🐀",
+        "hpMulti": 0.35,
+        "atkMulti": 0.25,
+        "initiative": 9
+      }
+    },
+    {
+      "id": "heraut",
+      "nom": "Héraut",
+      "emoji": "🗣️",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Sa voix porte le moral de toute une compagnie. Les mots sont ses armes, et il sait s'en servir.",
+      "sort": {
+        "id": "sort_priere",
+        "nom": "Prière",
+        "emoji": "🙏",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Soigne le mercenaire le plus blessé de l'équipe de 15% HP.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": "CHR",
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "declencheur": "allieBasHP"
+        }
+      },
+      "reqStats": {
+        "CHR": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "temple"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien",
+      "compagnon": {
+        "nom": "Pigeon Messager",
+        "emoji": "🕊️",
+        "hpMulti": 0.35,
+        "atkMulti": 0.2,
+        "initiative": 8
+      }
+    },
+    {
+      "id": "eclaireur",
+      "nom": "Éclaireur",
+      "emoji": "👁️",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Rien ne lui échappe. Il voit ce que les autres ignorent, anticipe ce que personne n'attend.",
+      "sort": {
+        "id": "sort_reperage",
+        "nom": "Repérage",
+        "emoji": "👁️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Toujours en initiative. Révèle les ennemis cachés. +15% précision équipe.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": "PER",
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {
+        "PER": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Corbeau",
+        "emoji": "🐦‍⬛",
+        "hpMulti": 0.4,
+        "atkMulti": 0.3,
+        "initiative": 8
+      }
+    },
+    {
+      "id": "colosse",
+      "nom": "Colosse",
+      "emoji": "💪",
+      "tier": "t1",
+      "type": "combattant",
+      "description": "Une montagne faite homme. Sa résistance est légendaire — là où les autres tombent, lui continue.",
+      "sort": {
+        "id": "sort_resistance_brute",
+        "nom": "Résistance Brute",
+        "emoji": "💪",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Réduit tous les dégâts reçus de 10%. Immunisé aux étourdissements.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "END",
+          "multiplicateur": 0.1,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur",
+      "compagnon": {
+        "nom": "Tortue Blindée",
+        "emoji": "🐢",
+        "hpMulti": 0.8,
+        "atkMulti": 0.2,
+        "initiative": 3
+      }
+    },
+    {
+      "id": "berserker",
+      "nom": "Berserker",
+      "emoji": "⚔️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "La rage le consume en combat. Il ne s'arrête pas — il ne peut plus s'arrêter.",
+      "sort": {
+        "id": "sort_rage_sanguinaire",
+        "nom": "Rage Sanguinaire",
+        "emoji": "🔥",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Entre en rage : +40% ATK et vitesse, -20% DEF pendant 3 tours. Chaque kill prolonge de 1 tour.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "FOR",
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "FOR": 12,
+        "AGI": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique",
+      "compagnon": {
+        "nom": "Sanglier Enragé",
+        "emoji": "🐗",
+        "hpMulti": 0.65,
+        "atkMulti": 0.65,
+        "initiative": 5
+      }
+    },
+    {
+      "id": "chevalier",
+      "nom": "Chevalier",
+      "emoji": "🏇",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "L'honneur et l'acier. Il charge sans hésiter, protège sans fléchir.",
+      "sort": {
+        "id": "sort_charge",
+        "nom": "Charge",
+        "emoji": "🏇",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Charge à travers les ennemis : frappe tous ceux en ligne, le premier est étourdi 1 tour.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "declencheur": "premierTour"
+        }
+      },
+      "reqStats": {
+        "FOR": 10,
+        "CON": 7
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "tourDeGarde",
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "duelliste",
+      "nom": "Duelliste",
+      "emoji": "🗡️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Rapide comme l'éclair, précis comme la mort. Il ne rate jamais sa cible.",
+      "sort": {
+        "id": "sort_riposte",
+        "nom": "Riposte",
+        "emoji": "🗡️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "25% de chance de contrer chaque attaque ennemie pour 100% des dégâts reçus.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "AGI",
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "AGI": 12,
+        "CHA": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "pyromancien",
+      "nom": "Pyromancien",
+      "emoji": "🔥",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Le feu obéit à ses gestes. Là où il passe, les cendres restent.",
+      "sort": {
+        "id": "sort_boule_de_feu",
+        "nom": "Boule de Feu",
+        "emoji": "🔥",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Explosion de feu touchant 3 ennemis : dégâts INT×1.5, brûlure 2 tours.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 2,
+          "declencheur": "ennemisGroupes"
+        }
+      },
+      "reqStats": {
+        "INT": 12,
+        "FOR": 5
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "bibliotheque",
+        "siteDeRituel"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_magique"
+    },
+    {
+      "id": "voleur",
+      "nom": "Voleur",
+      "emoji": "🗡️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Rapide, silencieux, fatal. Il frappe avant que la cible ne comprenne ce qui se passe.",
+      "sort": {
+        "id": "sort_coup_bas",
+        "nom": "Coup Bas",
+        "emoji": "🗡️",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Attaque surprise : ×2 dégâts si l'ennemi n'a pas encore agi ce tour.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "declencheur": "premierTour"
+        }
+      },
+      "reqStats": {
+        "AGI": 10,
+        "CHA": 7
+      },
+      "reqSubstats": {
+        "infiltration": 5
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste"
+    },
+    {
+      "id": "capitaine",
+      "nom": "Capitaine",
+      "emoji": "📣",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Sous ses ordres, une troupe de soldats épuisés devient une armée.",
+      "sort": {
+        "id": "sort_cri_de_guerre",
+        "nom": "Cri de Guerre",
+        "emoji": "📣",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "+25% ATK et moral pour toute l'équipe pendant 3 tours. Immunité à la peur.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "CHR",
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3,
+          "declencheur": "premierTour"
+        }
+      },
+      "reqStats": {
+        "CHR": 10,
+        "FOR": 7
+      },
+      "reqSubstats": {
+        "tactique": 5
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien",
+      "compagnon": {
+        "nom": "Cheval de Guerre",
+        "emoji": "🐴",
+        "hpMulti": 0.7,
+        "atkMulti": 0.55,
+        "initiative": 7
+      }
+    },
+    {
+      "id": "moine",
+      "nom": "Moine",
+      "emoji": "🧘",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Corps et esprit fondus en une seule arme. Sa discipline est sa force.",
+      "sort": {
+        "id": "sort_frappe_tonnerre",
+        "nom": "Frappe du Tonnerre",
+        "emoji": "⚡",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Coup dévastateur sans arme : ×2 dégâts, ignore toute armure, repousse l'ennemi.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "END",
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "declencheur": "toujours"
+        }
+      },
+      "reqStats": {
+        "END": 10,
+        "CON": 7
+      },
+      "reqSubstats": {
+        "devotion": 5
+      },
+      "affinites": [
+        "temple"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soigneur"
+    },
+    {
+      "id": "champion",
+      "nom": "Champion",
+      "emoji": "⚔️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Le meilleur parmi les meilleurs. Sur l'arène ou le champ de bataille, son nom inspire la crainte.",
+      "sort": {
+        "id": "sort_defi_champion",
+        "nom": "Défi du Champion",
+        "emoji": "🏆",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Provoque tous les ennemis à l'attaquer lui seul pendant 2 tours, reçoit -50% dégâts ce temps.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": "FOR",
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "FOR": 25,
+        "END": 12,
+        "AGI": 8
+      },
+      "reqSubstats": {
+        "entrainement": 10
+      },
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "paladin",
+      "nom": "Paladin",
+      "emoji": "🧿",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Foi et acier fusionnés en un seul être. Il porte la lumière dans les ténèbres.",
+      "sort": {
+        "id": "sort_bouclier_divin",
+        "nom": "Bouclier Divin",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Bouclier sacré sur un allié : absorbe 60% dégâts et soigne 10 HP/tour pendant 3 tours.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CHR",
+          "multiplicateur": 0.6,
+          "bonusFixe": 10,
+          "cible": "allieBlesse",
+          "duree": 3,
+          "declencheur": "allieBasHP"
+        }
+      },
+      "reqStats": {
+        "FOR": 18,
+        "CON": 15,
+        "CHR": 8
+      },
+      "reqSubstats": {
+        "devotion": 10
+      },
+      "affinites": [
+        "temple",
+        "tourDeGarde"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "necromancien",
+      "nom": "Nécromancien",
+      "emoji": "☠️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "La mort n'est qu'un début pour lui. Il commande aux morts comme d'autres commandent aux vivants.",
+      "sort": {
+        "id": "sort_armee_morts",
+        "nom": "Armée des Morts",
+        "emoji": "💀",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Invoque 2 squelettes + 1 zombie pendant 3 tours depuis les cadavres ennemis.",
+        "effet": {
+          "typeEffet": "invocation",
+          "statBase": "INT",
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "INT": 20,
+        "CHA": 15
+      },
+      "reqSubstats": {
+        "occultisme": 10
+      },
+      "affinites": [
+        "siteDeRituel",
+        "cimetiere"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "invocateur",
+      "compagnon": {
+        "nom": "Squelette Serviteur",
+        "emoji": "💀",
+        "hpMulti": 0.55,
+        "atkMulti": 0.5,
+        "initiative": 5
+      }
+    },
+    {
+      "id": "archimage",
+      "nom": "Archimage",
+      "emoji": "🧙",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Son pouvoir dépasse l'entendement. Chaque sort qu'il lance remodèle un peu la réalité.",
+      "sort": {
+        "id": "sort_chaine_eclairs",
+        "nom": "Chaîne d'Éclairs",
+        "emoji": "⚡",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Éclair qui rebondit sur 4 ennemis, chaque rebond inflige 80% des dégâts précédents.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 1.8,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "declencheur": "ennemisGroupes"
+        }
+      },
+      "reqStats": {
+        "INT": 25,
+        "AGI": 12
+      },
+      "reqSubstats": {
+        "erudition": 10
+      },
+      "affinites": [
+        "bibliotheque"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_magique"
+    },
+    {
+      "id": "assassin",
+      "nom": "Assassin",
+      "emoji": "🌑",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il n'existe que dans l'ombre. Sa cible ne le voit jamais — jusqu'à ce qu'il soit trop tard.",
+      "sort": {
+        "id": "sort_execution",
+        "nom": "Exécution",
+        "emoji": "🗡️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Frappe mortelle : dégâts ×3 sur un ennemi, mais révèle la position.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "declencheur": "ennemiBassHP"
+        }
+      },
+      "reqStats": {
+        "AGI": 22,
+        "PER": 15
+      },
+      "reqSubstats": {
+        "infiltration": 10
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste"
+    },
+    {
+      "id": "marechal",
+      "nom": "Maréchal",
+      "emoji": "🏛️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Des batailles entières pliaient à sa stratégie. Il ne gagne pas les combats, il gagne les guerres.",
+      "sort": {
+        "id": "sort_strategie_guerre",
+        "nom": "Stratégie de Guerre",
+        "emoji": "🗺️",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Réorganise l'équipe en formation optimale : chaque mercenaire reçoit +20% à sa stat principale.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "CHR",
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "declencheur": "premierTour"
+        }
+      },
+      "reqStats": {
+        "CHR": 22,
+        "FOR": 12,
+        "PER": 8
+      },
+      "reqSubstats": {
+        "tactique": 10
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien",
+      "compagnon": {
+        "nom": "Destrier Légendaire",
+        "emoji": "🐴",
+        "hpMulti": 0.85,
+        "atkMulti": 0.7,
+        "initiative": 8
+      }
+    },
+    {
+      "id": "dieu_guerre",
+      "nom": "Dieu de la Guerre",
+      "emoji": "⚡",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Au-delà de l'humain. Sur le champ de bataille, il est une force de la nature. Les ennemis fuient rien qu'à l'entendre.",
+      "sort": {
+        "id": "sort_avatar_guerre",
+        "nom": "Avatar de Guerre",
+        "emoji": "⚡",
+        "type": "actif",
+        "cooldown": 9,
+        "description": "Se transforme en demi-dieu pendant 4 tours : ×3 ATK, immunité totale, frappe tous les ennemis par tour.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "FOR",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 4
+        }
+      },
+      "reqStats": {
+        "FOR": 40,
+        "AGI": 20,
+        "END": 15
+      },
+      "reqSubstats": {
+        "entrainement": 15
+      },
+      "affinites": [
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique",
+      "compagnon": {
+        "nom": "Ours de Guerre",
+        "emoji": "🐻",
+        "hpMulti": 0.9,
+        "atkMulti": 0.9,
+        "initiative": 6
+      }
+    },
+    {
+      "id": "gardien_eternel",
+      "nom": "Gardien Éternel",
+      "emoji": "🛡️",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Indestructible. Il a renoncé à toute ambition sauf une — que personne ne passe.",
+      "sort": {
+        "id": "sort_forteresse_vivante",
+        "nom": "Forteresse Vivante",
+        "emoji": "🏰",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Immunisé aux dégâts critiques. Absorbe 30% des dégâts subis par les alliés.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CON",
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {
+        "CON": 38,
+        "FOR": 22,
+        "END": 20
+      },
+      "reqSubstats": {
+        "tactique": 12
+      },
+      "affinites": [
+        "tourDeGarde",
+        "infirmerie"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "seigneur_liche",
+      "nom": "Seigneur Liche",
+      "emoji": "☠️",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il a transcendé la mort. Son âme est enfermée ailleurs, et rien dans ce monde ne peut le tuer.",
+      "sort": {
+        "id": "sort_phylactere",
+        "nom": "Phylactère",
+        "emoji": "💎",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Si tué, ressuscite avec 50% HP. Une fois par combat. Immunise aux CC 2 tours.",
+        "effet": {
+          "typeEffet": "resurrection",
+          "statBase": "INT",
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 2,
+          "declencheur": "seulEnCombat"
+        }
+      },
+      "reqStats": {
+        "INT": 35,
+        "CHA": 25
+      },
+      "reqSubstats": {
+        "occultisme": 15
+      },
+      "affinites": [
+        "siteDeRituel",
+        "cimetiere"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "invocateur",
+      "compagnon": {
+        "nom": "Spectre Ancien",
+        "emoji": "👻",
+        "hpMulti": 0.85,
+        "atkMulti": 0.75,
+        "initiative": 6
+      }
+    },
+    {
+      "id": "roi_mercenaires",
+      "nom": "Roi des Mercenaires",
+      "emoji": "👑",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "De la boue à la gloire. Il a tout vécu, tout surmonté — et il règne maintenant sur les siens.",
+      "sort": {
+        "id": "sort_decret_royal",
+        "nom": "Décret Royal",
+        "emoji": "👑",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Tous les alliés passent en mode berserker divin : ×2 toutes les stats pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "CHR",
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "CHR": 38,
+        "FOR": 22,
+        "PER": 15
+      },
+      "reqSubstats": {
+        "tactique": 15
+      },
+      "affinites": [
+        "tourDeGarde",
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien",
+      "compagnon": {
+        "nom": "Griffon Royal",
+        "emoji": "🦁",
+        "hpMulti": 1.0,
+        "atkMulti": 0.9,
+        "initiative": 10
+      }
+    },
+    {
+      "id": "ombre_eternelle",
+      "nom": "Ombre Éternelle",
+      "emoji": "🌑",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il n'appartient plus au monde des vivants ni à celui des morts. Il existe entre les deux.",
+      "sort": {
+        "id": "sort_danse_mort",
+        "nom": "Danse de la Mort",
+        "emoji": "🌑",
+        "type": "actif",
+        "cooldown": 8,
+        "description": "Frappe chaque ennemi une fois en un seul tour, devient invisible après chaque frappe.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "AGI": 38,
+        "PER": 22,
+        "CHA": 12
+      },
+      "reqSubstats": {
+        "infiltration": 15
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Esprit du Néant",
+        "emoji": "🌑",
+        "hpMulti": 0.9,
+        "atkMulti": 1.0,
+        "initiative": 15
+      }
+    },
+    {
+      "id": "forgeron_guerrier",
+      "nom": "Forgeron-Guerrier",
+      "emoji": "⚒️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il forge ses propres armes entre deux combats. Chaque bataille l'améliore.",
+      "sort": {
+        "id": "sort_lame_forgee",
+        "nom": "Lame Forgée",
+        "emoji": "⚒️",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "+30% ATK prochain coup, perce l'armure.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "FOR": 10
+      },
+      "reqSubstats": {
+        "forge": 5
+      },
+      "affinites": [
+        "forge"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "armurier_guerre",
+      "nom": "Armurier de Guerre",
+      "emoji": "🔧",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Son armure est une œuvre d'art. Ses ennemis brisent leurs armes sur lui.",
+      "sort": {
+        "id": "sort_armure_refoргée",
+        "nom": "Armure Renforcée",
+        "emoji": "🛡️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Réduit tous les dégâts reçus de 50% pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "FOR": 18,
+        "END": 10
+      },
+      "reqSubstats": {
+        "forge": 12
+      },
+      "affinites": [
+        "forge",
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "forge_par_le_sang",
+      "nom": "Forgé par le Sang",
+      "emoji": "🔥",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Son corps est l'acier. Ses blessures le rendent plus fort, pas plus faible.",
+      "sort": {
+        "id": "sort_trempe_sang",
+        "nom": "Trempé dans le Sang",
+        "emoji": "🔥",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Chaque blessure reçue augmente définitivement son ATK de 2%.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "FOR",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "FOR": 35,
+        "END": 18
+      },
+      "reqSubstats": {
+        "forge": 20
+      },
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "archer_elite",
+      "nom": "Archer d'Élite",
+      "emoji": "🏹",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Sa précision est mortelle. À cette distance, personne ne lui échappe.",
+      "sort": {
+        "id": "sort_tir_precis",
+        "nom": "Tir Précis",
+        "emoji": "🏹",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Dégâts ×1.8, ignore 30% armure.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 1.8,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "AGI": 12
+      },
+      "reqSubstats": {
+        "nature": 0
+      },
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Loup Alpha",
+        "emoji": "🐺",
+        "hpMulti": 0.6,
+        "atkMulti": 0.5,
+        "initiative": 8
+      }
+    },
+    {
+      "id": "duelliste_magique",
+      "nom": "Duelliste Magique",
+      "emoji": "✨",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Lame et sort ne font qu'un dans ses mains. Imprévisible au combat.",
+      "sort": {
+        "id": "sort_lame_arcane",
+        "nom": "Lame Arcane",
+        "emoji": "✨",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Attaque physique + décharge magique simultanées.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 1.4,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "AGI": 10,
+        "INT": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_magique",
+      "compagnon": {
+        "nom": "Renard Arcane",
+        "emoji": "🦊",
+        "hpMulti": 0.55,
+        "atkMulti": 0.45,
+        "initiative": 9
+      }
+    },
+    {
+      "id": "maitre_archer",
+      "nom": "Maître Archer",
+      "emoji": "🎯",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Une flèche, plusieurs cibles. Il ne gaspille jamais un tir.",
+      "sort": {
+        "id": "sort_pluie_fleches",
+        "nom": "Pluie de Flèches",
+        "emoji": "🎯",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Frappe tous les ennemis, dégâts réduits de 30% par cible supplémentaire.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "AGI": 22,
+        "PER": 10
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Faucon de Guerre",
+        "emoji": "🦅",
+        "hpMulti": 0.7,
+        "atkMulti": 0.65,
+        "initiative": 10
+      }
+    },
+    {
+      "id": "danseur_lame",
+      "nom": "Danseur de Lame",
+      "emoji": "💫",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il virevolte entre les lames. Personne ne peut le toucher quand il danse.",
+      "sort": {
+        "id": "sort_danse_lame",
+        "nom": "Danse de Lame",
+        "emoji": "💫",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Esquive toutes les attaques pendant 2 tours, contre-attaque magique.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "AGI": 20,
+        "INT": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_magique",
+      "compagnon": {
+        "nom": "Panthère Noire",
+        "emoji": "🐈‍⬛",
+        "hpMulti": 0.65,
+        "atkMulti": 0.7,
+        "initiative": 11
+      }
+    },
+    {
+      "id": "maitre_assassin",
+      "nom": "Maître Assassin",
+      "emoji": "🗡️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il exécute en silence. Ses victimes ne comprennent jamais ce qui s'est passé.",
+      "sort": {
+        "id": "sort_execution_silencieuse",
+        "nom": "Exécution Silencieuse",
+        "emoji": "🗡️",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Tue instantanément une cible sous 20% HP.",
+        "effet": {
+          "typeEffet": "execution",
+          "statBase": "AGI",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "AGI": 22,
+        "PER": 15
+      },
+      "reqSubstats": {
+        "infiltration": 10
+      },
+      "affinites": [
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Serpent Venimeux",
+        "emoji": "🐍",
+        "hpMulti": 0.5,
+        "atkMulti": 0.8,
+        "initiative": 12
+      }
+    },
+    {
+      "id": "archer_celeste",
+      "nom": "Archer Céleste",
+      "emoji": "⭐",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Ses flèches traversent les dimensions. La distance n'a plus de sens pour lui.",
+      "sort": {
+        "id": "sort_fleche_celeste",
+        "nom": "Flèche Céleste",
+        "emoji": "⭐",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Flèche qui traverse tous les ennemis, dégâts maximaux à chacun.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "AGI",
+          "multiplicateur": 2.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "AGI": 38,
+        "PER": 20
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Aigle Céleste",
+        "emoji": "🦅",
+        "hpMulti": 0.85,
+        "atkMulti": 0.8,
+        "initiative": 13
+      }
+    },
+    {
+      "id": "marchombre",
+      "nom": "Marchombre",
+      "emoji": "🌑",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Mi-mage mi-fantôme. Il glisse entre les lames comme une ombre entre les flammes.",
+      "sort": {
+        "id": "sort_pas_ombre",
+        "nom": "Pas de l'Ombre",
+        "emoji": "🌑",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Devient intangible 1 tour, frappe depuis l'ombre avec dégâts ×3.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "AGI": 35,
+        "INT": 22
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_magique",
+      "compagnon": {
+        "nom": "Ombre Vivante",
+        "emoji": "👤",
+        "hpMulti": 0.75,
+        "atkMulti": 0.9,
+        "initiative": 14
+      }
+    },
+    {
+      "id": "enchanteur",
+      "nom": "Enchanteur",
+      "emoji": "🔮",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Un regard suffit. Ses ennemis se battent pour lui sans le savoir.",
+      "sort": {
+        "id": "sort_charme",
+        "nom": "Charme",
+        "emoji": "🔮",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Prend le contrôle d'un ennemi pendant 2 tours.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "INT": 12
+      },
+      "reqSubstats": {
+        "occultisme": 0
+      },
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "controle"
+    },
+    {
+      "id": "psionique",
+      "nom": "Psionique",
+      "emoji": "🧠",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il attaque l'esprit directement. L'armure ne sert à rien contre lui.",
+      "sort": {
+        "id": "sort_assaut_mental",
+        "nom": "Assaut Mental",
+        "emoji": "🧠",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Dégâts magiques purs, ignore toute résistance et armure.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "INT": 25,
+        "PER": 10
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_magique"
+    },
+    {
+      "id": "guerrier_runique",
+      "nom": "Guerrier Runique",
+      "emoji": "⚡",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il grave des runes sur son corps. Chacune lui confère un pouvoir.",
+      "sort": {
+        "id": "sort_rune_de_feu",
+        "nom": "Rune de Feu",
+        "emoji": "⚡",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Frappe physique + explosion runique, dégâts mixtes.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.6,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "INT": 20,
+        "FOR": 15
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_magique"
+    },
+    {
+      "id": "lich_apprenti",
+      "nom": "Lich Apprenti",
+      "emoji": "💀",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Sa transformation a commencé. Il ne mange plus. Il ne dort plus vraiment.",
+      "sort": {
+        "id": "sort_drain_vital",
+        "nom": "Drain Vital",
+        "emoji": "💀",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Vole 30% HP d'un ennemi et les ajoute aux siens.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": "INT",
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "INT": 20,
+        "CHA": 15
+      },
+      "reqSubstats": {
+        "occultisme": 10
+      },
+      "affinites": [
+        "siteDeRituel",
+        "cimetiere"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "effet_nefaste",
+      "compagnon": {
+        "nom": "Zombie Renforcé",
+        "emoji": "🧟",
+        "hpMulti": 0.7,
+        "atkMulti": 0.6,
+        "initiative": 4
+      }
+    },
+    {
+      "id": "dieu_psique",
+      "nom": "Dieu Psïque",
+      "emoji": "🌀",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Chaque esprit lui est ouvert comme un livre. Il contrôle sans effort.",
+      "sort": {
+        "id": "sort_domination_absolue",
+        "nom": "Domination Absolue",
+        "emoji": "🌀",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Contrôle tous les ennemis pendant 1 tour.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 1
+        }
+      },
+      "reqStats": {
+        "INT": 40,
+        "CHA": 20,
+        "PER": 15
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "controle"
+    },
+    {
+      "id": "titan_feu",
+      "nom": "Titan de Feu",
+      "emoji": "🌋",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Son corps est devenu pure énergie. Toucher son armure brûle.",
+      "sort": {
+        "id": "sort_explosion_corporelle",
+        "nom": "Explosion Corporelle",
+        "emoji": "🌋",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "S'embrase, infligeant des dégâts massifs à tous les ennemis.",
+        "effet": {
+          "typeEffet": "degatsMagiques",
+          "statBase": "INT",
+          "multiplicateur": 2.8,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "INT": 38,
+        "FOR": 25
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_magique"
+    },
+    {
+      "id": "roc",
+      "nom": "Roc",
+      "emoji": "🪨",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il ne bouge pas. Il n'a jamais bougé. Les ennemis s'épuisent contre lui.",
+      "sort": {
+        "id": "sort_mur_immuable",
+        "nom": "Mur Immuable",
+        "emoji": "🪨",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Immunisé aux effets de déplacement et de contrôle.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 0.3,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CON": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "rempart_con",
+      "nom": "Rempart",
+      "emoji": "🛡️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il absorbe les coups pour ses alliés. Sa présence change tout.",
+      "sort": {
+        "id": "sort_couverture",
+        "nom": "Couverture",
+        "emoji": "🛡️",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Intercepte toutes les attaques sur un allié pendant 2 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "CON": 10,
+        "END": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "saint_guerrier",
+      "nom": "Saint Guerrier",
+      "emoji": "✝️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Sa foi le protège. Les coups qui devraient le tuer glissent sur lui.",
+      "sort": {
+        "id": "sort_grace_divine",
+        "nom": "Grâce Divine",
+        "emoji": "✝️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Soigne 25% HP + bénédiction +20% résistance 3 tours.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "CON": 10
+      },
+      "reqSubstats": {
+        "devotion": 5
+      },
+      "affinites": [
+        "temple"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soigneur"
+    },
+    {
+      "id": "monolithe",
+      "nom": "Monolithe",
+      "emoji": "⬛",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Tant qu'il est debout, ses alliés ne peuvent pas être ciblés.",
+      "sort": {
+        "id": "sort_presencemonolithique",
+        "nom": "Présence Monolithique",
+        "emoji": "⬛",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Les ennemis doivent le cibler en priorité absolue.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CON": 25,
+        "END": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "reflecteur",
+      "nom": "Réflecteur",
+      "emoji": "🔄",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Chaque coup reçu lui revient. Frapper fort contre lui, c'est se blesser.",
+      "sort": {
+        "id": "sort_renvoi_degats",
+        "nom": "Renvoi de Dégâts",
+        "emoji": "🔄",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Renvoie 40% des dégâts reçus à l'attaquant.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CON",
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CON": 20,
+        "END": 15
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "croise_penitent",
+      "nom": "Croisé Pénitent",
+      "emoji": "🩸",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il souffre pour eux. Chaque coup qu'il prend à leur place le grandit.",
+      "sort": {
+        "id": "sort_transfert_douleur",
+        "nom": "Transfert de Douleur",
+        "emoji": "🩸",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Absorbe les dégâts d'un allié sur lui-même ce tour.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 1
+        }
+      },
+      "reqStats": {
+        "CON": 18,
+        "CHR": 10
+      },
+      "reqSubstats": {
+        "devotion": 10
+      },
+      "affinites": [
+        "temple",
+        "infirmerie"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soigneur"
+    },
+    {
+      "id": "dernier_rempart",
+      "nom": "Dernier Rempart",
+      "emoji": "💢",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Plus il saigne, plus il devient invulnérable. La mort hésite devant lui.",
+      "sort": {
+        "id": "sort_ultime_resistance",
+        "nom": "Ultime Résistance",
+        "emoji": "💢",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "En dessous de 30% HP, réduit tous les dégâts reçus à 1.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CON",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CON": 38,
+        "END": 20
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "armure_vivante",
+      "nom": "Armure Vivante",
+      "emoji": "⚙️",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Son corps est devenu une arme. Chaque contact déchire.",
+      "sort": {
+        "id": "sort_corps_arme",
+        "nom": "Corps-Arme",
+        "emoji": "⚙️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Chaque ennemi qui l'attaque reçoit des dégâts physiques en retour.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CON",
+          "multiplicateur": 0.6,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CON": 35,
+        "END": 22
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "sacrifice_eternel",
+      "nom": "Sacrifice Éternel",
+      "emoji": "👼",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il meurt à la place de ses alliés. Puis revient. Encore et encore.",
+      "sort": {
+        "id": "sort_mort_vicaire",
+        "nom": "Mort Vicaire",
+        "emoji": "👼",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Si un allié doit mourir, meurt à sa place et revient au round suivant.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CON": 32,
+        "CHR": 20
+      },
+      "reqSubstats": {
+        "devotion": 15
+      },
+      "affinites": [
+        "temple"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soigneur"
+    },
+    {
+      "id": "chanceux",
+      "nom": "Chanceux",
+      "emoji": "🍀",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "La chance l'aime. Les coups fatals le ratent. Toujours. Presque.",
+      "sort": {
+        "id": "sort_coup_de_chance",
+        "nom": "Coup de Chance",
+        "emoji": "🍀",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Esquive automatiquement 1 coup fatal par combat.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CHA",
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CHA": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Chat Chanceux",
+        "emoji": "🐱",
+        "hpMulti": 0.5,
+        "atkMulti": 0.35,
+        "initiative": 10
+      }
+    },
+    {
+      "id": "barde",
+      "nom": "Barde",
+      "emoji": "🎵",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Ses chants changent le cours des batailles. Ennemis et alliés l'écoutent.",
+      "sort": {
+        "id": "sort_chant_bataille",
+        "nom": "Chant de Bataille",
+        "emoji": "🎵",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "+20% ATK toute l'équipe pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "CHA": 10,
+        "CHR": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien",
+      "compagnon": {
+        "nom": "Perroquet Charmeur",
+        "emoji": "🦜",
+        "hpMulti": 0.45,
+        "atkMulti": 0.3,
+        "initiative": 11
+      }
+    },
+    {
+      "id": "arnaqueur",
+      "nom": "Arnaqueur",
+      "emoji": "🪙",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Chaque frappe lui rapporte quelque chose. Combat ou commerce, c'est pareil.",
+      "sort": {
+        "id": "sort_vol_combat",
+        "nom": "Vol en Combat",
+        "emoji": "🪙",
+        "type": "actif",
+        "cooldown": 2,
+        "description": "Frappe + vole 15% or de l'ennemi.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "CHA",
+          "multiplicateur": 1.2,
+          "bonusFixe": 0,
+          "cible": "ennemicible"
+        }
+      },
+      "reqStats": {
+        "CHA": 10
+      },
+      "reqSubstats": {
+        "commerce": 5
+      },
+      "affinites": [
+        "boutique"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste"
+    },
+    {
+      "id": "favori_dieux",
+      "nom": "Favori des Dieux",
+      "emoji": "⚡",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Un coup sur deux le rate. Les dieux jouent ses dés à sa place.",
+      "sort": {
+        "id": "sort_chance_divine",
+        "nom": "Chance Divine",
+        "emoji": "⚡",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "50% de chance d'esquiver chaque attaque.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CHA",
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CHA": 25,
+        "PER": 10
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste"
+    },
+    {
+      "id": "marionnettiste_destin",
+      "nom": "Marionnettiste du Destin",
+      "emoji": "🎭",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il tire les fils invisibles. Les ennemis se battent entre eux sans comprendre.",
+      "sort": {
+        "id": "sort_fils_destin",
+        "nom": "Fils du Destin",
+        "emoji": "🎭",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Force un ennemi à attaquer ses propres alliés pendant 2 tours.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "CHA": 22,
+        "CHR": 15
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "controle",
+      "compagnon": {
+        "nom": "Renard Mystique",
+        "emoji": "🦊",
+        "hpMulti": 0.7,
+        "atkMulti": 0.65,
+        "initiative": 12
+      }
+    },
+    {
+      "id": "malandrin",
+      "nom": "Malandrin",
+      "emoji": "🃏",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Chaque frappe lui prend quelque chose. Force, agilité, chance — tout est à prendre.",
+      "sort": {
+        "id": "sort_vol_stat",
+        "nom": "Vol de Stat",
+        "emoji": "🃏",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Vole une stat aléatoire à l'ennemi pendant 3 tours.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": "CHA",
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "CHA": 20,
+        "AGI": 12
+      },
+      "reqSubstats": {
+        "commerce": 10
+      },
+      "affinites": [
+        "boutique",
+        "repaireDesOmbres"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "effet_nefaste"
+    },
+    {
+      "id": "destin_incarne",
+      "nom": "Destin Incarné",
+      "emoji": "✨",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il ne peut pas mourir si ses alliés sont encore debout. Le destin l'a décidé.",
+      "sort": {
+        "id": "sort_invincibilite_conditionnelle",
+        "nom": "Bouclier du Destin",
+        "emoji": "✨",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Immunisé à la mort tant qu'au moins 1 allié est en vie.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CHA",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CHA": 38,
+        "PER": 18
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Phénix du Destin",
+        "emoji": "🦅",
+        "hpMulti": 0.9,
+        "atkMulti": 0.8,
+        "initiative": 14
+      }
+    },
+    {
+      "id": "seigneur_marionnettes",
+      "nom": "Seigneur des Marionnettes",
+      "emoji": "🎪",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Deux ennemis dansent à ses ordres. Il n'a même plus besoin de frapper.",
+      "sort": {
+        "id": "sort_double_marionnette",
+        "nom": "Double Marionnette",
+        "emoji": "🎪",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "Contrôle 2 ennemis simultanément pendant 2 tours.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "aleatoire",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "CHA": 35,
+        "CHR": 22
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "controle"
+    },
+    {
+      "id": "roi_marche_noir",
+      "nom": "Roi du Marché Noir",
+      "emoji": "💎",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Chaque combat est une opportunité. Il repart toujours plus riche.",
+      "sort": {
+        "id": "sort_jackpot",
+        "nom": "Jackpot",
+        "emoji": "💎",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Chaque combat rapporte 3× plus d'or.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "CHA",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "CHA": 32,
+        "AGI": 18
+      },
+      "reqSubstats": {
+        "commerce": 15
+      },
+      "affinites": [
+        "boutique"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste"
+    },
+    {
+      "id": "orateur",
+      "nom": "Orateur",
+      "emoji": "📣",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Ses discours changent tout avant le combat. Les ennemis doutent, les alliés croient.",
+      "sort": {
+        "id": "sort_discours_inspire",
+        "nom": "Discours Inspiré",
+        "emoji": "📣",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "+25% ATK et +20% DEF toute l'équipe avant le combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "CHR": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "tacticien",
+      "nom": "Tacticien",
+      "emoji": "🗺️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il voit le champ de bataille comme personne. Chaque ordre est parfait.",
+      "sort": {
+        "id": "sort_ordre_precis",
+        "nom": "Ordre Précis",
+        "emoji": "🗺️",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Un allié agit immédiatement hors de son tour.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {
+        "CHR": 10,
+        "PER": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "grand_orateur",
+      "nom": "Grand Orateur",
+      "emoji": "🔊",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Sa voix paralyse. Les ennemis l'entendent et n'osent plus avancer.",
+      "sort": {
+        "id": "sort_voix_paralysante",
+        "nom": "Voix Paralysante",
+        "emoji": "🔊",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Paralyse tous les ennemis au premier round.",
+        "effet": {
+          "typeEffet": "controle",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis",
+          "duree": 1
+        }
+      },
+      "reqStats": {
+        "CHR": 25,
+        "CHA": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "controle"
+    },
+    {
+      "id": "stratege_royal",
+      "nom": "Stratège Royal",
+      "emoji": "👑",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il repositionne l'équipe chaque round. Ses alliés ne prennent jamais un mauvais coup.",
+      "sort": {
+        "id": "sort_repositionnement",
+        "nom": "Repositionnement",
+        "emoji": "👑",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Annule les dégâts d'une attaque ennemie et repositionne l'équipe.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {
+        "CHR": 22,
+        "PER": 15
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "general_legendaire",
+      "nom": "Général Légendaire",
+      "emoji": "🏆",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Sous ses ordres, chaque victoire compte double. Les mercenaires grandissent vite.",
+      "sort": {
+        "id": "sort_commandement_inspire",
+        "nom": "Commandement Inspiré",
+        "emoji": "🏆",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Chaque victoire sous ses ordres donne +2 niveaux d'expérience à l'équipe.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "CHR",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {
+        "CHR": 22,
+        "FOR": 12
+      },
+      "reqSubstats": {
+        "tactique": 10
+      },
+      "affinites": [
+        "tourDeGarde",
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "legende_vivante",
+      "nom": "Légende Vivante",
+      "emoji": "⭐",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Sa seule présence double les stats. Les ennemis reculent avant même de combattre.",
+      "sort": {
+        "id": "sort_aura_legendaire",
+        "nom": "Aura Légendaire",
+        "emoji": "⭐",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Double toutes les stats de l'équipe en début de combat.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 999
+        }
+      },
+      "reqStats": {
+        "CHR": 40,
+        "CHA": 20
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "grand_stratege",
+      "nom": "Grand Stratège",
+      "emoji": "🧩",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "En cas de défaite critique, ses ordres minimisent les pertes. Personne ne finit à terre.",
+      "sort": {
+        "id": "sort_retraite_ordonnee",
+        "nom": "Retraite Ordonnée",
+        "emoji": "🧩",
+        "type": "actif",
+        "cooldown": 6,
+        "description": "En cas de défaite inévitable, réduit à 0 les blessures subies.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 1
+        }
+      },
+      "reqStats": {
+        "CHR": 38,
+        "PER": 22
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "imperator",
+      "nom": "Imperator",
+      "emoji": "👁️",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Sous ses ordres, les mercenaires ne peuvent pas être blessés. Sa volonté les protège.",
+      "sort": {
+        "id": "sort_volonte_imperiale",
+        "nom": "Volonté Impériale",
+        "emoji": "👁️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Les mercenaires sous ses ordres sont immunisés aux blessures permanentes.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "CHR",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {
+        "CHR": 35,
+        "FOR": 20
+      },
+      "reqSubstats": {
+        "tactique": 15
+      },
+      "affinites": [
+        "tourDeGarde"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "soutien"
+    },
+    {
+      "id": "scout",
+      "nom": "Scout",
+      "emoji": "👁️",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il prévient toujours les embuscades. La guilde ne sera jamais surprise.",
+      "sort": {
+        "id": "sort_detection",
+        "nom": "Détection",
+        "emoji": "👁️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Immunise l'équipe aux embuscades, révèle les ennemis cachés.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousAllies"
+        }
+      },
+      "reqStats": {
+        "PER": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Corbeau Éclaireur",
+        "emoji": "🐦‍⬛",
+        "hpMulti": 0.55,
+        "atkMulti": 0.4,
+        "initiative": 9
+      }
+    },
+    {
+      "id": "chasseur_tetes",
+      "nom": "Chasseur de Têtes",
+      "emoji": "🎯",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Vitesse et instinct. Il frappe avant que l'ennemi ait fini de décider.",
+      "sort": {
+        "id": "sort_premier_sang",
+        "nom": "Premier Sang",
+        "emoji": "🎯",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Frappe toujours en premier, dégâts +30% au round 1.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": "AGI",
+          "multiplicateur": 1.3,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "PER": 10,
+        "AGI": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Lynx Traqueur",
+        "emoji": "🐱",
+        "hpMulti": 0.6,
+        "atkMulti": 0.55,
+        "initiative": 10
+      }
+    },
+    {
+      "id": "rodeur_bois",
+      "nom": "Rôdeur des Bois",
+      "emoji": "🌿",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il fusionne avec l'environnement naturel. En forêt, il est invisible.",
+      "sort": {
+        "id": "sort_camouflage",
+        "nom": "Camouflage",
+        "emoji": "🌿",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Devient invisible 2 tours, prochaine attaque ×2.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 2.0,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "PER": 10
+      },
+      "reqSubstats": {
+        "nature": 5
+      },
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Cerf des Bois",
+        "emoji": "🦌",
+        "hpMulti": 0.65,
+        "atkMulti": 0.45,
+        "initiative": 8
+      }
+    },
+    {
+      "id": "maitre_eclaireur",
+      "nom": "Maître Éclaireur",
+      "emoji": "🔭",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il révèle toute la zone avant le combat. Zéro surprise, zéro piège.",
+      "sort": {
+        "id": "sort_reconnaissance_totale",
+        "nom": "Reconnaissance Totale",
+        "emoji": "🔭",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle toutes les faiblesses ennemies avant le combat.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": null,
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "PER": 25,
+        "AGI": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Aigle Chasseur",
+        "emoji": "🦅",
+        "hpMulti": 0.75,
+        "atkMulti": 0.6,
+        "initiative": 11
+      }
+    },
+    {
+      "id": "chasseur_legendaire",
+      "nom": "Chasseur Légendaire",
+      "emoji": "🏹",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Aucune proie ne lui échappe. L'invisible devient visible, le rapide devient lent.",
+      "sort": {
+        "id": "sort_marque_traque",
+        "nom": "Marque de Traque",
+        "emoji": "🏹",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Cible marquée ne peut ni fuir ni être soignée pendant 3 tours.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": "PER",
+          "multiplicateur": 0,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "PER": 22,
+        "AGI": 18
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Loup de Meute",
+        "emoji": "🐺",
+        "hpMulti": 0.8,
+        "atkMulti": 0.7,
+        "initiative": 12
+      }
+    },
+    {
+      "id": "esprit_foret",
+      "nom": "Esprit de la Forêt",
+      "emoji": "🌳",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il est devenu une extension de la nature. En terrain naturel, il est insaisissable.",
+      "sort": {
+        "id": "sort_un_avec_la_foret",
+        "nom": "Un avec la Forêt",
+        "emoji": "🌳",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Régénère 15% HP/round et esquive 60% des attaques pendant 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.15,
+          "bonusFixe": 0,
+          "cible": "soi",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "PER": 20,
+        "AGI": 12
+      },
+      "reqSubstats": {
+        "nature": 10
+      },
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Cerf Sacré",
+        "emoji": "🦌",
+        "hpMulti": 0.85,
+        "atkMulti": 0.65,
+        "initiative": 10
+      }
+    },
+    {
+      "id": "oeil_absolu",
+      "nom": "Œil Absolu",
+      "emoji": "👁",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il révèle les faiblesses cachées de tout. Rien ne lui est inconnu.",
+      "sort": {
+        "id": "sort_vision_absolue",
+        "nom": "Vision Absolue",
+        "emoji": "👁",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Révèle et amplifie toutes les faiblesses de tous les ennemis +50% dégâts.",
+        "effet": {
+          "typeEffet": "passifInit",
+          "statBase": "PER",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "PER": 40,
+        "INT": 18
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "opportuniste",
+      "compagnon": {
+        "nom": "Faucon Omniscient",
+        "emoji": "🦅",
+        "hpMulti": 0.9,
+        "atkMulti": 0.75,
+        "initiative": 14
+      }
+    },
+    {
+      "id": "apex_predateur",
+      "nom": "Apex Prédateur",
+      "emoji": "🦁",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "La proie désignée ne peut ni fuir ni se soigner. La chasse ne finit qu'avec sa mort.",
+      "sort": {
+        "id": "sort_sentence_mort",
+        "nom": "Sentence de Mort",
+        "emoji": "🦁",
+        "type": "actif",
+        "cooldown": 5,
+        "description": "Cible désignée : immunisée aux soins, ne peut pas fuir, dégâts ×1.5.",
+        "effet": {
+          "typeEffet": "debuff",
+          "statBase": "PER",
+          "multiplicateur": 1.5,
+          "bonusFixe": 0,
+          "cible": "ennemicible",
+          "duree": 999
+        }
+      },
+      "reqStats": {
+        "PER": 38,
+        "AGI": 22
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Tigre Légendaire",
+        "emoji": "🐯",
+        "hpMulti": 0.95,
+        "atkMulti": 0.95,
+        "initiative": 13
+      }
+    },
+    {
+      "id": "incarnation_sylvestre",
+      "nom": "Incarnation Sylvestre",
+      "emoji": "🍃",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il est devenu la nature elle-même. Hors de portée de tout ce qui n'est pas naturel.",
+      "sort": {
+        "id": "sort_nature_incarnee",
+        "nom": "Nature Incarnée",
+        "emoji": "🍃",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Immunisé aux dégâts magiques en terrain naturel, régénère 20% HP/round.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "PER",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "PER": 35,
+        "AGI": 20
+      },
+      "reqSubstats": {
+        "nature": 15
+      },
+      "affinites": [
+        "foret"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "distance_physique",
+      "compagnon": {
+        "nom": "Esprit Sylvestre",
+        "emoji": "🌿",
+        "hpMulti": 1.0,
+        "atkMulti": 0.85,
+        "initiative": 11
+      }
+    },
+    {
+      "id": "bloc_pierre",
+      "nom": "Bloc de Pierre",
+      "emoji": "🧱",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Chaque dégât reçu réduit le prochain de moitié. Il apprend de chaque coup.",
+      "sort": {
+        "id": "sort_absorption_progressive",
+        "nom": "Absorption Progressive",
+        "emoji": "🧱",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Chaque coup reçu réduit le suivant de 10%, jusqu'à 50%.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "END",
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "titan_end",
+      "nom": "Titan",
+      "emoji": "💪",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Force et endurance fusionnées. Il renverse tout sur son passage.",
+      "sort": {
+        "id": "sort_charge_titan",
+        "nom": "Charge du Titan",
+        "emoji": "💪",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Charge irrésistible, repousse tous les ennemis et inflige dégâts massifs.",
+        "effet": {
+          "typeEffet": "degatsPhysiques",
+          "statBase": "FOR",
+          "multiplicateur": 1.8,
+          "bonusFixe": 0,
+          "cible": "tousEnnemis"
+        }
+      },
+      "reqStats": {
+        "END": 10,
+        "FOR": 7
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique",
+      "compagnon": {
+        "nom": "Rhinocéros de Fer",
+        "emoji": "🦏",
+        "hpMulti": 1.0,
+        "atkMulti": 0.4,
+        "initiative": 4
+      }
+    },
+    {
+      "id": "mangeur_guerre",
+      "nom": "Mangeur de Guerre",
+      "emoji": "🍖",
+      "tier": "t2",
+      "type": "combattant",
+      "description": "Il se nourrit en combat. Chaque ennemi vaincu devient de l'énergie.",
+      "sort": {
+        "id": "sort_devorer",
+        "nom": "Dévorer",
+        "emoji": "🍖",
+        "type": "actif",
+        "cooldown": 3,
+        "description": "Récupère 20% HP après chaque ennemi vaincu ce tour.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": "END",
+          "multiplicateur": 0.2,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 10
+      },
+      "reqSubstats": {
+        "cuisine": 5
+      },
+      "affinites": [
+        "cuisine"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "roc_vivant",
+      "nom": "Roc Vivant",
+      "emoji": "⛰️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Après 5 coups reçus, son corps devient temporairement indestructible.",
+      "sort": {
+        "id": "sort_peau_roc",
+        "nom": "Peau de Roc",
+        "emoji": "⛰️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Après 5 coups reçus, immunisé à tous les dégâts pendant 2 tours.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "END",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 25,
+        "CON": 12
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "berserker_immortel",
+      "nom": "Berserker Immortel",
+      "emoji": "⚔️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Plus il est blessé, plus il frappe fort. La douleur est son carburant.",
+      "sort": {
+        "id": "sort_rage_blessure",
+        "nom": "Rage de la Blessure",
+        "emoji": "⚔️",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "+5% ATK pour chaque 10% HP perdus, maximum +50%.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "FOR",
+          "multiplicateur": 0.5,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 22,
+        "FOR": 15
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "goinfre_legendaire",
+      "nom": "Goinfre Légendaire",
+      "emoji": "😤",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Il dévore les ennemis vaincus pour récupérer des HP. Efficace et brutal.",
+      "sort": {
+        "id": "sort_festin_combat",
+        "nom": "Festin de Combat",
+        "emoji": "😤",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Récupère 25% HP à chaque ennemi vaincu.",
+        "effet": {
+          "typeEffet": "soin",
+          "statBase": "END",
+          "multiplicateur": 0.25,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 20,
+        "CON": 12
+      },
+      "reqSubstats": {
+        "cuisine": 10
+      },
+      "affinites": [
+        "cuisine"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "pierre_eternelle",
+      "nom": "Pierre Éternelle",
+      "emoji": "💠",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il ne peut plus être tué. Seulement assommé temporairement.",
+      "sort": {
+        "id": "sort_immortalite_pierre",
+        "nom": "Immortalité de Pierre",
+        "emoji": "💠",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Ne peut pas mourir. Si HP tombe à 0, assommé 1 tour puis se relève à 1 HP.",
+        "effet": {
+          "typeEffet": "passifDefense",
+          "statBase": "END",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 42,
+        "CON": 20
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "demon_guerre",
+      "nom": "Démon de Guerre",
+      "emoji": "👹",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "À 10% HP, il devient incontrôlable. Sa fureur dépasse tout ce qui est humain.",
+      "sort": {
+        "id": "sort_berserk_final",
+        "nom": "Berserk Final",
+        "emoji": "👹",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "En dessous de 10% HP : ATK ×3, immunisé contrôle, attaque 2× par round.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "FOR",
+          "multiplicateur": 3.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 38,
+        "FOR": 25
+      },
+      "reqSubstats": {},
+      "affinites": [],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique",
+      "compagnon": {
+        "nom": "Mammouth Infernal",
+        "emoji": "🐘",
+        "hpMulti": 1.2,
+        "atkMulti": 0.6,
+        "initiative": 3
+      }
+    },
+    {
+      "id": "ogre_sacre",
+      "nom": "Ogre Sacré",
+      "emoji": "🫀",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il se nourrit des vaincus et devient colossal. Chaque combat le fait grandir.",
+      "sort": {
+        "id": "sort_croissance_ogre",
+        "nom": "Croissance de l'Ogre",
+        "emoji": "🫀",
+        "type": "passif",
+        "cooldown": 0,
+        "description": "Chaque ennemi vaincu augmente définitivement ses stats de 1%.",
+        "effet": {
+          "typeEffet": "passifAtk",
+          "statBase": "END",
+          "multiplicateur": 1.0,
+          "bonusFixe": 0,
+          "cible": "soi"
+        }
+      },
+      "reqStats": {
+        "END": 35,
+        "CON": 20
+      },
+      "reqSubstats": {
+        "cuisine": 15
+      },
+      "affinites": [
+        "cuisine"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "melee_physique"
+    },
+    {
+      "id": "templier",
+      "nom": "Templier",
+      "emoji": "⚔️",
+      "tier": "t3",
+      "type": "combattant",
+      "description": "Foi, acier et force brute. Il protège ses frères d'armes avec une violence sacrée.",
+      "sort": {
+        "id": "sort_bouclier_sacre",
+        "nom": "Bouclier Sacré",
+        "emoji": "⚔️",
+        "type": "actif",
+        "cooldown": 4,
+        "description": "Protège un allié et contre-attaque avec force sacrée.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": "FOR",
+          "multiplicateur": 1.4,
+          "bonusFixe": 0,
+          "cible": "allieBlesse",
+          "duree": 2
+        }
+      },
+      "reqStats": {
+        "FOR": 18,
+        "CON": 15,
+        "CHR": 8
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "temple",
+        "terrainEntrainement"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    },
+    {
+      "id": "roi_croise",
+      "nom": "Roi Croisé",
+      "emoji": "👑",
+      "tier": "t4",
+      "type": "combattant",
+      "description": "Il commande et protège en même temps. Son aura bénit toute son armée.",
+      "sort": {
+        "id": "sort_croisade",
+        "nom": "Croisade",
+        "emoji": "👑",
+        "type": "actif",
+        "cooldown": 7,
+        "description": "Buff massif +40% toutes stats équipe + immunité aux debuffs 3 tours.",
+        "effet": {
+          "typeEffet": "buff",
+          "statBase": null,
+          "multiplicateur": 0.4,
+          "bonusFixe": 0,
+          "cible": "tousAllies",
+          "duree": 3
+        }
+      },
+      "reqStats": {
+        "FOR": 30,
+        "CON": 22,
+        "CHR": 15
+      },
+      "reqSubstats": {},
+      "affinites": [
+        "temple"
+      ],
+      "bonusSoutien": null,
+      "conditionSpeciale": null,
+      "role": "protecteur"
+    }
+  ]
+}

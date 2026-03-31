@@ -1,0 +1,440 @@
+{
+  "version": "1.0.0",
+  "recettes": [
+
+    // ════════════════════════════════════
+    // BUREAU DE RECRUTEMENT
+    // Ressource base : debris_bois
+    // ════════════════════════════════════
+    {
+      "id": "bureauDeRecrutement_0_1",
+      "batiment": "bureauDeRecrutement",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Reconstruire le Bureau",
+      "or": 50,
+      "objets": { "debris_bois": 8 }
+    },
+    {
+      "id": "bureauDeRecrutement_1_2",
+      "batiment": "bureauDeRecrutement",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Agrandir le Bureau",
+      "or": 150,
+      "objets": { "debris_bois": 20, "bois_robuste": 5 }
+    },
+    {
+      "id": "bureauDeRecrutement_2_3",
+      "batiment": "bureauDeRecrutement",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Bureau de Recrutement Légendaire",
+      "or": 500,
+      "objets": { "debris_bois": 60, "bois_robuste": 20, "pierre_rare": 3 }
+    },
+
+    // ════════════════════════════════════
+    // DORTOIR
+    // Ressource base : debris_bois
+    // ════════════════════════════════════
+    {
+      "id": "dortoir_0_1",
+      "batiment": "dortoir",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Reconstruire le Dortoir",
+      "or": 60,
+      "objets": { "debris_bois": 10 }
+    },
+    {
+      "id": "dortoir_1_2",
+      "batiment": "dortoir",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Agrandir le Dortoir",
+      "or": 180,
+      "objets": { "debris_bois": 25, "bois_robuste": 8 }
+    },
+    {
+      "id": "dortoir_2_3",
+      "batiment": "dortoir",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Grand Dortoir",
+      "or": 550,
+      "objets": { "debris_bois": 70, "bois_robuste": 25, "soie_araignee": 4 }
+    },
+
+    // ════════════════════════════════════
+    // CUISINE
+    // Ressource base : debris_bois + herbe_medicinale
+    // ════════════════════════════════════
+    {
+      "id": "cuisine_0_1",
+      "batiment": "cuisine",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Reconstruire la Cuisine",
+      "or": 55,
+      "objets": { "debris_bois": 8, "herbe_medicinale": 5 }
+    },
+    {
+      "id": "cuisine_1_2",
+      "batiment": "cuisine",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Cuisine Améliorée",
+      "or": 160,
+      "objets": { "debris_bois": 20, "herbe_medicinale": 15, "bois_robuste": 5 }
+    },
+    {
+      "id": "cuisine_2_3",
+      "batiment": "cuisine",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Grande Cuisine",
+      "or": 520,
+      "objets": { "debris_bois": 60, "herbe_medicinale": 45, "bois_robuste": 18, "cristal_soin": 3 }
+    },
+
+    // ════════════════════════════════════
+    // FORGE
+    // Ressource base : eclat_pierre
+    // ════════════════════════════════════
+    {
+      "id": "forge_0_1",
+      "batiment": "forge",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Reconstruire la Forge",
+      "or": 80,
+      "objets": { "eclat_pierre": 12 }
+    },
+    {
+      "id": "forge_1_2",
+      "batiment": "forge",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Forge Renforcée",
+      "or": 220,
+      "objets": { "eclat_pierre": 35, "minerai_commun": 8 }
+    },
+    {
+      "id": "forge_2_3",
+      "batiment": "forge",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Grande Forge",
+      "or": 650,
+      "objets": { "eclat_pierre": 80, "minerai_commun": 25, "pierre_rare": 5, "acier_noir": 2 }
+    },
+
+    // ════════════════════════════════════
+    // INFIRMERIE
+    // Ressource base : eclat_pierre + herbe_medicinale
+    // ════════════════════════════════════
+    {
+      "id": "infirmerie_0_1",
+      "batiment": "infirmerie",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Reconstruire l'Infirmerie",
+      "or": 70,
+      "objets": { "eclat_pierre": 8, "herbe_medicinale": 8 }
+    },
+    {
+      "id": "infirmerie_1_2",
+      "batiment": "infirmerie",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Infirmerie Améliorée",
+      "or": 200,
+      "objets": { "eclat_pierre": 25, "herbe_medicinale": 30, "cristal_soin": 3 }
+    },
+    {
+      "id": "infirmerie_2_3",
+      "batiment": "infirmerie",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Hôpital de Guilde",
+      "or": 600,
+      "objets": { "eclat_pierre": 65, "herbe_medicinale": 80, "cristal_soin": 10, "essence_magique": 3 }
+    },
+
+    // ════════════════════════════════════
+    // BIBLIOTHÈQUE
+    // Ressource base : vieux_parchemin
+    // ════════════════════════════════════
+    {
+      "id": "bibliotheque_0_1",
+      "batiment": "bibliotheque",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Construire la Bibliothèque",
+      "or": 90,
+      "objets": { "vieux_parchemin": 12, "eclat_pierre": 6 }
+    },
+    {
+      "id": "bibliotheque_1_2",
+      "batiment": "bibliotheque",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Grande Bibliothèque",
+      "or": 250,
+      "objets": { "vieux_parchemin": 35, "eclat_pierre": 15, "encre_runique": 6 }
+    },
+    {
+      "id": "bibliotheque_2_3",
+      "batiment": "bibliotheque",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Bibliothèque des Arcanes",
+      "or": 700,
+      "objets": { "vieux_parchemin": 90, "eclat_pierre": 35, "encre_runique": 20, "fragment_liche": 3 }
+    },
+
+    // ════════════════════════════════════
+    // TAVERNE
+    // Ressource base : debris_bois
+    // ════════════════════════════════════
+    {
+      "id": "taverne_0_1",
+      "batiment": "taverne",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Reconstruire la Taverne",
+      "or": 65,
+      "objets": { "debris_bois": 12 }
+    },
+    {
+      "id": "taverne_1_2",
+      "batiment": "taverne",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Taverne Animée",
+      "or": 190,
+      "objets": { "debris_bois": 28, "bois_robuste": 8, "herbe_medicinale": 10 }
+    },
+    {
+      "id": "taverne_2_3",
+      "batiment": "taverne",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Grande Taverne",
+      "or": 570,
+      "objets": { "debris_bois": 70, "bois_robuste": 22, "herbe_medicinale": 30, "pierre_rare": 3 }
+    },
+
+    // ════════════════════════════════════
+    // TOUR DE GARDE
+    // Ressource base : eclat_pierre
+    // ════════════════════════════════════
+    {
+      "id": "tourDeGarde_0_1",
+      "batiment": "tourDeGarde",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Construire la Tour de Garde",
+      "or": 100,
+      "objets": { "eclat_pierre": 15 }
+    },
+    {
+      "id": "tourDeGarde_1_2",
+      "batiment": "tourDeGarde",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Tour Renforcée",
+      "or": 280,
+      "objets": { "eclat_pierre": 40, "minerai_commun": 10 }
+    },
+    {
+      "id": "tourDeGarde_2_3",
+      "batiment": "tourDeGarde",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Citadelle de Garde",
+      "or": 750,
+      "objets": { "eclat_pierre": 90, "minerai_commun": 28, "pierre_rare": 6, "os_dragon": 2 }
+    },
+
+    // ════════════════════════════════════
+    // TERRAIN D'ENTRAÎNEMENT
+    // Ressource base : debris_bois + eclat_pierre
+    // ════════════════════════════════════
+    {
+      "id": "terrainEntrainement_0_1",
+      "batiment": "terrainEntrainement",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Construire le Terrain",
+      "or": 85,
+      "objets": { "debris_bois": 10, "eclat_pierre": 8 }
+    },
+    {
+      "id": "terrainEntrainement_1_2",
+      "batiment": "terrainEntrainement",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Terrain Amélioré",
+      "or": 230,
+      "objets": { "debris_bois": 30, "eclat_pierre": 20, "minerai_commun": 6 }
+    },
+    {
+      "id": "terrainEntrainement_2_3",
+      "batiment": "terrainEntrainement",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Arène d'Élite",
+      "or": 680,
+      "objets": { "debris_bois": 75, "eclat_pierre": 55, "minerai_commun": 20, "acier_noir": 3, "os_dragon": 1 }
+    },
+
+    // ════════════════════════════════════
+    // SITE DE RITUEL
+    // Ressource base : vieux_parchemin + eclat_pierre
+    // ════════════════════════════════════
+    {
+      "id": "siteDeRituel_0_1",
+      "batiment": "siteDeRituel",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Construire le Site de Rituel",
+      "or": 110,
+      "objets": { "vieux_parchemin": 10, "eclat_pierre": 10 }
+    },
+    {
+      "id": "siteDeRituel_1_2",
+      "batiment": "siteDeRituel",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Cercle des Ombres",
+      "or": 300,
+      "objets": { "vieux_parchemin": 30, "eclat_pierre": 20, "encre_runique": 8, "essence_magique": 2 }
+    },
+    {
+      "id": "siteDeRituel_2_3",
+      "batiment": "siteDeRituel",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Temple des Arcanes Noires",
+      "or": 800,
+      "objets": { "vieux_parchemin": 80, "eclat_pierre": 45, "encre_runique": 25, "essence_magique": 8, "fragment_liche": 4 }
+    },
+
+    // ════════════════════════════════════
+    // TEMPLE
+    // Ressource base : eclat_pierre + vieux_parchemin
+    // ════════════════════════════════════
+    {
+      "id": "temple_0_1",
+      "batiment": "temple",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Construire le Temple",
+      "or": 120,
+      "objets": { "eclat_pierre": 15, "vieux_parchemin": 8 }
+    },
+    {
+      "id": "temple_1_2",
+      "batiment": "temple",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Temple Sacré",
+      "or": 320,
+      "objets": { "eclat_pierre": 40, "vieux_parchemin": 25, "pierre_rare": 4, "cristal_soin": 4 }
+    },
+    {
+      "id": "temple_2_3",
+      "batiment": "temple",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Grand Temple Divin",
+      "or": 850,
+      "objets": { "eclat_pierre": 90, "vieux_parchemin": 60, "pierre_rare": 12, "cristal_soin": 10, "coeur_vampire": 3 }
+    },
+
+    // ════════════════════════════════════
+    // REPAIRE DES OMBRES
+    // Ressource base : vieux_parchemin + debris_bois
+    // ════════════════════════════════════
+    {
+      "id": "repaireDesOmbres_0_1",
+      "batiment": "repaireDesOmbres",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Aménager le Repaire",
+      "or": 95,
+      "objets": { "vieux_parchemin": 8, "debris_bois": 12 }
+    },
+    {
+      "id": "repaireDesOmbres_1_2",
+      "batiment": "repaireDesOmbres",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Repaire Étendu",
+      "or": 260,
+      "objets": { "vieux_parchemin": 25, "debris_bois": 35, "soie_araignee": 6 }
+    },
+    {
+      "id": "repaireDesOmbres_2_3",
+      "batiment": "repaireDesOmbres",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Guilde des Ombres",
+      "or": 720,
+      "objets": { "vieux_parchemin": 70, "debris_bois": 80, "soie_araignee": 18, "acier_noir": 3, "os_dragon": 1 }
+    },
+
+    // ════════════════════════════════════
+    // LAC / ÉTANG
+    // Ressource base : debris_bois + herbe_medicinale
+    // ════════════════════════════════════
+    {
+      "id": "lac_0_1",
+      "batiment": "lac",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Aménager le Lac",
+      "or": 60,
+      "objets": { "debris_bois": 8, "herbe_medicinale": 6 }
+    },
+    {
+      "id": "lac_1_2",
+      "batiment": "lac",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Lac Élargi",
+      "or": 170,
+      "objets": { "debris_bois": 22, "herbe_medicinale": 18, "bois_robuste": 6 }
+    },
+    {
+      "id": "lac_2_3",
+      "batiment": "lac",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Lac des Profondeurs",
+      "or": 530,
+      "objets": { "debris_bois": 60, "herbe_medicinale": 50, "bois_robuste": 18, "soie_araignee": 5, "cristal_ancien": 1 }
+    },
+
+    // ════════════════════════════════════
+    // CIMETIÈRE
+    // Ressource base : eclat_pierre + vieux_parchemin
+    // ════════════════════════════════════
+    {
+      "id": "cimetiere_0_1",
+      "batiment": "cimetiere",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Construire le Cimetière",
+      "or": 130,
+      "objets": { "eclat_pierre": 12, "vieux_parchemin": 10, "coeur_vampire": 1 }
+    },
+    {
+      "id": "cimetiere_1_2",
+      "batiment": "cimetiere",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Cimetière des Anciens",
+      "or": 380,
+      "objets": { "eclat_pierre": 35, "vieux_parchemin": 28, "coeur_vampire": 3, "fragment_liche": 2 }
+    },
+    {
+      "id": "cimetiere_2_3",
+      "batiment": "cimetiere",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Nécropole",
+      "or": 900,
+      "objets": { "eclat_pierre": 80, "vieux_parchemin": 70, "coeur_vampire": 8, "fragment_liche": 6, "cristal_ancien": 2 }
+    },
+
+    // ════════════════════════════════════
+    // BOUTIQUE
+    // Ressource base : debris_bois + eclat_pierre
+    // ════════════════════════════════════
+    {
+      "id": "boutique_0_1",
+      "batiment": "boutique",
+      "niveauDe": 0, "niveauVers": 1,
+      "nom": "Ouvrir la Boutique",
+      "or": 75,
+      "objets": { "debris_bois": 10, "eclat_pierre": 6 }
+    },
+    {
+      "id": "boutique_1_2",
+      "batiment": "boutique",
+      "niveauDe": 1, "niveauVers": 2,
+      "nom": "Boutique Prospère",
+      "or": 210,
+      "objets": { "debris_bois": 28, "eclat_pierre": 18, "bois_robuste": 8 }
+    },
+    {
+      "id": "boutique_2_3",
+      "batiment": "boutique",
+      "niveauDe": 2, "niveauVers": 3,
+      "nom": "Marché de Guilde",
+      "or": 620,
+      "objets": { "debris_bois": 70, "eclat_pierre": 45, "bois_robuste": 22, "pierre_rare": 4, "acier_noir": 2 }
+    }
+  ]
+}

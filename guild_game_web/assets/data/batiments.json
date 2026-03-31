@@ -1,0 +1,329 @@
+{
+  "version": "1.0.0",
+  "minGameVersion": "1.0.0",
+  "description": "Batiments, substats et lieux secrets",
+  "changelog": {
+    "1.0.0": "Version initiale"
+  },
+  "batiments": [
+    {
+      "id": "foret",
+      "nom": "Foret Sacree",
+      "emoji": "🌲",
+      "cout": 80,
+      "substat": "nature",
+      "secret": false,
+      "description": "La nature parle a ceux qui savent ecouter."
+    },
+    {
+      "id": "cuisine",
+      "nom": "Cuisine",
+      "emoji": "🍳",
+      "cout": 60,
+      "substat": "cuisine",
+      "secret": false,
+      "description": "Alchimie culinaire et nutrition de combat."
+    },
+    {
+      "id": "forge",
+      "nom": "Forge",
+      "emoji": "🔨",
+      "cout": 100,
+      "substat": "forge",
+      "secret": false,
+      "description": "Armes et armures forgees sur mesure."
+    },
+    {
+      "id": "bibliotheque",
+      "nom": "Bibliotheque",
+      "emoji": "📚",
+      "cout": 90,
+      "substat": "erudition",
+      "secret": false,
+      "description": "Le savoir est une arme."
+    },
+    {
+      "id": "laboratoire",
+      "nom": "Laboratoire",
+      "emoji": "🧪",
+      "cout": 150,
+      "substat": "alchimie",
+      "secret": false,
+      "description": "Transmutation et potions de combat."
+    },
+    {
+      "id": "lac",
+      "nom": "Lac de Peche",
+      "emoji": "🎣",
+      "cout": 50,
+      "substat": "peche",
+      "secret": false,
+      "description": "Patience et ressources des profondeurs."
+    },
+    {
+      "id": "tourDeGarde",
+      "nom": "Tour de Garde",
+      "emoji": "🛡️",
+      "cout": 70,
+      "substat": "tactique",
+      "secret": false,
+      "description": "Surveiller, planifier, commander."
+    },
+    {
+      "id": "temple",
+      "nom": "Temple",
+      "emoji": "⛪",
+      "cout": 120,
+      "substat": "devotion",
+      "secret": false,
+      "description": "La foi protege ceux qui croient."
+    },
+    {
+      "id": "siteDeRituel",
+      "nom": "Site de Rituel",
+      "emoji": "🕯️",
+      "cout": 130,
+      "substat": "occultisme",
+      "secret": false,
+      "description": "Les forces obscures repondent aux appels."
+    },
+    {
+      "id": "repaireDesOmbres",
+      "nom": "Repaire des Ombres",
+      "emoji": "🗝️",
+      "cout": 110,
+      "substat": "infiltration",
+      "secret": false,
+      "description": "Rien ne lui echappe dans l'obscurite."
+    },
+    {
+      "id": "infirmerie",
+      "nom": "Infirmerie",
+      "emoji": "🏥",
+      "cout": 80,
+      "substat": "soin",
+      "secret": false,
+      "description": "Soigner les corps et les ames."
+    },
+    {
+      "id": "boutique",
+      "nom": "Boutique",
+      "emoji": "🏪",
+      "cout": 90,
+      "substat": "commerce",
+      "secret": false,
+      "description": "Vendre au meilleur prix."
+    },
+    {
+      "id": "bureauDeRecrutement",
+      "nom": "Bureau de Recrutement",
+      "emoji": "📋",
+      "cout": 0,
+      "substat": null,
+      "secret": false,
+      "description": "Recruter les meilleurs."
+    },
+    {
+      "id": "terrainEntrainement",
+      "nom": "Terrain d'Entrainement",
+      "emoji": "⚔️",
+      "cout": 70,
+      "substat": "entrainement",
+      "secret": false,
+      "description": "Forger les combattants."
+    },
+    {
+      "id": "dortoir",
+      "nom": "Dortoir",
+      "emoji": "🛏️",
+      "cout": 0,
+      "substat": "sommeil",
+      "secret": true,
+      "decouverte": "evenement_fixe",
+      "jourFixe": 15,
+      "description": "Certains reves contiennent plus de verite que le monde eveille."
+    },
+    {
+      "id": "taverne",
+      "nom": "Taverne",
+      "emoji": "🍺",
+      "cout": 0,
+      "substat": "ivresse",
+      "secret": true,
+      "decouverte": "evenement_fixe",
+      "jourFixe": 30,
+      "description": "Pour le meilleur et pour le pire."
+    },
+    {
+      "id": "cimetiere",
+      "nom": "Cimetiere",
+      "emoji": "💀",
+      "cout": 0,
+      "substat": "communion",
+      "secret": true,
+      "decouverte": "evenement_aleatoire",
+      "description": "Les morts savent des choses que les vivants ont oubliees."
+    },
+    {
+      "id": "salleDeJeux",
+      "nom": "Salle de Jeux",
+      "emoji": "🎰",
+      "cout": 0,
+      "substat": null,
+      "secret": true,
+      "decouverte": "evenement_aleatoire",
+      "description": "La chance n'existe pas. Ou peut-etre que si."
+    },
+    {
+      "id": "cachot",
+      "nom": "Cachot",
+      "emoji": "⛓️",
+      "cout": 0,
+      "substat": "isolement",
+      "secret": true,
+      "decouverte": "evenement_aleatoire",
+      "description": "Le vide absolu est une forme de pouvoir."
+    },
+    {
+      "id": "sanctuaireOmbres",
+      "nom": "Sanctuaire des Ombres",
+      "emoji": "🌑",
+      "cout": 0,
+      "substat": null,
+      "secret": true,
+      "decouverte": "condition_speciale",
+      "conditionDecouverte": "infiltration_30_et_evenement_nuit",
+      "description": "Un pacte avec quelque chose qui n'a pas de nom."
+    },
+    {
+      "id": "tourEtoiles",
+      "nom": "Tour des Etoiles",
+      "emoji": "⭐",
+      "cout": 0,
+      "substat": null,
+      "secret": true,
+      "decouverte": "condition_speciale",
+      "conditionDecouverte": "classe_elu_songes_presente",
+      "description": "Il lit le destin dans les etoiles."
+    },
+    {
+      "id": "forgeMaudite",
+      "nom": "Forge Maudite",
+      "emoji": "🔥",
+      "cout": 0,
+      "substat": null,
+      "secret": true,
+      "decouverte": "condition_speciale",
+      "conditionDecouverte": "forgeron_legendaire_et_evenement",
+      "description": "Forgee avec du metal qui ne devrait pas exister."
+    }
+  ],
+  "substats": [
+    {
+      "id": "nature",
+      "label": "Nature",
+      "emoji": "🌿",
+      "batiment": "foret"
+    },
+    {
+      "id": "cuisine",
+      "label": "Cuisine",
+      "emoji": "🍳",
+      "batiment": "cuisine"
+    },
+    {
+      "id": "forge",
+      "label": "Forge",
+      "emoji": "🔨",
+      "batiment": "forge"
+    },
+    {
+      "id": "erudition",
+      "label": "Erudition",
+      "emoji": "📖",
+      "batiment": "bibliotheque"
+    },
+    {
+      "id": "alchimie",
+      "label": "Alchimie",
+      "emoji": "⚗️",
+      "batiment": "laboratoire"
+    },
+    {
+      "id": "peche",
+      "label": "Peche",
+      "emoji": "🎣",
+      "batiment": "lac"
+    },
+    {
+      "id": "tactique",
+      "label": "Tactique",
+      "emoji": "🗺️",
+      "batiment": "tourDeGarde"
+    },
+    {
+      "id": "devotion",
+      "label": "Devotion",
+      "emoji": "🙏",
+      "batiment": "temple"
+    },
+    {
+      "id": "occultisme",
+      "label": "Occultisme",
+      "emoji": "🕯️",
+      "batiment": "siteDeRituel"
+    },
+    {
+      "id": "infiltration",
+      "label": "Infiltration",
+      "emoji": "🗝️",
+      "batiment": "repaireDesOmbres"
+    },
+    {
+      "id": "soin",
+      "label": "Soin",
+      "emoji": "🩺",
+      "batiment": "infirmerie"
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce",
+      "emoji": "💰",
+      "batiment": "boutique"
+    },
+    {
+      "id": "entrainement",
+      "label": "Entrainement",
+      "emoji": "🥊",
+      "batiment": "terrainEntrainement"
+    },
+    {
+      "id": "sommeil",
+      "label": "Sommeil",
+      "emoji": "🛏️",
+      "batiment": "dortoir",
+      "secret": true
+    },
+    {
+      "id": "ivresse",
+      "label": "Ivresse",
+      "emoji": "🍺",
+      "batiment": "taverne",
+      "secret": true
+    },
+    {
+      "id": "communion",
+      "label": "Communion",
+      "emoji": "💀",
+      "batiment": "cimetiere",
+      "secret": true
+    },
+    {
+      "id": "isolement",
+      "label": "Isolement",
+      "emoji": "⛓️",
+      "batiment": "cachot",
+      "secret": true
+    }
+  ]
+}
