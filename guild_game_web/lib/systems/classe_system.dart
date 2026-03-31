@@ -217,4 +217,8 @@ class ClasseProgress {
       return true;
     }).toList();
   }
+
+  Map<String, Classe> get classes => _classes;
+
+  Classe? getClasse(String id) => _classes[id];
 }

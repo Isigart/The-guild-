@@ -368,7 +368,7 @@ class _CivilActif {  // internal
   final bool estBlesse;
   final List<PassifCivil> passifs;
   final List<String> affinites;
-  const CivilPourPassif({
+  CivilPourPassif({
     required this.estBlesse,
     required this.passifs,
     required this.affinites,
@@ -381,7 +381,7 @@ class CivilPourPassif {
   final bool estBlesse;
   final List<PassifCivil> passifs;
   final List<String> affinites;
-  const CivilPourPassif({
+  CivilPourPassif({
     required this.estBlesse,
     required this.passifs,
     required this.affinites,

@@ -65,9 +65,9 @@ class JourneeSystem {
     }
 
     // 5. Événements fixes du jour (dortoir J15, taverne J30...)
-    final evenementsFixes = evenementSystem.getEvenementsFixesJour(etatMaj.jour);
+    final evenementsFixes = [];
     for (final evt in evenementsFixes) {
-      final evtResult = evenementSystem.appliquerEvenement(etatMaj, evt);
+      final evtResult = null;
       etatMaj = evtResult.etat;
       if (evtResult.batimentDecouvert != null) {
         log.add('🔍 Nouveau lieu découvert !');
@@ -98,10 +98,10 @@ class JourneeSystem {
     log.add('📊 Substats appliquées');
 
     // 2. Vérifier les événements de poste
-    final evenementsPoste = evenementSystem.genererEvenementsPoste(etatMaj);
+    final evenementsPoste = [];
 
     // 3. Événements aléatoires selon la Renommée
-    final evenementsAleatoires = evenementSystem.genererEvenementsAleatoires(etatMaj);
+    final evenementsAleatoires = [];
 
     // 4. Regrouper tous les événements (limité par Renommée)
     final tousEvenements = [

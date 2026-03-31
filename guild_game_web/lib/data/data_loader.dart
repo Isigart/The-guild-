@@ -251,7 +251,7 @@ class DataLoader {
       // Utilise RemoteLoader — cache local si dispo, sinon assets
       final nom = path.split('/').last.replaceAll('.json', '');
       final raw = await RemoteLoader.charger(nom);
-      final clean = VersionManager._supprimerCommentaires(raw);
+      final clean = raw.replaceAll(RegExp(r"//[^\n]*"), "");
       final data  = jsonDecode(clean) as Map<String, dynamic>;
       final ver   = DataVersion.parse(data['version'] ?? '1.0.0');
       return VersionManager.migrer(data, nom, ver);
@@ -264,7 +264,7 @@ class DataLoader {
   // ── Charger les objets ──
   static Future<Map<String, dynamic>> chargerObjets() async {
     final raw = await RemoteLoader.charger('objets');
-    final clean = VersionManager._supprimerCommentaires(raw);
+    final clean = raw.replaceAll(RegExp(r"//[^\n]*"), "");
     final data = jsonDecode(clean) as Map<String, dynamic>;
     return data;
   }
@@ -272,7 +272,7 @@ class DataLoader {
   // ── Charger les recettes de bâtiments ──
   static Future<Map<String, dynamic>> chargerRecettes() async {
     final raw = await RemoteLoader.charger('recettes_batiments');
-    final clean = VersionManager._supprimerCommentaires(raw);
+    final clean = raw.replaceAll(RegExp(r"//[^\n]*"), "");
     return jsonDecode(clean) as Map<String, dynamic>;
   }
 }

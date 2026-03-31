@@ -1,0 +1,49 @@
+name: Build & Deploy Flutter Web
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Récupérer le code ──
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Installer Flutter ──
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+          channel: 'stable'
+          cache: true
+
+      # ── 3. Vérifier Flutter ──
+      - name: Flutter version
+        run: flutter --version
+
+      # ── 4. Installer les dépendances ──
+      - name: Flutter pub get
+        run: flutter pub get
+
+      # ── 5. Build Web ──
+      - name: Build Web
+        run: |
+          flutter build web \
+            --release \
+            --web-renderer canvaskit \
+            --base-href "/${{ github.event.repository.name }}/"
+
+      # ── 6. Déployer sur GitHub Pages ──
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          force_orphan: true

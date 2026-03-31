@@ -1,3 +1,4 @@
+import 'dart:math';
 // lib/providers/game_provider.dart
 // Gestion d'état avec Riverpod
 
@@ -35,10 +36,10 @@ class GameNotifier extends StateNotifier<EtatJeu?> {
   bool _initialise = false;
 
   GameNotifier() : super(null) {
-    _initialiserSystèmes();
+    _initialiserSystemes();
   }
 
-  Future<void> _initialiserSystèmes() async {
+  Future<void> _initialiserSystemes() async {
     // Vérifier les versions des JSON
     final versionCheck = await VersionManager.verifierTout();
     if (!versionCheck.ok) {
@@ -70,7 +71,7 @@ class GameNotifier extends StateNotifier<EtatJeu?> {
 
   // ── Démarrer une nouvelle partie ──
   Future<void> nouvellePartie(String nomGuilde) async {
-    if (!_initialise) await _initialiserSystèmes();
+    if (!_initialise) await _initialiserSystemes();
     final classeBase = _classeSystem.classeBase();
     final mercenaires = List.generate(
       5,
@@ -777,7 +778,7 @@ class GameNotifier extends StateNotifier<EtatJeu?> {
   }
 
   Future<bool> chargerPartie() async {
-    if (!_initialise) await _initialiserSystèmes();
+    if (!_initialise) await _initialiserSystemes();
     final classes = _classeSystem.classes;
     final etat = await GameDatabase.charger(classes);
     if (etat == null) return false;

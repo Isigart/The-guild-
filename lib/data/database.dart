@@ -127,6 +127,13 @@ class GameDatabase {
     }
   }
 
+  static Future<bool> partieExiste() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.containsKey(_kPartie);
+  }
+
+  static Future<void> supprimerPartie() async => supprimer();
+
   static Future<void> supprimer() async {
     final prefs = await SharedPreferences.getInstance();
     await Future.wait([

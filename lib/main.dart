@@ -5,7 +5,6 @@ import 'data/data_loader.dart';
 import 'data/remote_loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/intro/titre_screen.dart';
 import 'providers/game_provider.dart';
 
 void main() async {
@@ -84,7 +83,7 @@ class AppRouter extends ConsumerWidget {
     
     // Pas de partie en cours → écran titre
     if (etat == null) {
-      return const TitreScreen();
+      return const LoadingScreen();
     }
     
     // Partie en cours → écran principal de la guilde

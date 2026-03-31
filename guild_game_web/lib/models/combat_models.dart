@@ -94,7 +94,7 @@ class EffetStatut {
   bool get estImmunite => type == TypeEffetStatut.immunitePoison ||
       type == TypeEffetStatut.immuniteControle ||
       type == TypeEffetStatut.immuniteEffetsNefastes ||
-      type == TypeEffetStatut.immuniteeMagique;
+      type == TypeEffetStatut.immuniteMagique;
 
   bool get estControle => type == TypeEffetStatut.paralysie ||
       type == TypeEffetStatut.confusion ||

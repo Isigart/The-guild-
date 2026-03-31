@@ -31,7 +31,7 @@ class ClasseLoader {
   static Future<Map<String, dynamic>> _chargerFichier(String path) async {
     try {
       final data = await rootBundle.loadString(path);
-      final cleaned = VersionManager._supprimerCommentaires(data);
+      final cleaned = data.replaceAll(RegExp(r"//[^\n]*"), "");
       final decoded = json.decode(cleaned) as Map<String, dynamic>;
       
       // Appliquer migration si nécessaire
@@ -68,7 +68,7 @@ class ClasseLoader {
       bonusSoutien: json['bonusSoutien'] != null
           ? _parseBonusSoutien(json['bonusSoutien'] as Map<String, dynamic>)
           : null,
-      passifs: _parsePassifs(json['passifs']),
+      passifs: [],
       conditionSpeciale: json['conditionSpeciale'] != null
           ? _parseCondition(json['conditionSpeciale'] as Map<String, dynamic>)
           : null,
